@@ -708,6 +708,84 @@
             color: var(--accent-green);
         }
 
+        /* Links Section Styles */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .link-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-green);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .link-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+            box-shadow: 0 10px 30px rgba(0, 255, 157, 0.1);
+        }
+
+        .link-icon {
+            font-size: 2.5rem;
+            min-width: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .link-card:hover .link-icon {
+            transform: scale(1.1);
+        }
+
+        .link-content {
+            flex: 1;
+        }
+
+        .link-title {
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            transition: color 0.3s ease;
+        }
+
+        .link-card:hover .link-title {
+            color: var(--accent-green);
+        }
+
+        .link-description {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
         @media (max-width: 1024px) {
             .nav-links {
                 display: none;
@@ -998,6 +1076,7 @@
             .about-content, .contact-content { grid-template-columns: 1fr; }
             section { padding: 4rem 1.5rem; }
             .writeups-grid { grid-template-columns: 1fr; }
+            .links-grid { grid-template-columns: 1fr; }
             .cv-skills-grid,
             .cv-cert-grid,
             .cv-projects-list {
@@ -1016,6 +1095,7 @@
             <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
+                <li><a href="#links">Links</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#writeups">Writeups</a></li>
                 <li><a href="#resources">Resources</a></li>
@@ -1078,6 +1158,86 @@
                 <div class="stat-item"><div class="number">6+</div><div class="label">Security Certifications</div></div>
                 <div class="stat-item"><div class="number">∞</div><div class="label">Resources Curated</div></div>
             </div>
+        </div>
+    </section>
+
+    <section id="links">
+        <div class="section-header"><h2>Quick Links</h2></div>
+        <div class="links-grid">
+            <!-- Professional Profiles -->
+            <a href="https://www.linkedin.com/in/daniel-serbu/" class="link-card" target="_blank" rel="noopener noreferrer">
+                <div class="link-icon">💼</div>
+                <div class="link-content">
+                    <h3 class="link-title">LinkedIn Profile</h3>
+                    <p class="link-description">Professional networking & career</p>
+                </div>
+            </a>
+
+            <a href="https://github.com/danielserbu" class="link-card" target="_blank" rel="noopener noreferrer">
+                <div class="link-icon">💻</div>
+                <div class="link-content">
+                    <h3 class="link-title">GitHub Profile</h3>
+                    <p class="link-description">Code repositories & projects</p>
+                </div>
+            </a>
+
+            <!-- Training Profiles -->
+            <a href="https://tryhackme.com/p/danielserbu" class="link-card" target="_blank" rel="noopener noreferrer">
+                <div class="link-icon">🎯</div>
+                <div class="link-content">
+                    <h3 class="link-title">TryHackMe Profile</h3>
+                    <p class="link-description">Cybersecurity training & labs</p>
+                </div>
+            </a>
+
+            <a href="https://learning.appsecengineer.com/profile/82ffc30a-7321-4eed-b8aa-a81c050183ac" class="link-card" target="_blank" rel="noopener noreferrer">
+                <div class="link-icon">🔐</div>
+                <div class="link-content">
+                    <h3 class="link-title">AppSec Engineer Profile</h3>
+                    <p class="link-description">Application security training</p>
+                </div>
+            </a>
+
+            <a href="https://secureflag.owasp.org/b?f99c0f5e-82ea-44cc-9240-fc49aac5763a" class="link-card" target="_blank" rel="noopener noreferrer">
+                <div class="link-icon">🚩</div>
+                <div class="link-content">
+                    <h3 class="link-title">SecureFlag Profile</h3>
+                    <p class="link-description">OWASP secure coding platform</p>
+                </div>
+            </a>
+
+            <a href="https://pentesterlab.com/profile/danielserbu" class="link-card" target="_blank" rel="noopener noreferrer">
+                <div class="link-icon">🧪</div>
+                <div class="link-content">
+                    <h3 class="link-title">PentesterLab Profile</h3>
+                    <p class="link-description">Web penetration testing labs</p>
+                </div>
+            </a>
+
+            <a href="https://pwnedlabs.io/@danielserbu" class="link-card" target="_blank" rel="noopener noreferrer">
+                <div class="link-icon">⚔️</div>
+                <div class="link-content">
+                    <h3 class="link-title">Pwned Labs Profile</h3>
+                    <p class="link-description">Real-world security scenarios</p>
+                </div>
+            </a>
+
+            <!-- Blogs & Resources -->
+            <a href="https://daniel-serbu.gitbook.io" class="link-card" target="_blank" rel="noopener noreferrer">
+                <div class="link-icon">📚</div>
+                <div class="link-content">
+                    <h3 class="link-title">Gitbook - Cybersecurity Resources</h3>
+                    <p class="link-description">Curated security knowledge base</p>
+                </div>
+            </a>
+
+            <a href="https://serbudaniel.wordpress.com/" class="link-card" target="_blank" rel="noopener noreferrer">
+                <div class="link-icon">✍️</div>
+                <div class="link-content">
+                    <h3 class="link-title">WordPress - PenTesting Writeups</h3>
+                    <p class="link-description">Archive of security writeups</p>
+                </div>
+            </a>
         </div>
     </section>
 
