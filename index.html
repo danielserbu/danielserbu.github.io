@@ -28,7 +28,6 @@
                 <li><a href="#resources">Resources</a></li>
                 <li><a href="#certifications">Certs</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <li><a href="#cv">CV</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -42,10 +41,8 @@
                     <p class="role"><span>Penetration Tester</span> & Security Researcher</p>
                     <p>Offensive security specialist with expertise in web application testing, cloud security, mobile security, and DevSecOps. Breaking things to make them stronger. Sharing knowledge through writeups and resources.</p>
                     <div class="hero-buttons">
-                        <a href="#cv" class="btn btn-primary">Download CV</a>
-                        <a href="#writeups" class="btn btn-secondary">View Writeups</a>
-                        <a href="#resources" class="btn btn-secondary">Resources</a>
-                        <a href="#contact" class="btn btn-secondary">Contact</a>
+                        <a href="#writeups" class="btn btn-primary">View Writeups</a>
+                        <a href="https://daniel-serbu.gitbook.io/cybersecurity" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Resources</a>
                     </div>
                 </div>
                 <div class="terminal">
@@ -74,17 +71,10 @@
 
     <section id="about">
         <div class="section-header"><h2>About</h2></div>
-        <div class="about-content">
-            <div class="about-text">
-                <p>I'm a security professional specializing in offensive security and penetration testing. My work focuses on identifying vulnerabilities in web applications, APIs, cloud infrastructure, and mobile applications before malicious actors can exploit them.</p>
-                <p>With a strong foundation in multiple offensive security methodologies and DevSecOps practices, I approach each engagement with a thorough, methodical mindset. I'm passionate about continuous learning, sharing knowledge through detailed writeups, and staying ahead of emerging threats.</p>
-                <p>I maintain comprehensive resources covering DevSecOps, OSINT, and penetration testing methodologies. Currently focused on web application security, bug bounty hunting, and cloud security across AWS, Azure, and GCP.</p>
-            </div>
-            <div class="about-stats">
-                <div class="stat-item"><div class="number">12+</div><div class="label">Published Writeups</div></div>
-                <div class="stat-item"><div class="number">6+</div><div class="label">Security Certifications</div></div>
-                <div class="stat-item"><div class="number">∞</div><div class="label">Resources Curated</div></div>
-            </div>
+        <div class="about-text">
+            <p>I'm a security professional specializing in offensive security and penetration testing. My work focuses on identifying vulnerabilities in web applications, APIs, cloud infrastructure, and mobile applications before malicious actors can exploit them.</p>
+            <p>With a strong foundation in multiple offensive security methodologies and DevSecOps practices, I approach each engagement with a thorough, methodical mindset. I'm passionate about continuous learning, sharing knowledge through detailed writeups, and staying ahead of emerging threats.</p>
+            <p>I maintain comprehensive resources covering DevSecOps, OSINT, and penetration testing methodologies. Currently focused on web application security, bug bounty hunting, and cloud security across AWS, Azure, and GCP.</p>
         </div>
     </section>
 
@@ -212,6 +202,12 @@
 
     <section id="writeups">
         <div class="section-header"><h2>Writeups</h2></div>
+        <div class="about-text" style="margin-bottom: 2rem;">
+            <p>Browse my collection of detailed security writeups and walkthroughs.</p>
+            <div class="hero-buttons">
+                <a href="https://daniel-serbu.gitbook.io/cybersecurity/writeups" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View All Writeups on GitBook</a>
+            </div>
+        </div>
         <div class="tabs">
             <button class="tab-btn active" onclick="showTab('all')">All</button>
             <button class="tab-btn" onclick="showTab('thm')">TryHackMe</button>
@@ -272,42 +268,10 @@
 
     <section id="resources">
         <div class="section-header"><h2>Resources & Cheatsheets</h2></div>
-        <div class="resources-container">
-            <div class="resource-section">
-                <h3>DevSecOps</h3>
-                <ul class="resource-list">
-                    <li>Container Security</li><li>Kubernetes Security</li><li>Infrastructure as Code (IaC)</li><li>DAST & SAST Tools</li><li>Software Composition Analysis</li><li>SBOM Best Practices</li><li>IDE Security Plugins</li><li>Security Hardening Guides</li><li>Secure Coding Practices</li>
-                </ul>
-            </div>
-            <div class="resource-section">
-                <h3>Secure By Design Libraries</h3>
-                <ul class="resource-list">
-                    <li><strong>Node.js:</strong> Helmet, Joi, Winston, Casbin</li><li><strong>Python:</strong> Pydantic, PyNaCL, Flask-Talisman</li><li><strong>Golang:</strong> Govalidator, crypto/nacl, Casbin</li><li><strong>Java Spring:</strong> Spring Security, OWASP Encoder</li><li><strong>Laravel:</strong> Sanctum, LibSodium, Spatie</li><li><strong>Ruby:</strong> Pundit, Secure Headers, Devise</li>
-                </ul>
-            </div>
-            <div class="resource-section">
-                <h3>OSINT Tools</h3>
-                <ul class="resource-list">
-                    <li>Browser Extensions & Bookmarklets</li><li>Image Recognition & Reverse Search</li><li>Geolocation Techniques</li><li>Social Media Investigation</li><li>Shodan & Network Recon</li><li>Leaked Data / Breach Databases</li><li>Username & Email Enumeration</li><li>Vehicle, Maritime & Aviation Tracking</li>
-                </ul>
-            </div>
-            <div class="resource-section">
-                <h3>Mobile Security</h3>
-                <ul class="resource-list">
-                    <li>Android Security Checklists</li><li>Mobile Pentest Cheatsheets</li><li>ADB Toolkit</li><li>Frida Scripts & Tutorials</li><li>APK Analysis Tools</li><li>iOS Security Guides</li>
-                </ul>
-            </div>
-            <div class="resource-section">
-                <h3>Infrastructure & Wireless</h3>
-                <ul class="resource-list">
-                    <li>Wi-Fi Cracking Tools (WEF, Wacker)</li><li>WPA3 Dictionary Attacks</li><li>Fern WiFi Cracker</li><li>WiFiBroot & H4rpy</li><li>Pinecone Framework</li><li>Network Pivoting Techniques</li>
-                </ul>
-            </div>
-            <div class="resource-section">
-                <h3>Active Directory</h3>
-                <ul class="resource-list">
-                    <li>Impacket Toolkit</li><li>Kerberoasting Attacks</li><li>AS-REP Roasting</li><li>Pass-the-Hash / Pass-the-Ticket</li><li>BloodHound Analysis</li><li>Evil-WinRM & CrackMapExec</li>
-                </ul>
+        <div class="about-text">
+            <p>I maintain a comprehensive collection of cybersecurity resources, cheatsheets, and knowledge base covering penetration testing, DevSecOps, OSINT, and more.</p>
+            <div class="hero-buttons">
+                <a href="https://daniel-serbu.gitbook.io/cybersecurity" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View My Cybersecurity Resources</a>
             </div>
         </div>
     </section>
@@ -318,9 +282,30 @@
             <div class="cert-card"><h4>eWPTx</h4><div class="issuer">INE Security (eLearnSecurity)</div><div class="description">eXtreme Web Application Penetration Tester</div></div>
             <div class="cert-card"><h4>eCPPT</h4><div class="issuer">INE Security (eLearnSecurity)</div><div class="description">Certified Professional Penetration Tester</div></div>
             <div class="cert-card"><h4>eMAPT</h4><div class="issuer">INE Security (eLearnSecurity)</div><div class="description">Mobile Application Penetration Tester</div></div>
-            <div class="cert-card"><h4>CNPen</h4><div class="issuer">CyberWarfare Labs</div><div class="description">Certified Network Penetration Tester</div></div>
+            <div class="cert-card"><h4>eJPTv1</h4><div class="issuer">INE Security</div><div class="description">Junior Penetration Tester</div></div>
+            <div class="cert-card"><h4>CAPenX</h4><div class="issuer">CyberWarfare Labs</div><div class="description">Advanced Azure Penetration Testing</div></div>
+            <div class="cert-card"><h4>CCPenX-AWS</h4><div class="issuer">CyberWarfare Labs</div><div class="description">Advanced AWS Penetration Testing</div></div>
+            <div class="cert-card"><h4>CRTSv2</h4><div class="issuer">CyberWarfare Labs</div><div class="description">Certified Red Team Specialist v2</div></div>
+            <div class="cert-card"><h4>CELMS</h4><div class="issuer">CyberWarfare Labs</div><div class="description">Certified Enterprise Linux and Mobile Security</div></div>
+            <div class="cert-card"><h4>CRTA</h4><div class="issuer">Security Certification</div><div class="description">Certified Red Team Adversary</div></div>
+            <div class="cert-card"><h4>MCRTA</h4><div class="issuer">Security Certification</div><div class="description">Managed Certified Red Team Adversary</div></div>
+            <div class="cert-card"><h4>C-AI/MLPen</h4><div class="issuer">Security Certification</div><div class="description">Certified AI/ML Penetration Testing</div></div>
             <div class="cert-card"><h4>CAPen</h4><div class="issuer">CyberWarfare Labs</div><div class="description">Certified Azure Penetration Tester</div></div>
-            <div class="cert-card"><h4>Cloud Security</h4><div class="issuer">CyberWarfare Labs</div><div class="description">AWS, Azure, GCP Security Certifications</div></div>
+            <div class="cert-card"><h4>CAPIPen</h4><div class="issuer">CyberWarfare Labs</div><div class="description">Certified API Penetration Tester</div></div>
+            <div class="cert-card"><h4>CNPen</h4><div class="issuer">CyberWarfare Labs</div><div class="description">Certified Network Penetration Tester</div></div>
+            <div class="cert-card"><h4>CMPen-Android</h4><div class="issuer">CyberWarfare Labs</div><div class="description">Certified Mobile Penetration Tester - Android</div></div>
+            <div class="cert-card"><h4>CAPT</h4><div class="issuer">Mobile Hacking Lab</div><div class="description">Certified Android Penetration Tester</div></div>
+            <div class="cert-card"><h4>CIPT</h4><div class="issuer">Mobile Hacking Lab</div><div class="description">Certified iOS Penetration Tester</div></div>
+            <div class="cert-card"><h4>External Pentest Playbook</h4><div class="issuer">TCM Security</div><div class="description">By Heath Adams</div></div>
+            <div class="cert-card"><h4>Linux 101</h4><div class="issuer">TCM Security</div><div class="description">By Brent Eskridge</div></div>
+            <div class="cert-card"><h4>Practical Phishing Assessments</h4><div class="issuer">TCM Security</div><div class="description">By Graham Helton</div></div>
+            <div class="cert-card"><h4>Python 101 for Hackers</h4><div class="issuer">TCM Security</div><div class="description">By Riley Kidd</div></div>
+            <div class="cert-card"><h4>Python 201 for Hackers</h4><div class="issuer">TCM Security</div><div class="description">By Riley Kidd</div></div>
+            <div class="cert-card"><h4>Advent of Cyber 2021</h4><div class="issuer">TryHackMe</div><div class="description">ID: THM-PYKYPEY3MW</div></div>
+            <div class="cert-card"><h4>Fundamentals of SOC</h4><div class="issuer">Palo Alto Networks</div><div class="description">ID: 180668380</div></div>
+            <div class="cert-card"><h4>Introduction to Cybersecurity</h4><div class="issuer">Palo Alto Networks</div><div class="description">Cybersecurity Fundamentals</div></div>
+            <div class="cert-card"><h4>Pen Testing - Practical Certification</h4><div class="issuer">Charles Sturt University</div><div class="description">October 2021</div></div>
+            <div class="cert-card"><h4>Complete Nmap Ethical Hacking</h4><div class="issuer">Udemy</div><div class="description">Network Security by Nathan House</div></div>
         </div>
     </section>
 
@@ -342,269 +327,15 @@
         </div>
     </section>
 
-    <section id="cv">
-        <div class="section-header"><h2>Curriculum Vitae</h2></div>
-
-        <div class="cv-controls">
-            <button class="btn btn-primary" onclick="downloadPDF()">
-                <span>📄</span> Download as PDF
-            </button>
-            <button class="btn btn-secondary" onclick="downloadWord()">
-                <span>📝</span> Download as Word
-            </button>
-            <button class="btn btn-secondary" onclick="window.print()">
-                <span>🖨️</span> Print CV
-            </button>
-        </div>
-
-        <div class="cv-container" id="cvContainer">
-            <div class="cv-header-bar">
-                <h3>Professional Resume</h3>
-                <span class="cv-format-badge">Professional Format</span>
-            </div>
-
-            <div class="cv-content" id="cvContent">
-                <!-- CV Header -->
-                <div class="cv-header">
-                    <h1 class="cv-name">Daniel Șerbu</h1>
-                    <p class="cv-title">Penetration Tester & Security Researcher</p>
-                    <div class="cv-contact-info">
-                        <div class="cv-contact-item">📍 Galaţi, Romania</div>
-                        <div class="cv-contact-item">📧 daniel-serbu@outlook.com</div>
-                        <div class="cv-contact-item">🔗 linkedin.com/in/daniel-serbu</div>
-                        <div class="cv-contact-item">💻 github.com/danielserbu</div>
-                    </div>
-                </div>
-
-                <!-- Professional Summary -->
-                <div class="cv-section">
-                    <h2 class="cv-section-title">Professional Summary</h2>
-                    <p class="cv-summary">
-                        Offensive security specialist with 3+ years of experience in penetration testing and cybersecurity. Expert in identifying and exploiting vulnerabilities across web applications, APIs, cloud infrastructure (AWS, Azure, GCP), mobile applications, and Active Directory environments. Proven track record in delivering comprehensive security assessments, developing red team tools, and conducting secure code reviews. Strong foundation in DevSecOps practices with experience in CI/CD security integration, SAST/DAST implementation, and secure-by-design development. Published 12+ technical writeups and maintain curated security resources for the community. Passionate about continuous learning and staying ahead of emerging threats in the cybersecurity landscape.
-                    </p>
-                </div>
-
-                <!-- Professional Experience -->
-                <div class="cv-section">
-                    <h2 class="cv-section-title">Professional Experience</h2>
-
-                    <div class="cv-experience-item">
-                        <div class="cv-experience-header">
-                            <div class="cv-job-title">Penetration Tester</div>
-                            <div class="cv-date">Oct 2022 - Present</div>
-                        </div>
-                        <div class="cv-company">PFA (Independent Contractor) • Romania</div>
-                        <div class="cv-description">
-                            <ul>
-                                <li>Conduct comprehensive security assessments across web/mobile applications, APIs, and cloud systems (AWS, Azure, GCP)</li>
-                                <li>Perform external reconnaissance, OSINT investigations, exploitation, and lateral movement testing</li>
-                                <li>Develop custom red team tools and automation scripts to enhance testing efficiency</li>
-                                <li>Execute secure code reviews identifying critical vulnerabilities before production deployment</li>
-                                <li>Simulate sophisticated phishing campaigns to test organizational security awareness and resilience</li>
-                                <li>Prepare detailed vulnerability reports with prioritized remediation guidance and executive summaries</li>
-                                <li>Specialize in OWASP Top 10, business logic flaws, authentication bypasses, and cloud misconfigurations</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="cv-experience-item">
-                        <div class="cv-experience-header">
-                            <div class="cv-job-title">DevOps & Test Automation Engineer</div>
-                            <div class="cv-date">Feb 2020 - Jun 2021</div>
-                        </div>
-                        <div class="cv-company">NAPA • Romania</div>
-                        <div class="cv-description">
-                            <ul>
-                                <li>Automated CI/CD pipelines using Jenkins, Atlassian Bamboo, and Visual Studio AppCenter</li>
-                                <li>Implemented ship software security controls and vulnerability scanning in deployment pipelines</li>
-                                <li>Designed and executed comprehensive API testing strategies using Postman, Newman, and JMeter</li>
-                                <li>Integrated security testing tools (SonarQube, MobSF) into development workflows</li>
-                                <li>Mentored development teams on security best practices and test automation frameworks</li>
-                                <li>Created technical documentation and training materials for secure development lifecycle</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="cv-experience-item">
-                        <div class="cv-experience-header">
-                            <div class="cv-job-title">Software QA Test Engineer</div>
-                            <div class="cv-date">Feb 2017 - Feb 2020</div>
-                        </div>
-                        <div class="cv-company">NAPA • Romania</div>
-                        <div class="cv-description">
-                            <ul>
-                                <li>Designed comprehensive test suites for server/client/mobile applications ensuring security and quality</li>
-                                <li>Administered and monitored CI/CD infrastructure maintaining high availability and security</li>
-                                <li>Developed test automation frameworks using Postman, JMeter, Robot Framework, and Xamarin UI Test</li>
-                                <li>Performed security-focused testing identifying vulnerabilities in early development stages</li>
-                                <li>Collaborated with development teams to implement security controls and vulnerability fixes</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Technical Skills -->
-                <div class="cv-section">
-                    <h2 class="cv-section-title">Technical Skills</h2>
-                    <div class="cv-skills-grid">
-                        <div class="cv-skill-category">
-                            <h4>Web Application Security</h4>
-                            <div class="cv-skill-list">
-                                OWASP Top 10, SQL Injection, XSS, CSRF, SSRF, XXE, Authentication Bypass, Business Logic Vulnerabilities, API Security Testing
-                            </div>
-                        </div>
-
-                        <div class="cv-skill-category">
-                            <h4>Security Tools & Frameworks</h4>
-                            <div class="cv-skill-list">
-                                Burp Suite Pro, Cobalt Strike, Metasploit, Nmap, SQLMap, Nuclei, Ffuf, Hashcat, Impacket, BloodHound, CrackMapExec, Evil-WinRM
-                            </div>
-                        </div>
-
-                        <div class="cv-skill-category">
-                            <h4>Cloud Security</h4>
-                            <div class="cv-skill-list">
-                                AWS Security Assessment, Azure Penetration Testing, GCP Security Auditing, IAM Analysis, S3 Misconfigurations, Cloud Forensics
-                            </div>
-                        </div>
-
-                        <div class="cv-skill-category">
-                            <h4>Mobile & API Testing</h4>
-                            <div class="cv-skill-list">
-                                Android Penetration Testing, iOS Security Assessment, REST API Testing, GraphQL Security, Mobile OWASP, Frida Framework, MobSF
-                            </div>
-                        </div>
-
-                        <div class="cv-skill-category">
-                            <h4>DevSecOps & Automation</h4>
-                            <div class="cv-skill-list">
-                                Container Security, Kubernetes Security, SAST/DAST/SCA Tools, SBOM Management, IaC Security, Jenkins, Bamboo, CI/CD Security
-                            </div>
-                        </div>
-
-                        <div class="cv-skill-category">
-                            <h4>Active Directory & Network</h4>
-                            <div class="cv-skill-list">
-                                AD Exploitation, Kerberoasting, AS-REP Roasting, Pass-the-Hash, Pass-the-Ticket, Network Pivoting, Wi-Fi Security Assessment
-                            </div>
-                        </div>
-
-                        <div class="cv-skill-category">
-                            <h4>Programming & Scripting</h4>
-                            <div class="cv-skill-list">
-                                Python, PowerShell, JavaScript, C#, Bash, Groovy, Automation Scripting, Tool Development
-                            </div>
-                        </div>
-
-                        <div class="cv-skill-category">
-                            <h4>Testing & Quality Assurance</h4>
-                            <div class="cv-skill-list">
-                                Postman, Newman, JMeter, Robot Framework, Xamarin UI Test, SonarQube, Test Automation, Gradle, JUnit
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certifications -->
-                <div class="cv-section">
-                    <h2 class="cv-section-title">Professional Certifications</h2>
-                    <div class="cv-cert-grid">
-                        <div class="cv-cert-item">
-                            <div class="cv-cert-name">eWPTx - eXtreme Web Application Penetration Tester</div>
-                            <div class="cv-cert-issuer">INE Security (eLearnSecurity)</div>
-                        </div>
-                        <div class="cv-cert-item">
-                            <div class="cv-cert-name">eCPPT - Certified Professional Penetration Tester</div>
-                            <div class="cv-cert-issuer">INE Security (eLearnSecurity)</div>
-                        </div>
-                        <div class="cv-cert-item">
-                            <div class="cv-cert-name">eMAPT - Mobile Application Penetration Tester</div>
-                            <div class="cv-cert-issuer">INE Security (eLearnSecurity)</div>
-                        </div>
-                        <div class="cv-cert-item">
-                            <div class="cv-cert-name">CNPen - Certified Network Penetration Tester</div>
-                            <div class="cv-cert-issuer">CyberWarfare Labs</div>
-                        </div>
-                        <div class="cv-cert-item">
-                            <div class="cv-cert-name">CAPen - Certified Azure Penetration Tester</div>
-                            <div class="cv-cert-issuer">CyberWarfare Labs</div>
-                        </div>
-                        <div class="cv-cert-item">
-                            <div class="cv-cert-name">CAPenX - Advanced Azure Penetration Testing</div>
-                            <div class="cv-cert-issuer">CyberWarfare Labs</div>
-                        </div>
-                        <div class="cv-cert-item">
-                            <div class="cv-cert-name">CCPenX-AWS - Advanced AWS Penetration Testing</div>
-                            <div class="cv-cert-issuer">CyberWarfare Labs</div>
-                        </div>
-                        <div class="cv-cert-item">
-                            <div class="cv-cert-name">CRTSv2 - Certified Red Team Specialist v2</div>
-                            <div class="cv-cert-issuer">CyberWarfare Labs</div>
-                        </div>
-                        <div class="cv-cert-item">
-                            <div class="cv-cert-name">CRTA & MCRTA - Red Team Adversary</div>
-                            <div class="cv-cert-issuer">Security Certification Body</div>
-                        </div>
-                        <div class="cv-cert-item">
-                            <div class="cv-cert-name">CAPT & CIPT - Mobile Security</div>
-                            <div class="cv-cert-issuer">Mobile Hacking Lab</div>
-                        </div>
-                        <div class="cv-cert-item">
-                            <div class="cv-cert-name">eJPTv1 - Junior Penetration Tester</div>
-                            <div class="cv-cert-issuer">INE Security</div>
-                        </div>
-                        <div class="cv-cert-item">
-                            <div class="cv-cert-name">Introduction to Cybersecurity</div>
-                            <div class="cv-cert-issuer">Palo Alto Networks</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Education -->
-                <div class="cv-section">
-                    <h2 class="cv-section-title">Education</h2>
-                    <div class="cv-education-item">
-                        <div class="cv-degree">Bachelor's Degree in Computer Science</div>
-                        <div class="cv-school">Galați "Lower Danube" University • 2015 - 2019</div>
-                    </div>
-                </div>
-
-                <!-- Languages -->
-                <div class="cv-section">
-                    <h2 class="cv-section-title">Languages</h2>
-                    <div class="cv-languages">
-                        <div class="cv-language-item">
-                            <div class="cv-language-name">Romanian</div>
-                            <div class="cv-language-level">Native/Bilingual Proficiency</div>
-                        </div>
-                        <div class="cv-language-item">
-                            <div class="cv-language-name">English</div>
-                            <div class="cv-language-level">Full Professional Proficiency</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section id="contact">
         <div class="section-header"><h2>Contact</h2></div>
-        <div class="contact-content">
-            <div class="contact-info">
-                <div class="contact-text"><p>Interested in working together on a security engagement? Have a bug bounty program? Let's connect.</p></div>
-                <div class="contact-links">
-                    <a href="mailto:daniel-serbu@outlook.com" class="contact-link"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><span>daniel-serbu@outlook.com</span></a>
-                    <a href="https://www.linkedin.com/in/daniel-serbu/" class="contact-link" target="_blank"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg><span>LinkedIn</span></a>
-                    <a href="https://github.com/danielserbu" class="contact-link" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg><span>GitHub</span></a>
-                    <a href="https://tryhackme.com/p/yourprofile" class="contact-link" target="_blank"><svg viewBox="0 0 24 24"><path d="M10.05 15.95L8 18l-6-6 6-6 2.05 2.05L6.1 12l3.95 3.95zM13.95 8.05L16 6l6 6-6 6-2.05-2.05L17.9 12l-3.95-3.95z"/></svg><span>TryHackMe</span></a>
-                </div>
+        <div class="contact-info">
+            <div class="contact-text"><p>Interested in working together on a security engagement? Have a bug bounty program? Let's connect.</p></div>
+            <div class="contact-links">
+                <a href="mailto:daniel-serbu@outlook.com" class="contact-link"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><span>daniel-serbu@outlook.com</span></a>
+                <a href="https://www.linkedin.com/in/daniel-serbu/" class="contact-link" target="_blank"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg><span>LinkedIn</span></a>
             </div>
-            <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent! (Demo)');">
-                <div class="form-group"><label for="name">Name</label><input type="text" id="name" placeholder="Your name" required></div>
-                <div class="form-group"><label for="email">Email</label><input type="email" id="email" placeholder="your@email.com" required></div>
-                <div class="form-group"><label for="message">Message</label><textarea id="message" placeholder="Tell me about your project..." required></textarea></div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
         </div>
     </section>
 
