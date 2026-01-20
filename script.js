@@ -376,6 +376,37 @@ async function loadProfileData() {
             cvSummary.textContent = data.summary;
         }
 
+        // Update Main Experience Timeline Section
+        if (data.experience && data.experience.length > 0) {
+            const timeline = document.querySelector('#experience .timeline');
+            if (timeline) {
+                // Clear existing timeline items
+                timeline.innerHTML = '';
+
+                // Add new timeline items from JSON
+                data.experience.forEach(exp => {
+                    const timelineItem = document.createElement('div');
+                    timelineItem.className = 'timeline-item';
+
+                    const dateRange = exp.current ?
+                        `${exp.startDate} - Present` :
+                        `${exp.startDate} - ${exp.endDate}`;
+
+                    // Create a brief description from first 2 responsibilities
+                    const briefDescription = exp.responsibilities.slice(0, 2).join(' ');
+
+                    timelineItem.innerHTML = `
+                        <div class="timeline-date">${dateRange}</div>
+                        <div class="timeline-title">${exp.title}</div>
+                        <div class="timeline-company">${exp.company} • ${exp.location}</div>
+                        <div class="timeline-description">${briefDescription}</div>
+                    `;
+
+                    timeline.appendChild(timelineItem);
+                });
+            }
+        }
+
         // Update CV Experience Section
         if (data.experience && data.experience.length > 0) {
             const experienceSection = document.querySelector('.cv-section:has(.cv-experience-item)');
