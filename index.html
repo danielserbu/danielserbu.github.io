@@ -1056,15 +1056,28 @@
             nav,
             .cv-controls,
             .cv-header-bar,
-            footer {
+            footer,
+            .hero,
+            #about,
+            #skills,
+            #writeups,
+            #links,
+            #resources,
+            #certifications,
+            #contact {
                 display: none !important;
             }
             .cv-container {
                 box-shadow: none;
                 border: none;
+                margin: 0;
+                padding: 0;
             }
             .cv-content {
-                padding: 0;
+                padding: 20px;
+            }
+            #cv {
+                padding: 0 !important;
             }
         }
 
@@ -1443,9 +1456,9 @@
                     <p class="cv-title">Penetration Tester & Security Researcher</p>
                     <div class="cv-contact-info">
                         <div class="cv-contact-item">📍 Galaţi, Romania</div>
-                        <div class="cv-contact-item">📧 your.email@example.com</div>
+                        <div class="cv-contact-item">📧 daniel-serbu@outlook.com</div>
                         <div class="cv-contact-item">🔗 linkedin.com/in/daniel-serbu</div>
-                        <div class="cv-contact-item">💻 github.com/yourprofile</div>
+                        <div class="cv-contact-item">💻 github.com/danielserbu</div>
                     </div>
                 </div>
 
@@ -1642,25 +1655,6 @@
                     </div>
                 </div>
 
-                <!-- Published Work -->
-                <div class="cv-section">
-                    <h2 class="cv-section-title">Published Technical Writeups</h2>
-                    <div class="cv-projects-list">
-                        <div class="cv-project-item">VulnNet: Roasted (TryHackMe) - AD & Kerberoasting</div>
-                        <div class="cv-project-item">AttacktiveDirectory (TryHackMe) - Kerberos Exploitation</div>
-                        <div class="cv-project-item">VulnNet: Active (TryHackMe) - Windows AD Enumeration</div>
-                        <div class="cv-project-item">Ice (TryHackMe) - Windows Exploitation</div>
-                        <div class="cv-project-item">Blueprint (TryHackMe) - Web Exploitation</div>
-                        <div class="cv-project-item">Anthem (TryHackMe) - OSINT & Enumeration</div>
-                        <div class="cv-project-item">Post-Exploitation Basics (TryHackMe)</div>
-                        <div class="cv-project-item">Lookback (TryHackMe) - Advanced Enumeration</div>
-                        <div class="cv-project-item">AWS S3 Account ID (PWNEDLABS) - Cloud Security</div>
-                        <div class="cv-project-item">Food Store (MobileHackingLab) - Android Security</div>
-                        <div class="cv-project-item">Notekeeper (MobileHackingLab) - Mobile Data Security</div>
-                        <div class="cv-project-item">IOT Connect (MobileHackingLab) - IoT & API</div>
-                    </div>
-                </div>
-
                 <!-- Languages -->
                 <div class="cv-section">
                     <h2 class="cv-section-title">Languages</h2>
@@ -1685,9 +1679,9 @@
             <div class="contact-info">
                 <div class="contact-text"><p>Interested in working together on a security engagement? Have a bug bounty program? Let's connect.</p></div>
                 <div class="contact-links">
-                    <a href="mailto:your.email@example.com" class="contact-link"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><span>your.email@example.com</span></a>
-                    <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg><span>LinkedIn</span></a>
-                    <a href="https://github.com/yourprofile" class="contact-link" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg><span>GitHub</span></a>
+                    <a href="mailto:daniel-serbu@outlook.com" class="contact-link"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><span>daniel-serbu@outlook.com</span></a>
+                    <a href="https://www.linkedin.com/in/daniel-serbu/" class="contact-link" target="_blank"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg><span>LinkedIn</span></a>
+                    <a href="https://github.com/danielserbu" class="contact-link" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg><span>GitHub</span></a>
                     <a href="https://tryhackme.com/p/yourprofile" class="contact-link" target="_blank"><svg viewBox="0 0 24 24"><path d="M10.05 15.95L8 18l-6-6 6-6 2.05 2.05L6.1 12l3.95 3.95zM13.95 8.05L16 6l6 6-6 6-2.05-2.05L17.9 12l-3.95-3.95z"/></svg><span>TryHackMe</span></a>
                 </div>
             </div>
@@ -1746,25 +1740,56 @@
         // CV Export Functions
         async function downloadPDF() {
             const element = document.getElementById('cvContent');
+
+            // Clone the element to avoid modifying the original
+            const clone = element.cloneNode(true);
+            clone.style.width = '210mm';
+            clone.style.minHeight = '297mm';
+            clone.style.padding = '20mm';
+            clone.style.backgroundColor = '#ffffff';
+            clone.style.color = '#000000';
+
             const opt = {
-                margin: [10, 10, 10, 10],
+                margin: 0,
                 filename: 'Daniel_Serbu_CV.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true, letterRendering: true },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                html2canvas: {
+                    scale: 2,
+                    useCORS: true,
+                    letterRendering: true,
+                    backgroundColor: '#ffffff',
+                    logging: false,
+                    width: 794, // A4 width in pixels at 96 DPI
+                    windowWidth: 794
+                },
+                jsPDF: {
+                    unit: 'mm',
+                    format: 'a4',
+                    orientation: 'portrait',
+                    compress: true
+                },
+                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
             };
 
             try {
-                await html2pdf().set(opt).from(element).save();
+                showNotification('Generating PDF...', 'info');
+                await html2pdf().set(opt).from(clone).save();
                 showNotification('PDF downloaded successfully!');
             } catch (error) {
                 console.error('PDF generation error:', error);
-                showNotification('Error generating PDF. Please try again.', 'error');
+                showNotification('Error generating PDF: ' + error.message, 'error');
             }
         }
 
         async function downloadWord() {
             try {
+                showNotification('Generating Word document...', 'info');
+
+                // Check if docx library is loaded
+                if (typeof docx === 'undefined') {
+                    throw new Error('Word export library not loaded. Please refresh the page and try again.');
+                }
+
                 const { Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType, BorderStyle } = docx;
 
                 // Create Word document
@@ -1789,7 +1814,7 @@
                                 spacing: { after: 300 },
                                 children: [
                                     new TextRun("📍 Galaţi, Romania  |  "),
-                                    new TextRun("📧 your.email@example.com  |  "),
+                                    new TextRun("📧 daniel-serbu@outlook.com  |  "),
                                     new TextRun("🔗 linkedin.com/in/daniel-serbu")
                                 ]
                             }),
@@ -1976,11 +2001,15 @@
 
         function showNotification(message, type = 'success') {
             const notification = document.createElement('div');
+            let bgColor = 'var(--accent-green)';
+            if (type === 'error') bgColor = 'var(--accent-red)';
+            if (type === 'info') bgColor = 'var(--accent-cyan)';
+
             notification.style.cssText = `
                 position: fixed;
                 top: 100px;
                 right: 20px;
-                background: ${type === 'success' ? 'var(--accent-green)' : 'var(--accent-red)'};
+                background: ${bgColor};
                 color: var(--bg-primary);
                 padding: 1rem 1.5rem;
                 border-radius: 8px;
@@ -1996,7 +2025,7 @@
             setTimeout(() => {
                 notification.style.animation = 'slideOut 0.3s ease';
                 setTimeout(() => notification.remove(), 300);
-            }, 3000);
+            }, type === 'info' ? 5000 : 3000);
         }
 
         // Add animation styles
@@ -2024,6 +2053,75 @@
             }
         `;
         document.head.appendChild(style);
+
+        // Load profile data from JSON and populate CV
+        async function loadProfileData() {
+            try {
+                const response = await fetch('profile-data.json');
+                if (!response.ok) {
+                    console.warn('Could not load profile data, using static content');
+                    return;
+                }
+                const data = await response.json();
+
+                // Update CV contact info
+                const cvContactInfo = document.querySelector('.cv-contact-info');
+                if (cvContactInfo && data.email) {
+                    const emailItem = cvContactInfo.querySelector('.cv-contact-item:nth-child(2)');
+                    if (emailItem) emailItem.textContent = `📧 ${data.email}`;
+                }
+
+                // Update CV Professional Summary
+                const cvSummary = document.querySelector('.cv-summary');
+                if (cvSummary && data.summary) {
+                    cvSummary.textContent = data.summary;
+                }
+
+                // Update CV Experience Section
+                if (data.experience && data.experience.length > 0) {
+                    const experienceSection = document.querySelector('.cv-section:has(.cv-experience-item)');
+                    if (experienceSection) {
+                        // Remove old experience items
+                        const oldItems = experienceSection.querySelectorAll('.cv-experience-item');
+                        oldItems.forEach(item => item.remove());
+
+                        // Add new experience items from JSON
+                        data.experience.forEach(exp => {
+                            const expItem = document.createElement('div');
+                            expItem.className = 'cv-experience-item';
+
+                            const dateRange = exp.current ?
+                                `${exp.startDate} - Present` :
+                                `${exp.startDate} - ${exp.endDate}`;
+
+                            const responsibilities = exp.responsibilities
+                                .map(resp => `<li>${resp}</li>`)
+                                .join('');
+
+                            expItem.innerHTML = `
+                                <div class="cv-experience-header">
+                                    <div class="cv-job-title">${exp.title}</div>
+                                    <div class="cv-date">${dateRange}</div>
+                                </div>
+                                <div class="cv-company">${exp.company} • ${exp.location}</div>
+                                <div class="cv-description">
+                                    <ul>${responsibilities}</ul>
+                                </div>
+                            `;
+
+                            experienceSection.appendChild(expItem);
+                        });
+                    }
+                }
+
+                console.log('Profile data loaded successfully');
+            } catch (error) {
+                console.warn('Error loading profile data:', error);
+            }
+        }
+
+        // Load profile data when page loads
+        document.addEventListener('DOMContentLoaded', loadProfileData);
     </script>
 </body>
 </html>
