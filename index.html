@@ -7,6 +7,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- PDF and Word Export Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/7.8.2/docx.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
     <style>
         :root {
             --bg-primary: #0a0a0f;
@@ -717,6 +723,273 @@
             .mobile-menu-btn { display: block; }
         }
 
+        /* CV Section Styles */
+        .cv-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cv-container {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .cv-header-bar {
+            background: var(--bg-tertiary);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cv-header-bar h3 {
+            color: var(--accent-cyan);
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .cv-format-badge {
+            background: var(--accent-green);
+            color: var(--bg-primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .cv-content {
+            background: #ffffff;
+            color: #1a1a1a;
+            padding: 3rem;
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.6;
+        }
+
+        .cv-content * {
+            color: #1a1a1a !important;
+        }
+
+        .cv-header {
+            text-align: center;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #00ff9d;
+            margin-bottom: 1.5rem;
+        }
+
+        .cv-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #0a0a0f !important;
+        }
+
+        .cv-title {
+            font-size: 1.25rem;
+            color: #52525b !important;
+            margin-bottom: 1rem;
+        }
+
+        .cv-contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: #52525b !important;
+        }
+
+        .cv-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cv-section {
+            margin-bottom: 2rem;
+        }
+
+        .cv-section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0a0a0f !important;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #00d4ff;
+        }
+
+        .cv-summary {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #3a3a3a !important;
+            text-align: justify;
+        }
+
+        .cv-experience-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .cv-experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .cv-job-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0a0a0f !important;
+        }
+
+        .cv-date {
+            font-size: 0.85rem;
+            color: #00d4ff !important;
+            font-weight: 600;
+        }
+
+        .cv-company {
+            font-size: 0.95rem;
+            color: #52525b !important;
+            margin-bottom: 0.5rem;
+        }
+
+        .cv-description {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #3a3a3a !important;
+        }
+
+        .cv-description ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .cv-description li {
+            margin-bottom: 0.25rem;
+        }
+
+        .cv-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .cv-skill-category {
+            margin-bottom: 1rem;
+        }
+
+        .cv-skill-category h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0a0a0f !important;
+            margin-bottom: 0.5rem;
+        }
+
+        .cv-skill-list {
+            font-size: 0.85rem;
+            color: #3a3a3a !important;
+            line-height: 1.8;
+        }
+
+        .cv-cert-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .cv-cert-item {
+            margin-bottom: 1rem;
+        }
+
+        .cv-cert-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0a0a0f !important;
+        }
+
+        .cv-cert-issuer {
+            font-size: 0.85rem;
+            color: #52525b !important;
+        }
+
+        .cv-education-item {
+            margin-bottom: 1rem;
+        }
+
+        .cv-degree {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0a0a0f !important;
+        }
+
+        .cv-school {
+            font-size: 0.9rem;
+            color: #52525b !important;
+        }
+
+        .cv-projects-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+
+        .cv-project-item {
+            font-size: 0.85rem;
+            color: #3a3a3a !important;
+            padding: 0.5rem;
+            background: #f5f5f5;
+            border-radius: 4px;
+        }
+
+        .cv-languages {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .cv-language-item {
+            font-size: 0.9rem;
+        }
+
+        .cv-language-name {
+            font-weight: 600;
+            color: #0a0a0f !important;
+        }
+
+        .cv-language-level {
+            color: #52525b !important;
+            font-size: 0.85rem;
+        }
+
+        @media print {
+            body::before,
+            body::after {
+                display: none;
+            }
+            nav,
+            .cv-controls,
+            .cv-header-bar,
+            footer {
+                display: none !important;
+            }
+            .cv-container {
+                box-shadow: none;
+                border: none;
+            }
+            .cv-content {
+                padding: 0;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero-content { grid-template-columns: 1fr; text-align: center; }
             .hero-text h1 { font-size: 2.5rem; }
@@ -725,6 +998,14 @@
             .about-content, .contact-content { grid-template-columns: 1fr; }
             section { padding: 4rem 1.5rem; }
             .writeups-grid { grid-template-columns: 1fr; }
+            .cv-skills-grid,
+            .cv-cert-grid,
+            .cv-projects-list {
+                grid-template-columns: 1fr;
+            }
+            .cv-content {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -740,6 +1021,7 @@
                 <li><a href="#resources">Resources</a></li>
                 <li><a href="#certifications">Certs</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#cv">CV</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -753,7 +1035,8 @@
                     <p class="role"><span>Penetration Tester</span> & Security Researcher</p>
                     <p>Offensive security specialist with expertise in web application testing, cloud security, mobile security, and DevSecOps. Breaking things to make them stronger. Sharing knowledge through writeups and resources.</p>
                     <div class="hero-buttons">
-                        <a href="#writeups" class="btn btn-primary">View Writeups</a>
+                        <a href="#cv" class="btn btn-primary">Download CV</a>
+                        <a href="#writeups" class="btn btn-secondary">View Writeups</a>
                         <a href="#resources" class="btn btn-secondary">Resources</a>
                         <a href="#contact" class="btn btn-secondary">Contact</a>
                     </div>
@@ -972,6 +1255,270 @@
         </div>
     </section>
 
+    <section id="cv">
+        <div class="section-header"><h2>Curriculum Vitae</h2></div>
+
+        <div class="cv-controls">
+            <button class="btn btn-primary" onclick="downloadPDF()">
+                <span>📄</span> Download as PDF
+            </button>
+            <button class="btn btn-secondary" onclick="downloadWord()">
+                <span>📝</span> Download as Word
+            </button>
+            <button class="btn btn-secondary" onclick="window.print()">
+                <span>🖨️</span> Print CV
+            </button>
+        </div>
+
+        <div class="cv-container" id="cvContainer">
+            <div class="cv-header-bar">
+                <h3>Professional Resume</h3>
+                <span class="cv-format-badge">Professional Format</span>
+            </div>
+
+            <div class="cv-content" id="cvContent">
+                <!-- CV Header -->
+                <div class="cv-header">
+                    <h1 class="cv-name">Daniel Șerbu</h1>
+                    <p class="cv-title">Penetration Tester & Security Researcher</p>
+                    <div class="cv-contact-info">
+                        <div class="cv-contact-item">📍 Galaţi, Romania</div>
+                        <div class="cv-contact-item">📧 your.email@example.com</div>
+                        <div class="cv-contact-item">🔗 linkedin.com/in/daniel-serbu</div>
+                        <div class="cv-contact-item">💻 github.com/yourprofile</div>
+                    </div>
+                </div>
+
+                <!-- Professional Summary -->
+                <div class="cv-section">
+                    <h2 class="cv-section-title">Professional Summary</h2>
+                    <p class="cv-summary">
+                        Offensive security specialist with 3+ years of experience in penetration testing and cybersecurity. Expert in identifying and exploiting vulnerabilities across web applications, APIs, cloud infrastructure (AWS, Azure, GCP), mobile applications, and Active Directory environments. Proven track record in delivering comprehensive security assessments, developing red team tools, and conducting secure code reviews. Strong foundation in DevSecOps practices with experience in CI/CD security integration, SAST/DAST implementation, and secure-by-design development. Published 12+ technical writeups and maintain curated security resources for the community. Passionate about continuous learning and staying ahead of emerging threats in the cybersecurity landscape.
+                    </p>
+                </div>
+
+                <!-- Professional Experience -->
+                <div class="cv-section">
+                    <h2 class="cv-section-title">Professional Experience</h2>
+
+                    <div class="cv-experience-item">
+                        <div class="cv-experience-header">
+                            <div class="cv-job-title">Penetration Tester</div>
+                            <div class="cv-date">Oct 2022 - Present</div>
+                        </div>
+                        <div class="cv-company">PFA (Independent Contractor) • Romania</div>
+                        <div class="cv-description">
+                            <ul>
+                                <li>Conduct comprehensive security assessments across web/mobile applications, APIs, and cloud systems (AWS, Azure, GCP)</li>
+                                <li>Perform external reconnaissance, OSINT investigations, exploitation, and lateral movement testing</li>
+                                <li>Develop custom red team tools and automation scripts to enhance testing efficiency</li>
+                                <li>Execute secure code reviews identifying critical vulnerabilities before production deployment</li>
+                                <li>Simulate sophisticated phishing campaigns to test organizational security awareness and resilience</li>
+                                <li>Prepare detailed vulnerability reports with prioritized remediation guidance and executive summaries</li>
+                                <li>Specialize in OWASP Top 10, business logic flaws, authentication bypasses, and cloud misconfigurations</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="cv-experience-item">
+                        <div class="cv-experience-header">
+                            <div class="cv-job-title">DevOps & Test Automation Engineer</div>
+                            <div class="cv-date">Feb 2020 - Jun 2021</div>
+                        </div>
+                        <div class="cv-company">NAPA • Romania</div>
+                        <div class="cv-description">
+                            <ul>
+                                <li>Automated CI/CD pipelines using Jenkins, Atlassian Bamboo, and Visual Studio AppCenter</li>
+                                <li>Implemented ship software security controls and vulnerability scanning in deployment pipelines</li>
+                                <li>Designed and executed comprehensive API testing strategies using Postman, Newman, and JMeter</li>
+                                <li>Integrated security testing tools (SonarQube, MobSF) into development workflows</li>
+                                <li>Mentored development teams on security best practices and test automation frameworks</li>
+                                <li>Created technical documentation and training materials for secure development lifecycle</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="cv-experience-item">
+                        <div class="cv-experience-header">
+                            <div class="cv-job-title">Software QA Test Engineer</div>
+                            <div class="cv-date">Feb 2017 - Feb 2020</div>
+                        </div>
+                        <div class="cv-company">NAPA • Romania</div>
+                        <div class="cv-description">
+                            <ul>
+                                <li>Designed comprehensive test suites for server/client/mobile applications ensuring security and quality</li>
+                                <li>Administered and monitored CI/CD infrastructure maintaining high availability and security</li>
+                                <li>Developed test automation frameworks using Postman, JMeter, Robot Framework, and Xamarin UI Test</li>
+                                <li>Performed security-focused testing identifying vulnerabilities in early development stages</li>
+                                <li>Collaborated with development teams to implement security controls and vulnerability fixes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Skills -->
+                <div class="cv-section">
+                    <h2 class="cv-section-title">Technical Skills</h2>
+                    <div class="cv-skills-grid">
+                        <div class="cv-skill-category">
+                            <h4>Web Application Security</h4>
+                            <div class="cv-skill-list">
+                                OWASP Top 10, SQL Injection, XSS, CSRF, SSRF, XXE, Authentication Bypass, Business Logic Vulnerabilities, API Security Testing
+                            </div>
+                        </div>
+
+                        <div class="cv-skill-category">
+                            <h4>Security Tools & Frameworks</h4>
+                            <div class="cv-skill-list">
+                                Burp Suite Pro, Cobalt Strike, Metasploit, Nmap, SQLMap, Nuclei, Ffuf, Hashcat, Impacket, BloodHound, CrackMapExec, Evil-WinRM
+                            </div>
+                        </div>
+
+                        <div class="cv-skill-category">
+                            <h4>Cloud Security</h4>
+                            <div class="cv-skill-list">
+                                AWS Security Assessment, Azure Penetration Testing, GCP Security Auditing, IAM Analysis, S3 Misconfigurations, Cloud Forensics
+                            </div>
+                        </div>
+
+                        <div class="cv-skill-category">
+                            <h4>Mobile & API Testing</h4>
+                            <div class="cv-skill-list">
+                                Android Penetration Testing, iOS Security Assessment, REST API Testing, GraphQL Security, Mobile OWASP, Frida Framework, MobSF
+                            </div>
+                        </div>
+
+                        <div class="cv-skill-category">
+                            <h4>DevSecOps & Automation</h4>
+                            <div class="cv-skill-list">
+                                Container Security, Kubernetes Security, SAST/DAST/SCA Tools, SBOM Management, IaC Security, Jenkins, Bamboo, CI/CD Security
+                            </div>
+                        </div>
+
+                        <div class="cv-skill-category">
+                            <h4>Active Directory & Network</h4>
+                            <div class="cv-skill-list">
+                                AD Exploitation, Kerberoasting, AS-REP Roasting, Pass-the-Hash, Pass-the-Ticket, Network Pivoting, Wi-Fi Security Assessment
+                            </div>
+                        </div>
+
+                        <div class="cv-skill-category">
+                            <h4>Programming & Scripting</h4>
+                            <div class="cv-skill-list">
+                                Python, PowerShell, JavaScript, C#, Bash, Groovy, Automation Scripting, Tool Development
+                            </div>
+                        </div>
+
+                        <div class="cv-skill-category">
+                            <h4>Testing & Quality Assurance</h4>
+                            <div class="cv-skill-list">
+                                Postman, Newman, JMeter, Robot Framework, Xamarin UI Test, SonarQube, Test Automation, Gradle, JUnit
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="cv-section">
+                    <h2 class="cv-section-title">Professional Certifications</h2>
+                    <div class="cv-cert-grid">
+                        <div class="cv-cert-item">
+                            <div class="cv-cert-name">eWPTx - eXtreme Web Application Penetration Tester</div>
+                            <div class="cv-cert-issuer">INE Security (eLearnSecurity)</div>
+                        </div>
+                        <div class="cv-cert-item">
+                            <div class="cv-cert-name">eCPPT - Certified Professional Penetration Tester</div>
+                            <div class="cv-cert-issuer">INE Security (eLearnSecurity)</div>
+                        </div>
+                        <div class="cv-cert-item">
+                            <div class="cv-cert-name">eMAPT - Mobile Application Penetration Tester</div>
+                            <div class="cv-cert-issuer">INE Security (eLearnSecurity)</div>
+                        </div>
+                        <div class="cv-cert-item">
+                            <div class="cv-cert-name">CNPen - Certified Network Penetration Tester</div>
+                            <div class="cv-cert-issuer">CyberWarfare Labs</div>
+                        </div>
+                        <div class="cv-cert-item">
+                            <div class="cv-cert-name">CAPen - Certified Azure Penetration Tester</div>
+                            <div class="cv-cert-issuer">CyberWarfare Labs</div>
+                        </div>
+                        <div class="cv-cert-item">
+                            <div class="cv-cert-name">CAPenX - Advanced Azure Penetration Testing</div>
+                            <div class="cv-cert-issuer">CyberWarfare Labs</div>
+                        </div>
+                        <div class="cv-cert-item">
+                            <div class="cv-cert-name">CCPenX-AWS - Advanced AWS Penetration Testing</div>
+                            <div class="cv-cert-issuer">CyberWarfare Labs</div>
+                        </div>
+                        <div class="cv-cert-item">
+                            <div class="cv-cert-name">CRTSv2 - Certified Red Team Specialist v2</div>
+                            <div class="cv-cert-issuer">CyberWarfare Labs</div>
+                        </div>
+                        <div class="cv-cert-item">
+                            <div class="cv-cert-name">CRTA & MCRTA - Red Team Adversary</div>
+                            <div class="cv-cert-issuer">Security Certification Body</div>
+                        </div>
+                        <div class="cv-cert-item">
+                            <div class="cv-cert-name">CAPT & CIPT - Mobile Security</div>
+                            <div class="cv-cert-issuer">Mobile Hacking Lab</div>
+                        </div>
+                        <div class="cv-cert-item">
+                            <div class="cv-cert-name">eJPTv1 - Junior Penetration Tester</div>
+                            <div class="cv-cert-issuer">INE Security</div>
+                        </div>
+                        <div class="cv-cert-item">
+                            <div class="cv-cert-name">Introduction to Cybersecurity</div>
+                            <div class="cv-cert-issuer">Palo Alto Networks</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="cv-section">
+                    <h2 class="cv-section-title">Education</h2>
+                    <div class="cv-education-item">
+                        <div class="cv-degree">Bachelor's Degree in Computer Science</div>
+                        <div class="cv-school">Galați "Lower Danube" University • 2015 - 2019</div>
+                    </div>
+                </div>
+
+                <!-- Published Work -->
+                <div class="cv-section">
+                    <h2 class="cv-section-title">Published Technical Writeups</h2>
+                    <div class="cv-projects-list">
+                        <div class="cv-project-item">VulnNet: Roasted (TryHackMe) - AD & Kerberoasting</div>
+                        <div class="cv-project-item">AttacktiveDirectory (TryHackMe) - Kerberos Exploitation</div>
+                        <div class="cv-project-item">VulnNet: Active (TryHackMe) - Windows AD Enumeration</div>
+                        <div class="cv-project-item">Ice (TryHackMe) - Windows Exploitation</div>
+                        <div class="cv-project-item">Blueprint (TryHackMe) - Web Exploitation</div>
+                        <div class="cv-project-item">Anthem (TryHackMe) - OSINT & Enumeration</div>
+                        <div class="cv-project-item">Post-Exploitation Basics (TryHackMe)</div>
+                        <div class="cv-project-item">Lookback (TryHackMe) - Advanced Enumeration</div>
+                        <div class="cv-project-item">AWS S3 Account ID (PWNEDLABS) - Cloud Security</div>
+                        <div class="cv-project-item">Food Store (MobileHackingLab) - Android Security</div>
+                        <div class="cv-project-item">Notekeeper (MobileHackingLab) - Mobile Data Security</div>
+                        <div class="cv-project-item">IOT Connect (MobileHackingLab) - IoT & API</div>
+                    </div>
+                </div>
+
+                <!-- Languages -->
+                <div class="cv-section">
+                    <h2 class="cv-section-title">Languages</h2>
+                    <div class="cv-languages">
+                        <div class="cv-language-item">
+                            <div class="cv-language-name">Romanian</div>
+                            <div class="cv-language-level">Native/Bilingual Proficiency</div>
+                        </div>
+                        <div class="cv-language-item">
+                            <div class="cv-language-name">English</div>
+                            <div class="cv-language-level">Full Professional Proficiency</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="contact">
         <div class="section-header"><h2>Contact</h2></div>
         <div class="contact-content">
@@ -1035,6 +1582,288 @@
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
         }
+
+        // CV Export Functions
+        async function downloadPDF() {
+            const element = document.getElementById('cvContent');
+            const opt = {
+                margin: [10, 10, 10, 10],
+                filename: 'Daniel_Serbu_CV.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, letterRendering: true },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            try {
+                await html2pdf().set(opt).from(element).save();
+                showNotification('PDF downloaded successfully!');
+            } catch (error) {
+                console.error('PDF generation error:', error);
+                showNotification('Error generating PDF. Please try again.', 'error');
+            }
+        }
+
+        async function downloadWord() {
+            try {
+                const { Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType, BorderStyle } = docx;
+
+                // Create Word document
+                const doc = new Document({
+                    sections: [{
+                        properties: {},
+                        children: [
+                            // Header
+                            new Paragraph({
+                                text: "Daniel Șerbu",
+                                heading: HeadingLevel.HEADING_1,
+                                alignment: AlignmentType.CENTER,
+                                spacing: { after: 200 }
+                            }),
+                            new Paragraph({
+                                text: "Penetration Tester & Security Researcher",
+                                alignment: AlignmentType.CENTER,
+                                spacing: { after: 100 }
+                            }),
+                            new Paragraph({
+                                alignment: AlignmentType.CENTER,
+                                spacing: { after: 300 },
+                                children: [
+                                    new TextRun("📍 Galaţi, Romania  |  "),
+                                    new TextRun("📧 your.email@example.com  |  "),
+                                    new TextRun("🔗 linkedin.com/in/daniel-serbu")
+                                ]
+                            }),
+
+                            // Professional Summary
+                            new Paragraph({
+                                text: "Professional Summary",
+                                heading: HeadingLevel.HEADING_2,
+                                spacing: { before: 300, after: 200 }
+                            }),
+                            new Paragraph({
+                                text: "Offensive security specialist with 3+ years of experience in penetration testing and cybersecurity. Expert in identifying and exploiting vulnerabilities across web applications, APIs, cloud infrastructure (AWS, Azure, GCP), mobile applications, and Active Directory environments. Proven track record in delivering comprehensive security assessments, developing red team tools, and conducting secure code reviews. Strong foundation in DevSecOps practices with experience in CI/CD security integration, SAST/DAST implementation, and secure-by-design development. Published 12+ technical writeups and maintain curated security resources for the community.",
+                                spacing: { after: 300 }
+                            }),
+
+                            // Professional Experience
+                            new Paragraph({
+                                text: "Professional Experience",
+                                heading: HeadingLevel.HEADING_2,
+                                spacing: { before: 300, after: 200 }
+                            }),
+                            new Paragraph({
+                                text: "Penetration Tester | Oct 2022 - Present",
+                                heading: HeadingLevel.HEADING_3,
+                                spacing: { after: 100 }
+                            }),
+                            new Paragraph({
+                                text: "PFA (Independent Contractor) • Romania",
+                                italics: true,
+                                spacing: { after: 100 }
+                            }),
+                            new Paragraph({
+                                text: "• Conduct comprehensive security assessments across web/mobile applications, APIs, and cloud systems",
+                                spacing: { after: 50 }
+                            }),
+                            new Paragraph({
+                                text: "• Perform external reconnaissance, OSINT investigations, exploitation, and lateral movement testing",
+                                spacing: { after: 50 }
+                            }),
+                            new Paragraph({
+                                text: "• Develop custom red team tools and automation scripts to enhance testing efficiency",
+                                spacing: { after: 50 }
+                            }),
+                            new Paragraph({
+                                text: "• Execute secure code reviews identifying critical vulnerabilities before production deployment",
+                                spacing: { after: 50 }
+                            }),
+                            new Paragraph({
+                                text: "• Simulate sophisticated phishing campaigns to test organizational security awareness",
+                                spacing: { after: 50 }
+                            }),
+                            new Paragraph({
+                                text: "• Prepare detailed vulnerability reports with prioritized remediation guidance",
+                                spacing: { after: 300 }
+                            }),
+
+                            // Technical Skills
+                            new Paragraph({
+                                text: "Technical Skills",
+                                heading: HeadingLevel.HEADING_2,
+                                spacing: { before: 300, after: 200 }
+                            }),
+                            new Paragraph({
+                                children: [
+                                    new TextRun({ text: "Web Application Security: ", bold: true }),
+                                    new TextRun("OWASP Top 10, SQL Injection, XSS, CSRF, SSRF, XXE, Authentication Bypass, Business Logic Vulnerabilities")
+                                ],
+                                spacing: { after: 100 }
+                            }),
+                            new Paragraph({
+                                children: [
+                                    new TextRun({ text: "Security Tools: ", bold: true }),
+                                    new TextRun("Burp Suite Pro, Cobalt Strike, Metasploit, Nmap, SQLMap, Nuclei, Ffuf, Hashcat, Impacket")
+                                ],
+                                spacing: { after: 100 }
+                            }),
+                            new Paragraph({
+                                children: [
+                                    new TextRun({ text: "Cloud Security: ", bold: true }),
+                                    new TextRun("AWS, Azure, GCP Security Assessment, IAM Analysis, S3 Misconfigurations")
+                                ],
+                                spacing: { after: 100 }
+                            }),
+                            new Paragraph({
+                                children: [
+                                    new TextRun({ text: "Mobile & API: ", bold: true }),
+                                    new TextRun("Android/iOS Pentesting, REST/GraphQL, Mobile OWASP, Frida Framework")
+                                ],
+                                spacing: { after: 100 }
+                            }),
+                            new Paragraph({
+                                children: [
+                                    new TextRun({ text: "DevSecOps: ", bold: true }),
+                                    new TextRun("Container Security, Kubernetes, SAST/DAST/SCA, CI/CD Security, Jenkins, Bamboo")
+                                ],
+                                spacing: { after: 100 }
+                            }),
+                            new Paragraph({
+                                children: [
+                                    new TextRun({ text: "Programming: ", bold: true }),
+                                    new TextRun("Python, PowerShell, JavaScript, C#, Bash, Groovy")
+                                ],
+                                spacing: { after: 300 }
+                            }),
+
+                            // Certifications
+                            new Paragraph({
+                                text: "Professional Certifications",
+                                heading: HeadingLevel.HEADING_2,
+                                spacing: { before: 300, after: 200 }
+                            }),
+                            new Paragraph({
+                                text: "• eWPTx - eXtreme Web Application Penetration Tester (INE Security)",
+                                spacing: { after: 50 }
+                            }),
+                            new Paragraph({
+                                text: "• eCPPT - Certified Professional Penetration Tester (INE Security)",
+                                spacing: { after: 50 }
+                            }),
+                            new Paragraph({
+                                text: "• eMAPT - Mobile Application Penetration Tester (INE Security)",
+                                spacing: { after: 50 }
+                            }),
+                            new Paragraph({
+                                text: "• CAPenX - Advanced Azure Penetration Testing (CyberWarfare Labs)",
+                                spacing: { after: 50 }
+                            }),
+                            new Paragraph({
+                                text: "• CCPenX-AWS - Advanced AWS Penetration Testing (CyberWarfare Labs)",
+                                spacing: { after: 50 }
+                            }),
+                            new Paragraph({
+                                text: "• CRTSv2 - Certified Red Team Specialist v2",
+                                spacing: { after: 50 }
+                            }),
+                            new Paragraph({
+                                text: "• CAPT & CIPT - Mobile Security (Mobile Hacking Lab)",
+                                spacing: { after: 300 }
+                            }),
+
+                            // Education
+                            new Paragraph({
+                                text: "Education",
+                                heading: HeadingLevel.HEADING_2,
+                                spacing: { before: 300, after: 200 }
+                            }),
+                            new Paragraph({
+                                text: "Bachelor's Degree in Computer Science",
+                                bold: true,
+                                spacing: { after: 50 }
+                            }),
+                            new Paragraph({
+                                text: "Galați \"Lower Danube\" University • 2015 - 2019",
+                                spacing: { after: 300 }
+                            }),
+
+                            // Languages
+                            new Paragraph({
+                                text: "Languages",
+                                heading: HeadingLevel.HEADING_2,
+                                spacing: { before: 300, after: 200 }
+                            }),
+                            new Paragraph({
+                                text: "• Romanian: Native/Bilingual Proficiency",
+                                spacing: { after: 50 }
+                            }),
+                            new Paragraph({
+                                text: "• English: Full Professional Proficiency",
+                                spacing: { after: 200 }
+                            })
+                        ]
+                    }]
+                });
+
+                // Generate and save
+                const blob = await Packer.toBlob(doc);
+                saveAs(blob, "Daniel_Serbu_CV.docx");
+                showNotification('Word document downloaded successfully!');
+            } catch (error) {
+                console.error('Word generation error:', error);
+                showNotification('Error generating Word document. Please try again.', 'error');
+            }
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: ${type === 'success' ? 'var(--accent-green)' : 'var(--accent-red)'};
+                color: var(--bg-primary);
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 0.9rem;
+                z-index: 10000;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
