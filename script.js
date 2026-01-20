@@ -451,4 +451,9 @@ async function loadProfileData() {
 }
 
 // Load profile data when page loads
-document.addEventListener('DOMContentLoaded', loadProfileData);
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadProfileData);
+} else {
+    // DOM is already loaded, call the function immediately
+    loadProfileData();
+}
