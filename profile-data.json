@@ -1,0 +1,77 @@
+{
+  "name": "Daniel Șerbu",
+  "title": "Penetration Tester & Security Researcher",
+  "location": "Galaţi, Romania",
+  "email": "daniel-serbu@outlook.com",
+  "linkedin": "https://www.linkedin.com/in/daniel-serbu/",
+  "github": "https://github.com/danielserbu",
+  "summary": "Offensive security specialist with 3+ years of experience in penetration testing and cybersecurity. Expert in identifying and exploiting vulnerabilities across web applications, APIs, cloud infrastructure (AWS, Azure, GCP), mobile applications, and Active Directory environments. Proven track record in delivering comprehensive security assessments, developing red team tools, and conducting secure code reviews. Strong foundation in DevSecOps practices with experience in CI/CD security integration, SAST/DAST implementation, and secure-by-design development. Published 12+ technical writeups and maintain curated security resources for the community. Passionate about continuous learning and staying ahead of emerging threats in the cybersecurity landscape.",
+  "experience": [
+    {
+      "title": "Penetration Tester",
+      "company": "PFA (Independent Contractor)",
+      "location": "Romania",
+      "startDate": "Oct 2022",
+      "endDate": "Present",
+      "current": true,
+      "responsibilities": [
+        "Conduct comprehensive security assessments across web/mobile applications, APIs, and cloud systems (AWS, Azure, GCP)",
+        "Perform external reconnaissance, OSINT investigations, exploitation, and lateral movement testing",
+        "Develop custom red team tools and automation scripts to enhance testing efficiency",
+        "Execute secure code reviews identifying critical vulnerabilities before production deployment",
+        "Simulate sophisticated phishing campaigns to test organizational security awareness and resilience",
+        "Prepare detailed vulnerability reports with prioritized remediation guidance and executive summaries",
+        "Specialize in OWASP Top 10, business logic flaws, authentication bypasses, and cloud misconfigurations"
+      ]
+    },
+    {
+      "title": "DevOps & Test Automation Engineer",
+      "company": "NAPA",
+      "location": "Romania",
+      "startDate": "Feb 2020",
+      "endDate": "Jun 2021",
+      "current": false,
+      "responsibilities": [
+        "Automated CI/CD pipelines using Jenkins, Atlassian Bamboo, and Visual Studio AppCenter",
+        "Implemented ship software security controls and vulnerability scanning in deployment pipelines",
+        "Designed and executed comprehensive API testing strategies using Postman, Newman, and JMeter",
+        "Integrated security testing tools (SonarQube, MobSF) into development workflows",
+        "Mentored development teams on security best practices and test automation frameworks",
+        "Created technical documentation and training materials for secure development lifecycle"
+      ]
+    },
+    {
+      "title": "Software QA Test Engineer",
+      "company": "NAPA",
+      "location": "Romania",
+      "startDate": "Feb 2017",
+      "endDate": "Feb 2020",
+      "current": false,
+      "responsibilities": [
+        "Designed comprehensive test suites for server/client/mobile applications ensuring security and quality",
+        "Administered and monitored CI/CD infrastructure maintaining high availability and security",
+        "Developed test automation frameworks using Postman, JMeter, Robot Framework, and Xamarin UI Test",
+        "Performed security-focused testing identifying vulnerabilities in early development stages",
+        "Collaborated with development teams to implement security controls and vulnerability fixes"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor's Degree in Computer Science",
+      "school": "Galați \"Lower Danube\" University",
+      "startYear": "2015",
+      "endYear": "2019"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Romanian",
+      "level": "Native/Bilingual Proficiency"
+    },
+    {
+      "name": "English",
+      "level": "Full Professional Proficiency"
+    }
+  ]
+}
