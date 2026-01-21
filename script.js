@@ -392,14 +392,16 @@ async function loadProfileData() {
                         `${exp.startDate} - Present` :
                         `${exp.startDate} - ${exp.endDate}`;
 
-                    // Create a brief description from first 2 responsibilities
-                    const briefDescription = exp.responsibilities.slice(0, 2).join(' ');
+                    // Create a full description with all responsibilities
+                    const responsibilities = exp.responsibilities
+                        .map(resp => `• ${resp}`)
+                        .join('<br>');
 
                     timelineItem.innerHTML = `
                         <div class="timeline-date">${dateRange}</div>
                         <div class="timeline-title">${exp.title}</div>
                         <div class="timeline-company">${exp.company} • ${exp.location}</div>
-                        <div class="timeline-description">${briefDescription}</div>
+                        <div class="timeline-description">${responsibilities}</div>
                     `;
 
                     timeline.appendChild(timelineItem);

@@ -39,34 +39,37 @@
                         <span class="terminal-btn red"></span>
                         <span class="terminal-btn yellow"></span>
                         <span class="terminal-btn green"></span>
-                        <span class="terminal-title">daniel@kali:~</span>
+                        <span class="terminal-title">daniel@redteam:~</span>
                     </div>
                     <div class="terminal-body">
-                        <div class="terminal-line"><span class="prompt">$</span> <span class="command">whoami</span></div>
-                        <div class="terminal-line output">penetration_tester && security_researcher</div>
-                        <div class="terminal-line"><span class="prompt">$</span> <span class="command">cat expertise.txt</span></div>
-                        <div class="terminal-line output">Web Apps | Cloud | Mobile | DevSecOps | OSINT</div>
-                        <div class="terminal-line"><span class="prompt">$</span> <span class="command">ls -l certifications/</span></div>
-                        <div class="terminal-line output">total 16</div>
-                        <div class="terminal-line output">-rw-r--r--  1 ds ds  4096 Jan  1 2026 eCPPT        -> INE Security</div>
-                        <div class="terminal-line output">-rw-r--r--  1 ds ds  4096 Jan  1 2026 eMAPT        -> INE Security</div>
-                        <div class="terminal-line output">-rw-r--r--  1 ds ds  4096 Jan  1 2026 eJPTv1       -> INE Security</div>
-                        <div class="terminal-line output">-rw-r--r--  1 ds ds  4096 Jan  1 2026 CAPenX       -> The SecOps Group</div>
-                        <div class="terminal-line output">-rw-r--r--  1 ds ds  4096 Jan  1 2026 CCPenX-AWS   -> The SecOps Group</div>
-                        <div class="terminal-line output">-rw-r--r--  1 ds ds  4096 Jan  1 2026 CRTSv2       -> CyberWarfare Labs</div>
-                        <div class="terminal-line output">-rw-r--r--  1 ds ds  4096 Jan  1 2026 CELMS        -> CyberWarfare Labs</div>
-                        <div class="terminal-line output">-rw-r--r--  1 ds ds  4096 Jan  1 2026 CRTA         -> CyberWarfare Labs</div>
-                        <div class="terminal-line output">-rw-r--r--  1 ds ds  4096 Jan  1 2026 AD-RTS       -> CyberWarfare Labs</div>
-                        <div class="terminal-line output">-rw-r--r--  1 ds ds  4096 Jan  1 2026 MCRTA        -> CyberWarfare Labs</div>
-                        <div class="terminal-line output">-rw-r--r--  1 ds ds  4096 Jan  1 2026 C-AI/MLPen   -> The SecOps Group</div>
-                        <div class="terminal-line output">-rw-r--r--  1 ds ds  4096 Jan  1 2026 CAPen        -> The SecOps Group</div>
-                        <div class="terminal-line output">-rw-r--r--  1 ds ds  4096 Jan  1 2026 C-APIPen     -> The SecOps Group</div>
-                        <div class="terminal-line output">-rw-r--r--  1 ds ds  4096 Jan  1 2026 CNPen        -> The SecOps Group</div>
-                        <div class="terminal-line output">-rw-r--r--  1 ds ds  4096 Jan  1 2026 CMPen-Android -> The SecOps Group</div>
-                        <div class="terminal-line output">-rw-r--r--  1 ds ds  4096 Jan  1 2026 CAPT         -> Mobile Hacking Lab</div>
-                        <div class="terminal-line output">-rw-r--r--  1 ds ds  4096 Jan  1 2026 CIPT         -> Mobile Hacking Lab</div>
-                        <div class="terminal-line"><span class="prompt">$</span> <span class="command">./start_engagement.sh</span></div>
-                        <div class="terminal-line output">[+] Ready to hack...</div>
+                        <div class="terminal-line"><span class="prompt-red">*Evil-WinRM*</span> <span class="prompt-red">PS</span> <span class="command-red">C:\Users\daniel></span> <span class="command">whoami /all</span></div>
+                        <div class="terminal-line output-red">[+] User: daniel_serbu</div>
+                        <div class="terminal-line output-red">[+] Role: Penetration Tester & Security Researcher</div>
+                        <div class="terminal-line output-red">[+] Privileges: SeDebugPrivilege (ENABLED)</div>
+                        <div class="terminal-line"><span class="prompt-red">*Evil-WinRM*</span> <span class="prompt-red">PS</span> <span class="command-red">C:\Users\daniel></span> <span class="command">type expertise.txt</span></div>
+                        <div class="terminal-line output">Web Application Security | Cloud Pentesting (AWS/Azure/GCP)</div>
+                        <div class="terminal-line output">Mobile Security (Android/iOS) | Active Directory | DevSecOps | OSINT</div>
+                        <div class="terminal-line"><span class="prompt-red">*Evil-WinRM*</span> <span class="prompt-red">PS</span> <span class="command-red">C:\Users\daniel></span> <span class="command">Get-ChildItem certifications\ | Format-Table</span></div>
+                        <div class="terminal-line output-cert">eCPPT           - eLearnSecurity Certified Professional Penetration Tester</div>
+                        <div class="terminal-line output-cert">eMAPT           - eLearnSecurity Mobile Application Penetration Tester</div>
+                        <div class="terminal-line output-cert">eJPTv1          - eLearnSecurity Junior Penetration Tester v1</div>
+                        <div class="terminal-line output-cert">CAPenX          - Certified AppSec Pentesting eXpert</div>
+                        <div class="terminal-line output-cert">CCPenX-AWS      - Certified Cloud Pentesting eXpert - AWS</div>
+                        <div class="terminal-line output-cert">CRTSv2          - Certified Red Team Specialist v2</div>
+                        <div class="terminal-line output-cert">CELMS           - Certified Enterprise Lateral Movement Specialist</div>
+                        <div class="terminal-line output-cert">CRTA            - Certified Red Team Analyst</div>
+                        <div class="terminal-line output-cert">AD-RTS          - Active Directory Red Team Specialist</div>
+                        <div class="terminal-line output-cert">MCRTA           - Multi-Cloud Red Team Analyst</div>
+                        <div class="terminal-line output-cert">C-AI/MLPen      - Certified AI/ML Pentester</div>
+                        <div class="terminal-line output-cert">CAPen           - Certified AppSec Pentester</div>
+                        <div class="terminal-line output-cert">C-APIPen        - Certified API Pentester</div>
+                        <div class="terminal-line output-cert">CNPen           - Certified Network Pentester</div>
+                        <div class="terminal-line output-cert">CMPen-Android   - Certified Mobile Pentester - Android</div>
+                        <div class="terminal-line output-cert">CAPT            - Certified Android Penetration Tester</div>
+                        <div class="terminal-line output-cert">CIPT            - Certified iOS Penetration Tester</div>
+                        <div class="terminal-line"><span class="prompt-red">*Evil-WinRM*</span> <span class="prompt-red">PS</span> <span class="command-red">C:\Users\daniel></span> <span class="command">.\pivot_network.ps1</span></div>
+                        <div class="terminal-line output-success">[+] Network pivot established. Target acquired.</div>
+                        <div class="terminal-line output-success">[+] Engagement ready. Let's hunt for vulnerabilities...</div>
                     </div>
 
                 </div>
