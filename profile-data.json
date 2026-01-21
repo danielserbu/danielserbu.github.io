@@ -11,9 +11,24 @@
       "title": "Penetration Tester",
       "company": "PFA (Independent Contractor)",
       "location": "Romania",
-      "startDate": "Oct 2022",
+      "startDate": "Feb 2025",
       "endDate": "Present",
       "current": true,
+      "responsibilities": [
+        "Conduct comprehensive security assessments across web/mobile applications, APIs, and cloud systems (AWS, Azure, GCP)",
+        "Perform external reconnaissance, OSINT investigations, exploitation, and lateral movement testing",
+        "Develop custom red team tools and automation scripts to enhance testing efficiency",
+        "Execute secure code reviews identifying critical vulnerabilities before production deployment",
+        "Prepare detailed vulnerability reports with prioritized remediation guidance and executive summaries",
+        "Specialize in OWASP Top 10, business logic flaws, authentication bypasses, and cloud misconfigurations"
+      ]
+    },{
+      "title": "Penetration Tester",
+      "company": "Red Team Security SRL",
+      "location": "Romania",
+      "startDate": "Oct 2022",
+      "endDate": "Ian 2025",
+      "current": false,
       "responsibilities": [
         "Conduct comprehensive security assessments across web/mobile applications, APIs, and cloud systems (AWS, Azure, GCP)",
         "Perform external reconnaissance, OSINT investigations, exploitation, and lateral movement testing",
@@ -58,7 +73,7 @@
   ],
   "education": [
     {
-      "degree": "Bachelor's Degree in Computer Science",
+      "degree": "Computer Science",
       "school": "Galați \"Lower Danube\" University",
       "startYear": "2015",
       "endYear": "2019"
