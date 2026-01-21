@@ -525,6 +525,27 @@ section {
     text-decoration: underline;
 }
 
+.cert-buttons {
+    display: flex;
+    gap: 8px;
+    margin: 4px 0;
+    flex-wrap: wrap;
+}
+.cert-btn {
+    padding: 2px 8px;
+    font-size: 0.75em;
+    border: 1px solid #333;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #fff;
+    background: #333;
+    transition: all 0.2s;
+}
+.cert-personal { background: #007acc; }
+.cert-official { background: #28a745; }
+.cert-btn:hover { opacity: 0.8; transform: translateY(-1px); }
+
+
 
 .timeline {
     position: relative;
