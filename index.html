@@ -8,11 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- PDF and Word Export Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/7.8.2/docx.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -39,7 +34,7 @@
                 <div class="hero-text">
                     <h1>Hi, I'm <span class="name">Daniel Serbu</span></h1>
                     <p class="role"><span>Penetration Tester</span> & Security Researcher</p>
-                    <p>Offensive security specialist with expertise in web application testing, cloud security, mobile security, and DevSecOps. Breaking things to make them stronger. Sharing knowledge through writeups and resources.</p>
+                    <p>Offensive security specialist with expertise in web application testing, cloud security, mobile security, and DevSecOps. Breaking things to make them stronger.</p>
                     <div class="hero-buttons">
                         <a href="#writeups" class="btn btn-primary">View Writeups</a>
                         <a href="https://daniel-serbu.gitbook.io/cybersecurity" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Resources</a>
@@ -58,9 +53,7 @@
                         <div class="terminal-line"><span class="prompt">$</span> <span class="command">cat expertise.txt</span></div>
                         <div class="terminal-line output">Web Apps | Cloud | Mobile | DevSecOps | OSINT</div>
                         <div class="terminal-line"><span class="prompt">$</span> <span class="command">ls certifications/</span></div>
-                        <div class="terminal-line output"><span class="highlight">eWPTx</span> eCPPT eMAPT CAPenX CCPenX-AWS CRTSv2 CRTA MCRTA CNPen CAPen CAPIPen CMPen <span class="highlight-orange">+more</span></div>
-                        <div class="terminal-line"><span class="prompt">$</span> <span class="command">wc -l writeups/*</span></div>
-                        <div class="terminal-line output">12 writeups (THM, PWNEDLabs, MobileHackingLab)</div>
+                        <div class="terminal-line output">eCPPT eMAPT CAPenX CCPenX-AWS CRTSv2 CRTA MCRTA CNPen CAPen CAPIPen CMPen <span class="highlight-orange">+more</span></div>
                         <div class="terminal-line"><span class="prompt">$</span> <span class="command">./start_engagement.sh</span></div>
                         <div class="terminal-line output">[+] Ready to hack...</div>
                     </div>
@@ -147,14 +140,6 @@
                     <p class="link-description">Curated security knowledge base</p>
                 </div>
             </a>
-
-            <a href="https://serbudaniel.wordpress.com/" class="link-card" target="_blank" rel="noopener noreferrer">
-                <div class="link-icon">✍️</div>
-                <div class="link-content">
-                    <h3 class="link-title">WordPress - PenTesting Writeups</h3>
-                    <p class="link-description">Archive of security writeups</p>
-                </div>
-            </a>
         </div>
     </section>
 
@@ -208,63 +193,6 @@
                 <a href="https://daniel-serbu.gitbook.io/cybersecurity/writeups" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View All Writeups on GitBook</a>
             </div>
         </div>
-        <div class="tabs">
-            <button class="tab-btn active" onclick="showTab('all')">All</button>
-            <button class="tab-btn" onclick="showTab('thm')">TryHackMe</button>
-            <button class="tab-btn" onclick="showTab('mobile')">Mobile</button>
-            <button class="tab-btn" onclick="showTab('cloud')">Cloud</button>
-        </div>
-        <div class="writeups-grid" id="writeups-container">
-            <a href="writeups/vulnnet-roasted.html" class="writeup-card" data-category="thm">
-                <div class="writeup-header"><span class="writeup-platform platform-thm">TryHackMe</span><h4 class="writeup-title">VulnNet: Roasted</h4></div>
-                <div class="writeup-body"><div class="writeup-tags"><span class="writeup-tag">Active Directory</span><span class="writeup-tag">Kerberoasting</span><span class="writeup-tag">SMB</span><span class="writeup-tag">Hash Cracking</span></div></div>
-            </a>
-            <a href="writeups/attacktive-directory.html" class="writeup-card" data-category="thm">
-                <div class="writeup-header"><span class="writeup-platform platform-thm">TryHackMe</span><h4 class="writeup-title">AttacktiveDirectory</h4></div>
-                <div class="writeup-body"><div class="writeup-tags"><span class="writeup-tag">Active Directory</span><span class="writeup-tag">Kerberos</span><span class="writeup-tag">Impacket</span></div></div>
-            </a>
-            <a href="writeups/vulnnet-active.html" class="writeup-card" data-category="thm">
-                <div class="writeup-header"><span class="writeup-platform platform-thm">TryHackMe</span><h4 class="writeup-title">VulnNet: Active</h4></div>
-                <div class="writeup-body"><div class="writeup-tags"><span class="writeup-tag">Windows</span><span class="writeup-tag">Active Directory</span><span class="writeup-tag">Enumeration</span></div></div>
-            </a>
-            <a href="writeups/ice.html" class="writeup-card" data-category="thm">
-                <div class="writeup-header"><span class="writeup-platform platform-thm">TryHackMe</span><h4 class="writeup-title">Ice</h4></div>
-                <div class="writeup-body"><div class="writeup-tags"><span class="writeup-tag">Windows</span><span class="writeup-tag">Metasploit</span><span class="writeup-tag">Privilege Escalation</span></div></div>
-            </a>
-            <a href="writeups/blueprint.html" class="writeup-card" data-category="thm">
-                <div class="writeup-header"><span class="writeup-platform platform-thm">TryHackMe</span><h4 class="writeup-title">Blueprint</h4></div>
-                <div class="writeup-body"><div class="writeup-tags"><span class="writeup-tag">Windows</span><span class="writeup-tag">Web Exploitation</span><span class="writeup-tag">PrivEsc</span></div></div>
-            </a>
-            <a href="writeups/anthem.html" class="writeup-card" data-category="thm">
-                <div class="writeup-header"><span class="writeup-platform platform-thm">TryHackMe</span><h4 class="writeup-title">Anthem</h4></div>
-                <div class="writeup-body"><div class="writeup-tags"><span class="writeup-tag">Windows</span><span class="writeup-tag">OSINT</span><span class="writeup-tag">Enumeration</span></div></div>
-            </a>
-            <a href="writeups/post-exploitation-basics.html" class="writeup-card" data-category="thm">
-                <div class="writeup-header"><span class="writeup-platform platform-thm">TryHackMe</span><h4 class="writeup-title">Post-Exploitation Basics</h4></div>
-                <div class="writeup-body"><div class="writeup-tags"><span class="writeup-tag">Post-Exploitation</span><span class="writeup-tag">Persistence</span><span class="writeup-tag">Exfiltration</span></div></div>
-            </a>
-            <a href="writeups/lookback.html" class="writeup-card" data-category="thm">
-                <div class="writeup-header"><span class="writeup-platform platform-thm">TryHackMe</span><h4 class="writeup-title">Lookback</h4></div>
-                <div class="writeup-body"><div class="writeup-tags"><span class="writeup-tag">Windows</span><span class="writeup-tag">Web</span><span class="writeup-tag">Enumeration</span></div></div>
-            </a>
-            <a href="writeups/aws-s3-account-id.html" class="writeup-card" data-category="cloud">
-                <div class="writeup-header"><span class="writeup-platform platform-pwned">PWNEDLABS</span><h4 class="writeup-title">Identify AWS Account ID from Public S3</h4></div>
-                <div class="writeup-body"><div class="writeup-tags"><span class="writeup-tag">AWS</span><span class="writeup-tag">S3</span><span class="writeup-tag">Cloud Security</span></div></div>
-            </a>
-            <a href="writeups/food-store.html" class="writeup-card" data-category="mobile">
-                <div class="writeup-header"><span class="writeup-platform platform-mobile">MobileHackingLab</span><h4 class="writeup-title">Food Store</h4></div>
-                <div class="writeup-body"><div class="writeup-tags"><span class="writeup-tag">Android</span><span class="writeup-tag">Mobile Security</span><span class="writeup-tag">APK Analysis</span></div></div>
-            </a>
-            <a href="writeups/notekeeper.html" class="writeup-card" data-category="mobile">
-                <div class="writeup-header"><span class="writeup-platform platform-mobile">MobileHackingLab</span><h4 class="writeup-title">Notekeeper</h4></div>
-                <div class="writeup-body"><div class="writeup-tags"><span class="writeup-tag">Android</span><span class="writeup-tag">Mobile Security</span><span class="writeup-tag">Data Storage</span></div></div>
-            </a>
-            <a href="writeups/iot-connect.html" class="writeup-card" data-category="mobile">
-                <div class="writeup-header"><span class="writeup-platform platform-mobile">MobileHackingLab</span><h4 class="writeup-title">IOT Connect</h4></div>
-                <div class="writeup-body"><div class="writeup-tags"><span class="writeup-tag">IoT</span><span class="writeup-tag">Mobile</span><span class="writeup-tag">API Security</span></div></div>
-            </a>
-        </div>
-    </section>
 
     <section id="resources">
         <div class="section-header"><h2>Resources & Cheatsheets</h2></div>
@@ -279,16 +207,15 @@
     <section id="certifications">
         <div class="section-header"><h2>Certifications</h2></div>
         <div class="certs-grid">
-            <div class="cert-card"><h4>eWPTx</h4><div class="issuer">INE Security (eLearnSecurity)</div><div class="description">eXtreme Web Application Penetration Tester</div></div>
             <div class="cert-card"><h4>eCPPT</h4><div class="issuer">INE Security (eLearnSecurity)</div><div class="description">Certified Professional Penetration Tester</div></div>
             <div class="cert-card"><h4>eMAPT</h4><div class="issuer">INE Security (eLearnSecurity)</div><div class="description">Mobile Application Penetration Tester</div></div>
             <div class="cert-card"><h4>eJPTv1</h4><div class="issuer">INE Security</div><div class="description">Junior Penetration Tester</div></div>
             <div class="cert-card"><h4>CAPenX</h4><div class="issuer">The SecOps Group</div><div class="description">Certified AppSec Pentesting eXpert</div></div>
             <div class="cert-card"><h4>CCPenX-AWS</h4><div class="issuer">The SecOps Group</div><div class="description">Certified Cloud Pentesting eXpert - AWS</div></div>
-            <div class="cert-card"><h4>CRTSv2</h4><div class="issuer">The SecOps Group</div><div class="description">Certified Red Team Specialist v2</div></div>
-            <div class="cert-card"><h4>CELMS</h4><div class="issuer">The SecOps Group</div><div class="description">Certified Enterprise Linux and Mobile Security</div></div>
-            <div class="cert-card"><h4>CRTA</h4><div class="issuer">Security Certification</div><div class="description">Certified Red Team Adversary</div></div>
-            <div class="cert-card"><h4>MCRTA</h4><div class="issuer">Security Certification</div><div class="description">Managed Certified Red Team Adversary</div></div>
+            <div class="cert-card"><h4>CRTSv2</h4><div class="issuer">CyberWarfare Labs</div><div class="description">Certified Red Team Specialist v2</div></div>
+            <div class="cert-card"><h4>CELMS</h4><div class="issuer">CyberWarfare Labs</div><div class="description">Enterprise Lateral Movement Specialist</div></div>
+            <div class="cert-card"><h4>CRTA</h4><div class="issuer">CyberWarfare Labs</div><div class="description">Certified Red Team Analyst</div></div>
+            <div class="cert-card"><h4>MCRTA</h4><div class="issuer">CyberWarfare Labs</div><div class="description">Multi-Cloud Red Team Analyst</div></div>
             <div class="cert-card"><h4>C-AI/MLPen</h4><div class="issuer">The SecOps Group</div><div class="description">Certified AI/ML Pentester</div></div>
             <div class="cert-card"><h4>CAPen</h4><div class="issuer">The SecOps Group</div><div class="description">Certified AppSec Pentester</div></div>
             <div class="cert-card"><h4>CAPIPen</h4><div class="issuer">The SecOps Group</div><div class="description">Certified API Pentester</div></div>
@@ -319,7 +246,7 @@
     </section>
 
     <footer>
-        <p>© 2024 Daniel Serbu | Built with <span>♥</span> and caffeine</p>
+        <p>© 2026 Daniel Serbu</p>
     </footer>
 
     <script src="script.js"></script>
