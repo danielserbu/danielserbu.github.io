@@ -567,7 +567,7 @@ section {
     gap: 4px;
     cursor: pointer;
 }
-.cert-btn::after {
+.cert-btn::before {
     content: '→';
     font-size: 1.1em;
     transition: transform 0.2s;
