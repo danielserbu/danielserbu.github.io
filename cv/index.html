@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
     <style>
         :root {
             --bg-primary: #0a0a0f;
@@ -397,6 +397,50 @@
             to { transform: translateX(400px); opacity: 0; }
         }
 
+        /* ===== Scale CV: applied during PDF generation ===== */
+        body.scale-cv .cv-page-wrapper {
+            padding: 0;
+            max-width: 695px;
+            margin: 0 auto;
+        }
+
+        body.scale-cv .cv-page-header,
+        body.scale-cv nav,
+        body.scale-cv footer {
+            display: none;
+        }
+
+        body.scale-cv .cv-document {
+            box-shadow: none;
+            border-radius: 0;
+        }
+
+        body.scale-cv .cv-content {
+            padding: 28px 32px;
+            font-size: 9px;
+        }
+
+        body.scale-cv .cv-name { font-size: 20px; }
+        body.scale-cv .cv-title { font-size: 11px; }
+        body.scale-cv .cv-contact-row { font-size: 8.5px; }
+        body.scale-cv .cv-section-title { font-size: 10px; }
+        body.scale-cv .cv-summary-text { font-size: 9px; }
+        body.scale-cv .cv-exp-role { font-size: 10px; }
+        body.scale-cv .cv-exp-date { font-size: 8.5px; }
+        body.scale-cv .cv-exp-company { font-size: 9px; }
+        body.scale-cv .cv-exp-list li { font-size: 8.5px; }
+        body.scale-cv .cv-skills-table td { font-size: 8.5px; }
+        body.scale-cv .cv-certs-table td { font-size: 8.5px; }
+        body.scale-cv .cv-cert-issuer { font-size: 7.5px; }
+        body.scale-cv .cv-edu-degree { font-size: 10px; }
+        body.scale-cv .cv-edu-year { font-size: 8.5px; }
+        body.scale-cv .cv-edu-school { font-size: 9px; }
+        body.scale-cv .cv-langs-row { font-size: 9px; }
+
+        body.scale-cv.show-scanlines::before {
+            display: none;
+        }
+
         /* Print styles */
         @media print {
             body, body.show-scanlines { background: #fff !important; }
@@ -653,79 +697,37 @@
             }, type === 'info' ? 5000 : 3000);
         }
 
-        async function downloadPDF() {
-            const btn = document.getElementById('downloadBtn');
-            btn.disabled = true;
-            btn.textContent = 'Generating...';
+        // Step 1: Add scale class to constrain layout to A4
+        function addScaleCV() {
+            document.body.classList.add('scale-cv');
+        }
 
-            try {
-                showNotification('Generating PDF...', 'info');
+        // Step 2: Remove scale class after PDF generation
+        function removeScaleCV() {
+            document.body.classList.remove('scale-cv');
+        }
 
-                // Remove scanlines overlay during capture
-                document.body.classList.remove('show-scanlines');
+        // Step 3: Generate PDF - matching cv-generator's proven approach
+        function generateResume() {
+            const areaCV = document.getElementById('cvContent');
+            let opt = {
+                margin: 0,
+                filename: 'Daniel_Serbu_CV.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 4, useCORS: true },
+                jsPDF: { format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf(areaCV, opt);
+        }
 
-                // Get the CV content element
-                const element = document.getElementById('cvContent');
-
-                // Clone the element into a temporary off-screen container
-                // This avoids any interference from page layout/overlays
-                const container = document.createElement('div');
-                container.style.cssText = `
-                    position: fixed;
-                    left: -9999px;
-                    top: 0;
-                    width: 794px;
-                    background: #ffffff;
-                    z-index: -1;
-                `;
-                const clone = element.cloneNode(true);
-                clone.style.width = '794px';
-                clone.style.background = '#ffffff';
-                clone.style.color = '#2d2d2d';
-                container.appendChild(clone);
-                document.body.appendChild(container);
-
-                // Small delay to let the clone render
-                await new Promise(resolve => setTimeout(resolve, 200));
-
-                const opt = {
-                    margin: [0, 0, 0, 0],
-                    filename: 'Daniel_Serbu_CV.pdf',
-                    image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: {
-                        scale: 2,
-                        useCORS: true,
-                        backgroundColor: '#ffffff',
-                        logging: false,
-                        width: 794,
-                        height: clone.scrollHeight,
-                        windowWidth: 794,
-                        removeContainer: true
-                    },
-                    jsPDF: {
-                        unit: 'mm',
-                        format: 'a4',
-                        orientation: 'portrait',
-                        compress: true
-                    },
-                    pagebreak: { mode: ['css', 'legacy'] }
-                };
-
-                await html2pdf().set(opt).from(clone).save();
-
-                // Cleanup
-                container.remove();
-                document.body.classList.add('show-scanlines');
-
+        function downloadPDF() {
+            showNotification('Generating PDF...', 'info');
+            addScaleCV();
+            generateResume();
+            setTimeout(removeScaleCV, 2000);
+            setTimeout(function() {
                 showNotification('PDF downloaded successfully!');
-            } catch (error) {
-                console.error('PDF generation error:', error);
-                document.body.classList.add('show-scanlines');
-                showNotification('Error generating PDF. Try "Print / Save as PDF" instead.', 'error');
-            } finally {
-                btn.disabled = false;
-                btn.textContent = 'Download PDF';
-            }
+            }, 2500);
         }
 
         // Load dynamic data from profile-data.json
