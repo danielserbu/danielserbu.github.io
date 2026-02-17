@@ -34,7 +34,8 @@
             line-height: 1.6;
         }
 
-        body::before {
+        /* Scanlines - excluded from PDF via class toggle */
+        body.show-scanlines::before {
             content: '';
             position: fixed;
             top: 0; left: 0;
@@ -159,6 +160,12 @@
         }
         .btn-secondary:hover { background: var(--accent-green-dim); }
 
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
         /* CV Document - The printable content */
         .cv-document {
             background: #ffffff;
@@ -168,24 +175,29 @@
             overflow: hidden;
         }
 
-        /* CV Internal Styles */
+        /* ===== CV INTERNAL STYLES =====
+           All styles below use ONLY hardcoded values.
+           NO css variables, NO css grid, NO ::before pseudo-elements.
+           This ensures html2canvas renders everything correctly. */
+
         .cv-content {
-            padding: 36px 40px;
-            font-family: 'Space Grotesk', sans-serif;
+            padding: 32px 36px;
+            font-family: Arial, Helvetica, sans-serif;
             font-size: 10px;
             line-height: 1.45;
             color: #2d2d2d;
+            background: #ffffff;
         }
 
         .cv-header {
             text-align: center;
-            padding-bottom: 12px;
+            padding-bottom: 10px;
             border-bottom: 2px solid #1a1a2e;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .cv-name {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
             color: #1a1a2e;
             letter-spacing: 1px;
@@ -193,19 +205,17 @@
         }
 
         .cv-title {
-            font-size: 13px;
+            font-size: 12px;
             color: #555;
             font-weight: 400;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .cv-contact-row {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 6px 18px;
-            font-size: 9.5px;
+            text-align: center;
+            font-size: 9px;
             color: #444;
+            line-height: 1.6;
         }
 
         .cv-contact-row a {
@@ -213,37 +223,33 @@
             text-decoration: none;
         }
 
-        .cv-contact-row span {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
+        .cv-contact-sep { color: #999; }
 
         /* Sections */
         .cv-section {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .cv-section-title {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             color: #1a1a2e;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             border-bottom: 1px solid #ccc;
-            padding-bottom: 3px;
-            margin-bottom: 8px;
+            padding-bottom: 2px;
+            margin-bottom: 6px;
         }
 
         .cv-summary-text {
-            font-size: 10px;
+            font-size: 9.5px;
             color: #333;
             line-height: 1.5;
         }
 
         /* Experience */
         .cv-exp-item {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .cv-exp-item:last-child {
@@ -251,61 +257,58 @@
         }
 
         .cv-exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 1px;
+            overflow: hidden;
+            margin-bottom: 0;
         }
 
         .cv-exp-role {
-            font-size: 11px;
+            font-size: 10.5px;
             font-weight: 700;
             color: #1a1a2e;
+            float: left;
         }
 
         .cv-exp-date {
-            font-size: 9.5px;
+            font-size: 9px;
             color: #666;
-            white-space: nowrap;
+            float: right;
         }
 
         .cv-exp-company {
-            font-size: 10px;
+            clear: both;
+            font-size: 9.5px;
             color: #555;
             font-style: italic;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         .cv-exp-list {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
 
         .cv-exp-list li {
-            font-size: 9.5px;
+            font-size: 9px;
             color: #444;
-            padding-left: 12px;
-            position: relative;
+            padding-left: 10px;
             line-height: 1.5;
         }
 
-        .cv-exp-list li::before {
-            content: '\2022';
-            position: absolute;
-            left: 0;
-            color: #1a5276;
+        /* Bullet character is in the HTML itself, no ::before needed */
+
+        /* Skills - use table layout instead of CSS grid */
+        .cv-skills-table {
+            width: 100%;
+            border-collapse: collapse;
         }
 
-        /* Skills Grid */
-        .cv-skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4px 24px;
-        }
-
-        .cv-skill-row {
-            font-size: 9.5px;
+        .cv-skills-table td {
+            font-size: 9px;
             line-height: 1.6;
+            padding: 1px 8px 1px 0;
+            vertical-align: top;
+            width: 50%;
         }
 
         .cv-skill-label {
@@ -317,61 +320,53 @@
             color: #444;
         }
 
-        /* Certifications */
-        .cv-certs-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2px 20px;
+        /* Certifications - use table layout instead of CSS grid */
+        .cv-certs-table {
+            width: 100%;
+            border-collapse: collapse;
         }
 
-        .cv-cert-item {
-            font-size: 9.5px;
+        .cv-certs-table td {
+            font-size: 9px;
             color: #333;
-            padding-left: 12px;
-            position: relative;
-            line-height: 1.6;
-        }
-
-        .cv-cert-item::before {
-            content: '\2022';
-            position: absolute;
-            left: 0;
-            color: #1a5276;
+            padding: 1px 6px;
+            vertical-align: top;
+            width: 50%;
+            line-height: 1.5;
         }
 
         .cv-cert-issuer {
             color: #777;
-            font-size: 8.5px;
+            font-size: 8px;
         }
 
         /* Education & Languages */
-        .cv-edu-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
+        .cv-edu-header {
+            overflow: hidden;
         }
 
         .cv-edu-degree {
-            font-size: 11px;
+            font-size: 10.5px;
             font-weight: 700;
             color: #1a1a2e;
+            float: left;
         }
 
         .cv-edu-year {
-            font-size: 9.5px;
+            font-size: 9px;
             color: #666;
+            float: right;
         }
 
         .cv-edu-school {
-            font-size: 10px;
+            clear: both;
+            font-size: 9.5px;
             color: #555;
             font-style: italic;
         }
 
-        .cv-langs {
-            display: flex;
-            gap: 24px;
-            font-size: 10px;
+        .cv-langs-row {
+            font-size: 9.5px;
         }
 
         .cv-lang-name {
@@ -402,6 +397,15 @@
             to { transform: translateX(400px); opacity: 0; }
         }
 
+        /* Print styles */
+        @media print {
+            body, body.show-scanlines { background: #fff !important; }
+            body.show-scanlines::before { display: none !important; }
+            nav, .cv-page-header, footer { display: none !important; }
+            .cv-page-wrapper { padding: 0; max-width: none; }
+            .cv-document { box-shadow: none; border-radius: 0; }
+        }
+
         /* Responsive */
         @media (max-width: 1024px) {
             .nav-links {
@@ -421,11 +425,10 @@
         @media (max-width: 768px) {
             .cv-page-wrapper { padding: 5rem 1rem 2rem; }
             .cv-content { padding: 24px 20px; }
-            .cv-skills-grid, .cv-certs-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
-<body>
+<body class="show-scanlines">
     <nav>
         <div class="nav-container">
             <a href="/" class="logo">daniel_serbu</a>
@@ -447,35 +450,32 @@
             <h1>Curriculum <span>Vitae</span></h1>
             <p>Professional CV ready for download. Click below to generate a PDF.</p>
             <div class="cv-actions">
-                <button class="btn btn-primary" onclick="downloadPDF()">Download PDF</button>
+                <button class="btn btn-primary" id="downloadBtn" onclick="downloadPDF()">Download PDF</button>
+                <button class="btn btn-secondary" onclick="window.print()">Print / Save as PDF</button>
                 <a href="/" class="btn btn-secondary">Back to Portfolio</a>
             </div>
         </div>
 
         <div class="cv-document">
             <div class="cv-content" id="cvContent">
-                <!-- Header -->
+
                 <div class="cv-header">
                     <div class="cv-name">DANIEL SERBU</div>
-                    <div class="cv-title">Penetration Tester & Security Researcher</div>
+                    <div class="cv-title">Penetration Tester &amp; Security Researcher</div>
                     <div class="cv-contact-row">
-                        <span>Galati, Romania</span>
-                        <span><a href="mailto:daniel-serbu@outlook.com">daniel-serbu@outlook.com</a></span>
-                        <span><a href="https://www.linkedin.com/in/daniel-serbu/">linkedin.com/in/daniel-serbu</a></span>
-                        <span><a href="https://github.com/danielserbu">github.com/danielserbu</a></span>
-                        <span><a href="https://danielserbu.github.io">danielserbu.github.io</a></span>
+                        Galati, Romania <span class="cv-contact-sep">&nbsp;|&nbsp;</span>
+                        <a href="mailto:daniel-serbu@outlook.com">daniel-serbu@outlook.com</a> <span class="cv-contact-sep">&nbsp;|&nbsp;</span>
+                        <a href="https://www.linkedin.com/in/daniel-serbu/">linkedin.com/in/daniel-serbu</a> <span class="cv-contact-sep">&nbsp;|&nbsp;</span>
+                        <a href="https://github.com/danielserbu">github.com/danielserbu</a> <span class="cv-contact-sep">&nbsp;|&nbsp;</span>
+                        <a href="https://danielserbu.github.io">danielserbu.github.io</a>
                     </div>
                 </div>
 
-                <!-- Professional Summary -->
                 <div class="cv-section">
                     <div class="cv-section-title">Professional Summary</div>
-                    <div class="cv-summary-text" id="cvSummary">
-                        Offensive security specialist with 3+ years of experience in penetration testing and cybersecurity. Expert in identifying and exploiting vulnerabilities across web applications, APIs, cloud infrastructure (AWS, Azure, GCP), mobile applications, and Active Directory environments. Proven track record in delivering comprehensive security assessments, developing red team tools, and conducting secure code reviews. Strong foundation in DevSecOps practices with experience in CI/CD security integration, SAST/DAST implementation, and secure-by-design development.
-                    </div>
+                    <div class="cv-summary-text" id="cvSummary">Offensive security specialist with 3+ years of experience in penetration testing and cybersecurity. Expert in identifying and exploiting vulnerabilities across web applications, APIs, cloud infrastructure (AWS, Azure, GCP), mobile applications, and Active Directory environments. Proven track record in delivering comprehensive security assessments, developing red team tools, and conducting secure code reviews. Strong foundation in DevSecOps practices with experience in CI/CD security integration, SAST/DAST implementation, and secure-by-design development.</div>
                 </div>
 
-                <!-- Professional Experience -->
                 <div class="cv-section" id="cvExperience">
                     <div class="cv-section-title">Professional Experience</div>
 
@@ -486,11 +486,11 @@
                         </div>
                         <div class="cv-exp-company">PFA (Independent Contractor) - Romania</div>
                         <ul class="cv-exp-list">
-                            <li>Conduct comprehensive security assessments across web/mobile applications, APIs, and cloud systems (AWS, Azure, GCP)</li>
-                            <li>Perform external reconnaissance, OSINT investigations, exploitation, and lateral movement testing</li>
-                            <li>Develop custom red team tools and automation scripts to enhance testing efficiency</li>
-                            <li>Execute secure code reviews identifying critical vulnerabilities before production deployment</li>
-                            <li>Prepare detailed vulnerability reports with prioritized remediation guidance and executive summaries</li>
+                            <li>&#8226; Conduct comprehensive security assessments across web/mobile applications, APIs, and cloud systems (AWS, Azure, GCP)</li>
+                            <li>&#8226; Perform external reconnaissance, OSINT investigations, exploitation, and lateral movement testing</li>
+                            <li>&#8226; Develop custom red team tools and automation scripts to enhance testing efficiency</li>
+                            <li>&#8226; Execute secure code reviews identifying critical vulnerabilities before production deployment</li>
+                            <li>&#8226; Prepare detailed vulnerability reports with prioritized remediation guidance and executive summaries</li>
                         </ul>
                     </div>
 
@@ -501,25 +501,25 @@
                         </div>
                         <div class="cv-exp-company">Red Team Security SRL - Romania</div>
                         <ul class="cv-exp-list">
-                            <li>Conducted comprehensive security assessments across web/mobile applications, APIs, and cloud systems</li>
-                            <li>Performed external reconnaissance, OSINT investigations, exploitation, and lateral movement testing</li>
-                            <li>Developed custom red team tools and automation scripts to enhance testing efficiency</li>
-                            <li>Simulated sophisticated phishing campaigns to test organizational security awareness and resilience</li>
-                            <li>Prepared detailed vulnerability reports with prioritized remediation guidance and executive summaries</li>
+                            <li>&#8226; Conducted comprehensive security assessments across web/mobile applications, APIs, and cloud systems</li>
+                            <li>&#8226; Performed external reconnaissance, OSINT investigations, exploitation, and lateral movement testing</li>
+                            <li>&#8226; Developed custom red team tools and automation scripts to enhance testing efficiency</li>
+                            <li>&#8226; Simulated sophisticated phishing campaigns to test organizational security awareness and resilience</li>
+                            <li>&#8226; Prepared detailed vulnerability reports with prioritized remediation guidance and executive summaries</li>
                         </ul>
                     </div>
 
                     <div class="cv-exp-item">
                         <div class="cv-exp-header">
-                            <div class="cv-exp-role">DevOps & Test Automation Engineer</div>
+                            <div class="cv-exp-role">DevOps &amp; Test Automation Engineer</div>
                             <div class="cv-exp-date">Feb 2020 - Jun 2021</div>
                         </div>
                         <div class="cv-exp-company">NAPA - Romania</div>
                         <ul class="cv-exp-list">
-                            <li>Automated CI/CD pipelines using Jenkins, Atlassian Bamboo, and Visual Studio AppCenter</li>
-                            <li>Implemented security controls and vulnerability scanning in deployment pipelines</li>
-                            <li>Integrated security testing tools (SonarQube, MobSF) into development workflows</li>
-                            <li>Designed and executed comprehensive API testing strategies using Postman, Newman, and JMeter</li>
+                            <li>&#8226; Automated CI/CD pipelines using Jenkins, Atlassian Bamboo, and Visual Studio AppCenter</li>
+                            <li>&#8226; Implemented security controls and vulnerability scanning in deployment pipelines</li>
+                            <li>&#8226; Integrated security testing tools (SonarQube, MobSF) into development workflows</li>
+                            <li>&#8226; Designed and executed comprehensive API testing strategies using Postman, Newman, and JMeter</li>
                         </ul>
                     </div>
 
@@ -530,70 +530,95 @@
                         </div>
                         <div class="cv-exp-company">NAPA - Romania</div>
                         <ul class="cv-exp-list">
-                            <li>Designed comprehensive test suites for server/client/mobile applications ensuring security and quality</li>
-                            <li>Developed test automation frameworks using Postman, JMeter, Robot Framework, and Xamarin UI Test</li>
-                            <li>Performed security-focused testing identifying vulnerabilities in early development stages</li>
+                            <li>&#8226; Designed comprehensive test suites for server/client/mobile applications ensuring security and quality</li>
+                            <li>&#8226; Developed test automation frameworks using Postman, JMeter, Robot Framework, and Xamarin UI Test</li>
+                            <li>&#8226; Performed security-focused testing identifying vulnerabilities in early development stages</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Technical Skills -->
                 <div class="cv-section">
                     <div class="cv-section-title">Technical Skills</div>
-                    <div class="cv-skills-grid">
-                        <div class="cv-skill-row"><span class="cv-skill-label">Web Application Security: </span><span class="cv-skill-value">OWASP Top 10, SQL Injection, XSS, CSRF, SSRF, XXE, Auth Bypass, Business Logic</span></div>
-                        <div class="cv-skill-row"><span class="cv-skill-label">Security Tools: </span><span class="cv-skill-value">Burp Suite Pro, Cobalt Strike, Metasploit, Nmap, SQLMap, Nuclei, Ffuf, Hashcat, Impacket</span></div>
-                        <div class="cv-skill-row"><span class="cv-skill-label">Cloud Security: </span><span class="cv-skill-value">AWS, Azure, GCP Pentesting, IAM Analysis, S3 Misconfigurations, Cloud Forensics</span></div>
-                        <div class="cv-skill-row"><span class="cv-skill-label">Mobile & API: </span><span class="cv-skill-value">Android/iOS Pentesting, REST API, GraphQL, Mobile OWASP, Frida</span></div>
-                        <div class="cv-skill-row"><span class="cv-skill-label">DevSecOps: </span><span class="cv-skill-value">Container Security, Kubernetes, SAST/DAST/SCA, CI/CD Security, Jenkins, Bamboo</span></div>
-                        <div class="cv-skill-row"><span class="cv-skill-label">Active Directory: </span><span class="cv-skill-value">AD Exploitation, Kerberoasting, Pass-the-Hash, Pivoting, Evil-WinRM</span></div>
-                    </div>
+                    <table class="cv-skills-table">
+                        <tr>
+                            <td><span class="cv-skill-label">Web Application Security: </span><span class="cv-skill-value">OWASP Top 10, SQL Injection, XSS, CSRF, SSRF, XXE, Auth Bypass, Business Logic</span></td>
+                            <td><span class="cv-skill-label">Security Tools: </span><span class="cv-skill-value">Burp Suite Pro, Cobalt Strike, Metasploit, Nmap, SQLMap, Nuclei, Ffuf, Hashcat, Impacket</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="cv-skill-label">Cloud Security: </span><span class="cv-skill-value">AWS, Azure, GCP Pentesting, IAM Analysis, S3 Misconfigurations, Cloud Forensics</span></td>
+                            <td><span class="cv-skill-label">Mobile &amp; API: </span><span class="cv-skill-value">Android/iOS Pentesting, REST API, GraphQL, Mobile OWASP, Frida</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="cv-skill-label">DevSecOps: </span><span class="cv-skill-value">Container Security, Kubernetes, SAST/DAST/SCA, CI/CD Security, Jenkins, Bamboo</span></td>
+                            <td><span class="cv-skill-label">Active Directory: </span><span class="cv-skill-value">AD Exploitation, Kerberoasting, Pass-the-Hash, Pivoting, Evil-WinRM</span></td>
+                        </tr>
+                    </table>
                 </div>
 
-                <!-- Certifications -->
                 <div class="cv-section">
                     <div class="cv-section-title">Professional Certifications</div>
-                    <div class="cv-certs-grid">
-                        <div class="cv-cert-item">eWPTX - Web App Penetration Tester eXtreme <span class="cv-cert-issuer">(INE Security)</span></div>
-                        <div class="cv-cert-item">eCPPT - Certified Professional Penetration Tester <span class="cv-cert-issuer">(INE Security)</span></div>
-                        <div class="cv-cert-item">eMAPT - Mobile App Penetration Tester <span class="cv-cert-issuer">(INE Security)</span></div>
-                        <div class="cv-cert-item">eJPT - Junior Penetration Tester <span class="cv-cert-issuer">(INE Security)</span></div>
-                        <div class="cv-cert-item">CAPenX - Certified AppSec Pentesting eXpert <span class="cv-cert-issuer">(SecOps Group)</span></div>
-                        <div class="cv-cert-item">CCPenX-AWS - Cloud Pentesting eXpert AWS <span class="cv-cert-issuer">(SecOps Group)</span></div>
-                        <div class="cv-cert-item">CRTSv2 - Certified Red Team Specialist v2 <span class="cv-cert-issuer">(CyberWarfare Labs)</span></div>
-                        <div class="cv-cert-item">CELMS - Enterprise Lateral Movement Specialist <span class="cv-cert-issuer">(CyberWarfare Labs)</span></div>
-                        <div class="cv-cert-item">CRTA - Certified Red Team Analyst <span class="cv-cert-issuer">(CyberWarfare Labs)</span></div>
-                        <div class="cv-cert-item">AD-RTS - AD Red Team Specialist <span class="cv-cert-issuer">(CyberWarfare Labs)</span></div>
-                        <div class="cv-cert-item">API-RTA - API Red Team Analyst <span class="cv-cert-issuer">(CyberWarfare Labs)</span></div>
-                        <div class="cv-cert-item">MCRTA - Multi-Cloud Red Team Analyst <span class="cv-cert-issuer">(CyberWarfare Labs)</span></div>
-                        <div class="cv-cert-item">C-AI/MLPen - Certified AI/ML Pentester <span class="cv-cert-issuer">(SecOps Group)</span></div>
-                        <div class="cv-cert-item">CAPen - Certified AppSec Pentester <span class="cv-cert-issuer">(SecOps Group)</span></div>
-                        <div class="cv-cert-item">C-APIPen - Certified API Pentester <span class="cv-cert-issuer">(SecOps Group)</span></div>
-                        <div class="cv-cert-item">CNPen - Certified Network Pentester <span class="cv-cert-issuer">(SecOps Group)</span></div>
-                        <div class="cv-cert-item">CMPen-Android - Mobile Pentester Android <span class="cv-cert-issuer">(SecOps Group)</span></div>
-                        <div class="cv-cert-item">CAPT - Certified Android Penetration Tester <span class="cv-cert-issuer">(Mobile Hacking Lab)</span></div>
-                        <div class="cv-cert-item">CIPT - Certified iOS Penetration Tester <span class="cv-cert-issuer">(Mobile Hacking Lab)</span></div>
-                    </div>
+                    <table class="cv-certs-table">
+                        <tr>
+                            <td>&#8226; eWPTX - Web App Penetration Tester eXtreme <span class="cv-cert-issuer">(INE Security)</span></td>
+                            <td>&#8226; eCPPT - Certified Professional Penetration Tester <span class="cv-cert-issuer">(INE Security)</span></td>
+                        </tr>
+                        <tr>
+                            <td>&#8226; eMAPT - Mobile App Penetration Tester <span class="cv-cert-issuer">(INE Security)</span></td>
+                            <td>&#8226; eJPT - Junior Penetration Tester <span class="cv-cert-issuer">(INE Security)</span></td>
+                        </tr>
+                        <tr>
+                            <td>&#8226; CAPenX - Certified AppSec Pentesting eXpert <span class="cv-cert-issuer">(SecOps Group)</span></td>
+                            <td>&#8226; CCPenX-AWS - Cloud Pentesting eXpert AWS <span class="cv-cert-issuer">(SecOps Group)</span></td>
+                        </tr>
+                        <tr>
+                            <td>&#8226; CRTSv2 - Certified Red Team Specialist v2 <span class="cv-cert-issuer">(CyberWarfare Labs)</span></td>
+                            <td>&#8226; CELMS - Enterprise Lateral Movement Specialist <span class="cv-cert-issuer">(CyberWarfare Labs)</span></td>
+                        </tr>
+                        <tr>
+                            <td>&#8226; CRTA - Certified Red Team Analyst <span class="cv-cert-issuer">(CyberWarfare Labs)</span></td>
+                            <td>&#8226; AD-RTS - AD Red Team Specialist <span class="cv-cert-issuer">(CyberWarfare Labs)</span></td>
+                        </tr>
+                        <tr>
+                            <td>&#8226; API-RTA - API Red Team Analyst <span class="cv-cert-issuer">(CyberWarfare Labs)</span></td>
+                            <td>&#8226; MCRTA - Multi-Cloud Red Team Analyst <span class="cv-cert-issuer">(CyberWarfare Labs)</span></td>
+                        </tr>
+                        <tr>
+                            <td>&#8226; C-AI/MLPen - Certified AI/ML Pentester <span class="cv-cert-issuer">(SecOps Group)</span></td>
+                            <td>&#8226; CAPen - Certified AppSec Pentester <span class="cv-cert-issuer">(SecOps Group)</span></td>
+                        </tr>
+                        <tr>
+                            <td>&#8226; C-APIPen - Certified API Pentester <span class="cv-cert-issuer">(SecOps Group)</span></td>
+                            <td>&#8226; CNPen - Certified Network Pentester <span class="cv-cert-issuer">(SecOps Group)</span></td>
+                        </tr>
+                        <tr>
+                            <td>&#8226; CMPen-Android - Mobile Pentester Android <span class="cv-cert-issuer">(SecOps Group)</span></td>
+                            <td>&#8226; CAPT - Certified Android Penetration Tester <span class="cv-cert-issuer">(Mobile Hacking Lab)</span></td>
+                        </tr>
+                        <tr>
+                            <td>&#8226; CIPT - Certified iOS Penetration Tester <span class="cv-cert-issuer">(Mobile Hacking Lab)</span></td>
+                            <td></td>
+                        </tr>
+                    </table>
                 </div>
 
-                <!-- Education -->
                 <div class="cv-section">
                     <div class="cv-section-title">Education</div>
-                    <div class="cv-edu-row">
+                    <div class="cv-edu-header">
                         <div class="cv-edu-degree">Bachelor's Degree in Computer Science</div>
                         <div class="cv-edu-year">2015 - 2019</div>
                     </div>
                     <div class="cv-edu-school">Galati "Lower Danube" University</div>
                 </div>
 
-                <!-- Languages -->
                 <div class="cv-section">
                     <div class="cv-section-title">Languages</div>
-                    <div class="cv-langs">
-                        <div><span class="cv-lang-name">Romanian</span> - <span class="cv-lang-level">Native/Bilingual Proficiency</span></div>
-                        <div><span class="cv-lang-name">English</span> - <span class="cv-lang-level">Full Professional Proficiency</span></div>
+                    <div class="cv-langs-row">
+                        <span class="cv-lang-name">Romanian</span> - <span class="cv-lang-level">Native/Bilingual Proficiency</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="cv-lang-name">English</span> - <span class="cv-lang-level">Full Professional Proficiency</span>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -609,12 +634,12 @@
 
         function showNotification(message, type = 'success') {
             const notification = document.createElement('div');
-            let bgColor = 'var(--accent-green)';
-            if (type === 'error') bgColor = 'var(--accent-red)';
-            if (type === 'info') bgColor = 'var(--accent-cyan)';
+            let bgColor = '#00ff9d';
+            if (type === 'error') bgColor = '#ff3e3e';
+            if (type === 'info') bgColor = '#00d4ff';
             notification.style.cssText = `
                 position: fixed; top: 100px; right: 20px;
-                background: ${bgColor}; color: var(--bg-primary);
+                background: ${bgColor}; color: #0a0a0f;
                 padding: 1rem 1.5rem; border-radius: 8px;
                 font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;
                 z-index: 10000; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
@@ -629,36 +654,77 @@
         }
 
         async function downloadPDF() {
-            const element = document.getElementById('cvContent');
-            const opt = {
-                margin: 0,
-                filename: 'Daniel_Serbu_CV.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: {
-                    scale: 2,
-                    useCORS: true,
-                    letterRendering: true,
-                    backgroundColor: '#ffffff',
-                    logging: false,
-                    width: 794,
-                    windowWidth: 794
-                },
-                jsPDF: {
-                    unit: 'mm',
-                    format: 'a4',
-                    orientation: 'portrait',
-                    compress: true
-                },
-                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
-            };
+            const btn = document.getElementById('downloadBtn');
+            btn.disabled = true;
+            btn.textContent = 'Generating...';
 
             try {
                 showNotification('Generating PDF...', 'info');
-                await html2pdf().set(opt).from(element).save();
+
+                // Remove scanlines overlay during capture
+                document.body.classList.remove('show-scanlines');
+
+                // Get the CV content element
+                const element = document.getElementById('cvContent');
+
+                // Clone the element into a temporary off-screen container
+                // This avoids any interference from page layout/overlays
+                const container = document.createElement('div');
+                container.style.cssText = `
+                    position: fixed;
+                    left: -9999px;
+                    top: 0;
+                    width: 794px;
+                    background: #ffffff;
+                    z-index: -1;
+                `;
+                const clone = element.cloneNode(true);
+                clone.style.width = '794px';
+                clone.style.background = '#ffffff';
+                clone.style.color = '#2d2d2d';
+                container.appendChild(clone);
+                document.body.appendChild(container);
+
+                // Small delay to let the clone render
+                await new Promise(resolve => setTimeout(resolve, 200));
+
+                const opt = {
+                    margin: [0, 0, 0, 0],
+                    filename: 'Daniel_Serbu_CV.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: {
+                        scale: 2,
+                        useCORS: true,
+                        backgroundColor: '#ffffff',
+                        logging: false,
+                        width: 794,
+                        height: clone.scrollHeight,
+                        windowWidth: 794,
+                        removeContainer: true
+                    },
+                    jsPDF: {
+                        unit: 'mm',
+                        format: 'a4',
+                        orientation: 'portrait',
+                        compress: true
+                    },
+                    pagebreak: { mode: ['css', 'legacy'] }
+                };
+
+                await html2pdf().set(opt).from(clone).save();
+
+                // Cleanup
+                container.remove();
+                document.body.classList.add('show-scanlines');
+
                 showNotification('PDF downloaded successfully!');
             } catch (error) {
                 console.error('PDF generation error:', error);
-                showNotification('Error generating PDF. Please try again.', 'error');
+                document.body.classList.add('show-scanlines');
+                showNotification('Error generating PDF. Try "Print / Save as PDF" instead.', 'error');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Download PDF';
             }
         }
 
