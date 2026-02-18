@@ -1,5 +1,6 @@
 function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
 
+// IntersectionObserver for fade-in animations
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -9,12 +10,23 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(section);
-});
+function setupSectionAnimations() {
+    document.querySelectorAll('section').forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(section);
+    });
+}
+
+// Only animate the hero section immediately (it has static content)
+const heroSection = document.querySelector('section.hero');
+if (heroSection) {
+    heroSection.style.opacity = '0';
+    heroSection.style.transform = 'translateY(20px)';
+    heroSection.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(heroSection);
+}
 
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
@@ -40,7 +52,6 @@ function showTab(category) {
 async function downloadPDF() {
     const element = document.getElementById('cvContent');
 
-    // Clone the element to avoid modifying the original
     const clone = element.cloneNode(true);
     clone.style.width = '210mm';
     clone.style.minHeight = '297mm';
@@ -58,7 +69,7 @@ async function downloadPDF() {
             letterRendering: true,
             backgroundColor: '#ffffff',
             logging: false,
-            width: 794, // A4 width in pixels at 96 DPI
+            width: 794,
             windowWidth: 794
         },
         jsPDF: {
@@ -113,24 +124,12 @@ function showNotification(message, type = 'success') {
 const style = document.createElement('style');
 style.textContent = `
     @keyframes slideIn {
-        from {
-            transform: translateX(400px);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
+        from { transform: translateX(400px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
     }
     @keyframes slideOut {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(400px);
-            opacity: 0;
-        }
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(400px); opacity: 0; }
     }
 `;
 document.head.appendChild(style);
@@ -144,9 +143,9 @@ function escapeHtml(text) {
 // Load profile data from JSON and populate all sections
 async function loadProfileData() {
     try {
-        const response = await fetch('profile-data.json');
+        const response = await fetch('/profile-data.json', { cache: 'no-cache' });
         if (!response.ok) {
-            console.warn('Could not load profile data, using static content');
+            console.warn('Could not load profile data:', response.status);
             return;
         }
         const data = await response.json();
@@ -158,7 +157,7 @@ async function loadProfileData() {
         const heroRole = document.getElementById('heroRole');
         if (heroRole && data.heroRole) {
             const parts = data.heroRole.split(' & ');
-            heroRole.innerHTML = `<span>${escapeHtml(parts[0])}</span>${parts.length > 1 ? ' & ' + escapeHtml(parts.slice(1).join(' & ')) : ''}`;
+            heroRole.innerHTML = '<span>' + escapeHtml(parts[0]) + '</span>' + (parts.length > 1 ? ' & ' + escapeHtml(parts.slice(1).join(' & ')) : '');
         }
 
         const heroDesc = document.getElementById('heroDescription');
@@ -169,7 +168,7 @@ async function loadProfileData() {
             const aboutText = document.getElementById('aboutText');
             if (aboutText) {
                 aboutText.innerHTML = data.about
-                    .map(p => `<p>${escapeHtml(p)}</p>`)
+                    .map(function(p) { return '<p>' + escapeHtml(p) + '</p>'; })
                     .join('');
             }
         }
@@ -178,15 +177,15 @@ async function loadProfileData() {
         if (data.links) {
             const linksGrid = document.getElementById('linksGrid');
             if (linksGrid) {
-                linksGrid.innerHTML = data.links.map(link => `
-                    <a href="${escapeHtml(link.url)}" class="link-card" target="_blank" rel="noopener noreferrer">
-                        <div class="link-icon">${link.icon}</div>
-                        <div class="link-content">
-                            <h3 class="link-title">${escapeHtml(link.title)}</h3>
-                            <p class="link-description">${escapeHtml(link.description)}</p>
-                        </div>
-                    </a>
-                `).join('');
+                linksGrid.innerHTML = data.links.map(function(link) {
+                    return '<a href="' + escapeHtml(link.url) + '" class="link-card" target="_blank" rel="noopener noreferrer">' +
+                        '<div class="link-icon">' + link.icon + '</div>' +
+                        '<div class="link-content">' +
+                            '<h3 class="link-title">' + escapeHtml(link.title) + '</h3>' +
+                            '<p class="link-description">' + escapeHtml(link.description) + '</p>' +
+                        '</div>' +
+                    '</a>';
+                }).join('');
             }
         }
 
@@ -194,14 +193,15 @@ async function loadProfileData() {
         if (data.skills) {
             const skillsGrid = document.getElementById('skillsGrid');
             if (skillsGrid) {
-                skillsGrid.innerHTML = data.skills.map(skill => `
-                    <div class="skill-category">
-                        <h3>${escapeHtml(skill.category)}</h3>
-                        <div class="skill-tags">
-                            ${skill.tags.map(tag => `<span class="skill-tag">${escapeHtml(tag)}</span>`).join('')}
-                        </div>
-                    </div>
-                `).join('');
+                skillsGrid.innerHTML = data.skills.map(function(skill) {
+                    var tagsHtml = skill.tags.map(function(tag) {
+                        return '<span class="skill-tag">' + escapeHtml(tag) + '</span>';
+                    }).join('');
+                    return '<div class="skill-category">' +
+                        '<h3>' + escapeHtml(skill.category) + '</h3>' +
+                        '<div class="skill-tags">' + tagsHtml + '</div>' +
+                    '</div>';
+                }).join('');
             }
         }
 
@@ -209,16 +209,16 @@ async function loadProfileData() {
         if (data.certifications) {
             const certsGrid = document.getElementById('certsGrid');
             if (certsGrid) {
-                certsGrid.innerHTML = data.certifications.map(cert => `
-                    <div class="cert-card">
-                        <h4>${escapeHtml(cert.shortName)} - ${escapeHtml(cert.fullName)}</h4>
-                        <div class="cert-buttons">
-                            <a href="${escapeHtml(cert.certUrl)}" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My ${escapeHtml(cert.shortName)} Certificate">My Cert</a>
-                            <a href="${escapeHtml(cert.examUrl)}" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="${escapeHtml(cert.issuerFull)} ${escapeHtml(cert.shortName)} Exam">Exam Info</a>
-                        </div>
-                        <div class="issuer">${escapeHtml(cert.issuerFull)}</div>
-                    </div>
-                `).join('');
+                certsGrid.innerHTML = data.certifications.map(function(cert) {
+                    return '<div class="cert-card">' +
+                        '<h4>' + escapeHtml(cert.shortName) + ' - ' + escapeHtml(cert.fullName) + '</h4>' +
+                        '<div class="cert-buttons">' +
+                            '<a href="' + escapeHtml(cert.certUrl) + '" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My ' + escapeHtml(cert.shortName) + ' Certificate">My Cert</a>' +
+                            '<a href="' + escapeHtml(cert.examUrl) + '" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="' + escapeHtml(cert.issuerFull) + ' ' + escapeHtml(cert.shortName) + ' Exam">Exam Info</a>' +
+                        '</div>' +
+                        '<div class="issuer">' + escapeHtml(cert.issuerFull) + '</div>' +
+                    '</div>';
+                }).join('');
             }
         }
 
@@ -227,24 +227,23 @@ async function loadProfileData() {
             const timeline = document.querySelector('#experience .timeline');
             if (timeline) {
                 timeline.innerHTML = '';
-                data.experience.forEach(exp => {
-                    const timelineItem = document.createElement('div');
+                data.experience.forEach(function(exp) {
+                    var timelineItem = document.createElement('div');
                     timelineItem.className = 'timeline-item';
 
-                    const dateRange = exp.current ?
-                        `${exp.startDate} - Present` :
-                        `${exp.startDate} - ${exp.endDate}`;
+                    var dateRange = exp.current ?
+                        exp.startDate + ' - Present' :
+                        exp.startDate + ' - ' + exp.endDate;
 
-                    const responsibilities = exp.responsibilities
-                        .map(resp => `• ${escapeHtml(resp)}`)
+                    var responsibilities = exp.responsibilities
+                        .map(function(resp) { return '&bull; ' + escapeHtml(resp); })
                         .join('<br>');
 
-                    timelineItem.innerHTML = `
-                        <div class="timeline-date">${escapeHtml(dateRange)}</div>
-                        <div class="timeline-title">${escapeHtml(exp.title)}</div>
-                        <div class="timeline-company">${escapeHtml(exp.company)} • ${escapeHtml(exp.location)}</div>
-                        <div class="timeline-description">${responsibilities}</div>
-                    `;
+                    timelineItem.innerHTML =
+                        '<div class="timeline-date">' + escapeHtml(dateRange) + '</div>' +
+                        '<div class="timeline-title">' + escapeHtml(exp.title) + '</div>' +
+                        '<div class="timeline-company">' + escapeHtml(exp.company) + ' &bull; ' + escapeHtml(exp.location) + '</div>' +
+                        '<div class="timeline-description">' + responsibilities + '</div>';
 
                     timeline.appendChild(timelineItem);
                 });
@@ -252,35 +251,37 @@ async function loadProfileData() {
         }
 
         // Contact section
-        if (data.email || data.linkedin) {
-            const contactLinks = document.getElementById('contactLinks');
-            if (contactLinks) {
-                let html = '';
-                if (data.email) {
-                    html += `<a href="mailto:${escapeHtml(data.email)}" class="contact-link"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><span>${escapeHtml(data.email)}</span></a>`;
-                }
-                if (data.linkedin) {
-                    html += `<a href="${escapeHtml(data.linkedin)}" class="contact-link" target="_blank"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg><span>LinkedIn</span></a>`;
-                }
-                contactLinks.innerHTML = html;
+        var contactLinks = document.getElementById('contactLinks');
+        if (contactLinks) {
+            var html = '';
+            if (data.email) {
+                html += '<a href="mailto:' + escapeHtml(data.email) + '" class="contact-link"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><span>' + escapeHtml(data.email) + '</span></a>';
             }
+            if (data.linkedin) {
+                html += '<a href="' + escapeHtml(data.linkedin) + '" class="contact-link" target="_blank"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg><span>LinkedIn</span></a>';
+            }
+            contactLinks.innerHTML = html;
         }
 
         // Terminal certifications
         if (data.certifications) {
-            const terminalCerts = document.getElementById('terminalCerts');
+            var terminalCerts = document.getElementById('terminalCerts');
             if (terminalCerts) {
-                terminalCerts.innerHTML = data.certifications.map(cert => {
-                    const padded = (cert.shortName + '          ').slice(0, 16);
-                    return `<div class="terminal-line output-cert">${padded}- ${escapeHtml(cert.fullName)}</div>`;
+                terminalCerts.innerHTML = data.certifications.map(function(cert) {
+                    var padded = (cert.shortName + '                ').slice(0, 16);
+                    return '<div class="terminal-line output-cert">' + padded + '- ' + escapeHtml(cert.fullName) + '</div>';
                 }).join('');
             }
         }
 
         console.log('Profile data loaded successfully');
     } catch (error) {
-        console.warn('Error loading profile data:', error);
+        console.error('Error loading profile data:', error);
     }
+
+    // After content is loaded, set up fade-in animations on all sections
+    // This ensures the observer fires AFTER sections have content and real height
+    setupSectionAnimations();
 }
 
 // Load profile data when page loads
