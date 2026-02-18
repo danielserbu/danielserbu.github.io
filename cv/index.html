@@ -495,7 +495,6 @@
             <p>Professional CV ready for download. Click below to generate a PDF.</p>
             <div class="cv-actions">
                 <button class="btn btn-primary" id="downloadBtn" onclick="downloadPDF()">Download PDF</button>
-                <button class="btn btn-secondary" onclick="window.print()">Print / Save as PDF</button>
                 <a href="/" class="btn btn-secondary">Back to Portfolio</a>
             </div>
         </div>
@@ -504,163 +503,37 @@
             <div class="cv-content" id="cvContent">
 
                 <div class="cv-header">
-                    <div class="cv-name">DANIEL SERBU</div>
-                    <div class="cv-title">Penetration Tester &amp; Security Researcher</div>
-                    <div class="cv-contact-row">
-                        Galati, Romania <span class="cv-contact-sep">&nbsp;|&nbsp;</span>
-                        <a href="mailto:daniel-serbu@outlook.com">daniel-serbu@outlook.com</a> <span class="cv-contact-sep">&nbsp;|&nbsp;</span>
-                        <a href="https://www.linkedin.com/in/daniel-serbu/">linkedin.com/in/daniel-serbu</a> <span class="cv-contact-sep">&nbsp;|&nbsp;</span>
-                        <a href="https://github.com/danielserbu">github.com/danielserbu</a> <span class="cv-contact-sep">&nbsp;|&nbsp;</span>
-                        <a href="https://danielserbu.github.io">danielserbu.github.io</a>
-                    </div>
+                    <div class="cv-name" id="cvName"></div>
+                    <div class="cv-title" id="cvTitle"></div>
+                    <div class="cv-contact-row" id="cvContactRow"></div>
                 </div>
 
                 <div class="cv-section">
                     <div class="cv-section-title">Professional Summary</div>
-                    <div class="cv-summary-text" id="cvSummary">Offensive security specialist with 3+ years of experience in penetration testing and cybersecurity. Expert in identifying and exploiting vulnerabilities across web applications, APIs, cloud infrastructure (AWS, Azure, GCP), mobile applications, and Active Directory environments. Proven track record in delivering comprehensive security assessments, developing red team tools, and conducting secure code reviews. Strong foundation in DevSecOps practices with experience in CI/CD security integration, SAST/DAST implementation, and secure-by-design development.</div>
+                    <div class="cv-summary-text" id="cvSummary"></div>
                 </div>
 
                 <div class="cv-section" id="cvExperience">
                     <div class="cv-section-title">Professional Experience</div>
-
-                    <div class="cv-exp-item">
-                        <div class="cv-exp-header">
-                            <div class="cv-exp-role">Penetration Tester</div>
-                            <div class="cv-exp-date">Feb 2025 - Present</div>
-                        </div>
-                        <div class="cv-exp-company">PFA (Independent Contractor) - Romania</div>
-                        <ul class="cv-exp-list">
-                            <li>&#8226; Conduct comprehensive security assessments across web/mobile applications, APIs, and cloud systems (AWS, Azure, GCP)</li>
-                            <li>&#8226; Perform external reconnaissance, OSINT investigations, exploitation, and lateral movement testing</li>
-                            <li>&#8226; Develop custom red team tools and automation scripts to enhance testing efficiency</li>
-                            <li>&#8226; Execute secure code reviews identifying critical vulnerabilities before production deployment</li>
-                            <li>&#8226; Prepare detailed vulnerability reports with prioritized remediation guidance and executive summaries</li>
-                        </ul>
-                    </div>
-
-                    <div class="cv-exp-item">
-                        <div class="cv-exp-header">
-                            <div class="cv-exp-role">Penetration Tester</div>
-                            <div class="cv-exp-date">Oct 2022 - Jan 2025</div>
-                        </div>
-                        <div class="cv-exp-company">Red Team Security SRL - Romania</div>
-                        <ul class="cv-exp-list">
-                            <li>&#8226; Conducted comprehensive security assessments across web/mobile applications, APIs, and cloud systems</li>
-                            <li>&#8226; Performed external reconnaissance, OSINT investigations, exploitation, and lateral movement testing</li>
-                            <li>&#8226; Developed custom red team tools and automation scripts to enhance testing efficiency</li>
-                            <li>&#8226; Simulated sophisticated phishing campaigns to test organizational security awareness and resilience</li>
-                            <li>&#8226; Prepared detailed vulnerability reports with prioritized remediation guidance and executive summaries</li>
-                        </ul>
-                    </div>
-
-                    <div class="cv-exp-item">
-                        <div class="cv-exp-header">
-                            <div class="cv-exp-role">DevOps &amp; Test Automation Engineer</div>
-                            <div class="cv-exp-date">Feb 2020 - Jun 2021</div>
-                        </div>
-                        <div class="cv-exp-company">NAPA - Romania</div>
-                        <ul class="cv-exp-list">
-                            <li>&#8226; Automated CI/CD pipelines using Jenkins, Atlassian Bamboo, and Visual Studio AppCenter</li>
-                            <li>&#8226; Implemented security controls and vulnerability scanning in deployment pipelines</li>
-                            <li>&#8226; Integrated security testing tools (SonarQube, MobSF) into development workflows</li>
-                            <li>&#8226; Designed and executed comprehensive API testing strategies using Postman, Newman, and JMeter</li>
-                        </ul>
-                    </div>
-
-                    <div class="cv-exp-item">
-                        <div class="cv-exp-header">
-                            <div class="cv-exp-role">Software QA Test Engineer</div>
-                            <div class="cv-exp-date">Feb 2017 - Feb 2020</div>
-                        </div>
-                        <div class="cv-exp-company">NAPA - Romania</div>
-                        <ul class="cv-exp-list">
-                            <li>&#8226; Designed comprehensive test suites for server/client/mobile applications ensuring security and quality</li>
-                            <li>&#8226; Developed test automation frameworks using Postman, JMeter, Robot Framework, and Xamarin UI Test</li>
-                            <li>&#8226; Performed security-focused testing identifying vulnerabilities in early development stages</li>
-                        </ul>
-                    </div>
                 </div>
 
-                <div class="cv-section">
+                <div class="cv-section" id="cvSkills">
                     <div class="cv-section-title">Technical Skills</div>
-                    <table class="cv-skills-table">
-                        <tr>
-                            <td><span class="cv-skill-label">Web Application Security: </span><span class="cv-skill-value">OWASP Top 10, SQL Injection, XSS, CSRF, SSRF, XXE, Auth Bypass, Business Logic</span></td>
-                            <td><span class="cv-skill-label">Security Tools: </span><span class="cv-skill-value">Burp Suite Pro, Cobalt Strike, Metasploit, Nmap, SQLMap, Nuclei, Ffuf, Hashcat, Impacket</span></td>
-                        </tr>
-                        <tr>
-                            <td><span class="cv-skill-label">Cloud Security: </span><span class="cv-skill-value">AWS, Azure, GCP Pentesting, IAM Analysis, S3 Misconfigurations, Cloud Forensics</span></td>
-                            <td><span class="cv-skill-label">Mobile &amp; API: </span><span class="cv-skill-value">Android/iOS Pentesting, REST API, GraphQL, Mobile OWASP, Frida</span></td>
-                        </tr>
-                        <tr>
-                            <td><span class="cv-skill-label">DevSecOps: </span><span class="cv-skill-value">Container Security, Kubernetes, SAST/DAST/SCA, CI/CD Security, Jenkins, Bamboo</span></td>
-                            <td><span class="cv-skill-label">Active Directory: </span><span class="cv-skill-value">AD Exploitation, Kerberoasting, Pass-the-Hash, Pivoting, Evil-WinRM</span></td>
-                        </tr>
-                    </table>
+                    <table class="cv-skills-table" id="cvSkillsTable"></table>
                 </div>
 
-                <div class="cv-section">
+                <div class="cv-section" id="cvCertifications">
                     <div class="cv-section-title">Professional Certifications</div>
-                    <table class="cv-certs-table">
-                        <tr>
-                            <td>&#8226; eWPTX - Web App Penetration Tester eXtreme <span class="cv-cert-issuer">(INE Security)</span></td>
-                            <td>&#8226; eCPPT - Certified Professional Penetration Tester <span class="cv-cert-issuer">(INE Security)</span></td>
-                        </tr>
-                        <tr>
-                            <td>&#8226; eMAPT - Mobile App Penetration Tester <span class="cv-cert-issuer">(INE Security)</span></td>
-                            <td>&#8226; eJPT - Junior Penetration Tester <span class="cv-cert-issuer">(INE Security)</span></td>
-                        </tr>
-                        <tr>
-                            <td>&#8226; CAPenX - Certified AppSec Pentesting eXpert <span class="cv-cert-issuer">(SecOps Group)</span></td>
-                            <td>&#8226; CCPenX-AWS - Cloud Pentesting eXpert AWS <span class="cv-cert-issuer">(SecOps Group)</span></td>
-                        </tr>
-                        <tr>
-                            <td>&#8226; CRTSv2 - Certified Red Team Specialist v2 <span class="cv-cert-issuer">(CyberWarfare Labs)</span></td>
-                            <td>&#8226; CELMS - Enterprise Lateral Movement Specialist <span class="cv-cert-issuer">(CyberWarfare Labs)</span></td>
-                        </tr>
-                        <tr>
-                            <td>&#8226; CRTA - Certified Red Team Analyst <span class="cv-cert-issuer">(CyberWarfare Labs)</span></td>
-                            <td>&#8226; AD-RTS - AD Red Team Specialist <span class="cv-cert-issuer">(CyberWarfare Labs)</span></td>
-                        </tr>
-                        <tr>
-                            <td>&#8226; API-RTA - API Red Team Analyst <span class="cv-cert-issuer">(CyberWarfare Labs)</span></td>
-                            <td>&#8226; MCRTA - Multi-Cloud Red Team Analyst <span class="cv-cert-issuer">(CyberWarfare Labs)</span></td>
-                        </tr>
-                        <tr>
-                            <td>&#8226; C-AI/MLPen - Certified AI/ML Pentester <span class="cv-cert-issuer">(SecOps Group)</span></td>
-                            <td>&#8226; CAPen - Certified AppSec Pentester <span class="cv-cert-issuer">(SecOps Group)</span></td>
-                        </tr>
-                        <tr>
-                            <td>&#8226; C-APIPen - Certified API Pentester <span class="cv-cert-issuer">(SecOps Group)</span></td>
-                            <td>&#8226; CNPen - Certified Network Pentester <span class="cv-cert-issuer">(SecOps Group)</span></td>
-                        </tr>
-                        <tr>
-                            <td>&#8226; CMPen-Android - Mobile Pentester Android <span class="cv-cert-issuer">(SecOps Group)</span></td>
-                            <td>&#8226; CAPT - Certified Android Penetration Tester <span class="cv-cert-issuer">(Mobile Hacking Lab)</span></td>
-                        </tr>
-                        <tr>
-                            <td>&#8226; CIPT - Certified iOS Penetration Tester <span class="cv-cert-issuer">(Mobile Hacking Lab)</span></td>
-                            <td></td>
-                        </tr>
-                    </table>
+                    <table class="cv-certs-table" id="cvCertsTable"></table>
                 </div>
 
-                <div class="cv-section">
+                <div class="cv-section" id="cvEducation">
                     <div class="cv-section-title">Education</div>
-                    <div class="cv-edu-header">
-                        <div class="cv-edu-degree">Bachelor's Degree in Computer Science</div>
-                        <div class="cv-edu-year">2015 - 2019</div>
-                    </div>
-                    <div class="cv-edu-school">Galati "Lower Danube" University</div>
                 </div>
 
-                <div class="cv-section">
+                <div class="cv-section" id="cvLanguages">
                     <div class="cv-section-title">Languages</div>
-                    <div class="cv-langs-row">
-                        <span class="cv-lang-name">Romanian</span> - <span class="cv-lang-level">Native/Bilingual Proficiency</span>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <span class="cv-lang-name">English</span> - <span class="cv-lang-level">Full Professional Proficiency</span>
-                    </div>
+                    <div class="cv-langs-row" id="cvLangsRow"></div>
                 </div>
 
             </div>
@@ -697,17 +570,14 @@
             }, type === 'info' ? 5000 : 3000);
         }
 
-        // Step 1: Add scale class to constrain layout to A4
         function addScaleCV() {
             document.body.classList.add('scale-cv');
         }
 
-        // Step 2: Remove scale class after PDF generation
         function removeScaleCV() {
             document.body.classList.remove('scale-cv');
         }
 
-        // Step 3: Generate PDF - matching cv-generator's proven approach
         function generateResume() {
             const areaCV = document.getElementById('cvContent');
             let opt = {
@@ -730,19 +600,138 @@
             }, 2500);
         }
 
-        // Load dynamic data from profile-data.json
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
         async function loadProfileData() {
             try {
                 const response = await fetch('/profile-data.json');
                 if (!response.ok) return;
                 const data = await response.json();
 
-                if (data.summary) {
-                    const summaryEl = document.getElementById('cvSummary');
-                    if (summaryEl) summaryEl.textContent = data.summary;
+                // Header
+                const nameEl = document.getElementById('cvName');
+                if (nameEl) nameEl.textContent = data.name ? data.name.toUpperCase() : '';
+
+                const titleEl = document.getElementById('cvTitle');
+                if (titleEl) titleEl.innerHTML = escapeHtml(data.title || '');
+
+                const contactRow = document.getElementById('cvContactRow');
+                if (contactRow) {
+                    const sep = '<span class="cv-contact-sep">&nbsp;|&nbsp;</span>';
+                    contactRow.innerHTML = [
+                        escapeHtml(data.locationShort || data.location || ''),
+                        `<a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a>`,
+                        `<a href="${escapeHtml(data.linkedin)}">${escapeHtml(data.linkedinShort)}</a>`,
+                        `<a href="${escapeHtml(data.github)}">${escapeHtml(data.githubShort)}</a>`,
+                        `<a href="https://${escapeHtml(data.website)}">${escapeHtml(data.website)}</a>`
+                    ].join(sep);
                 }
+
+                // Summary
+                const summaryEl = document.getElementById('cvSummary');
+                if (summaryEl) summaryEl.textContent = data.cvSummary || data.summary || '';
+
+                // Experience
+                if (data.experience) {
+                    const expSection = document.getElementById('cvExperience');
+                    if (expSection) {
+                        data.experience.forEach(exp => {
+                            const dateRange = exp.current ? `${exp.startDate} - Present` : `${exp.startDate} - ${exp.endDate}`;
+                            const responsibilities = exp.responsibilities
+                                .map(r => `<li>&#8226; ${escapeHtml(r)}</li>`)
+                                .join('');
+                            const item = document.createElement('div');
+                            item.className = 'cv-exp-item';
+                            item.innerHTML = `
+                                <div class="cv-exp-header">
+                                    <div class="cv-exp-role">${escapeHtml(exp.title)}</div>
+                                    <div class="cv-exp-date">${escapeHtml(dateRange)}</div>
+                                </div>
+                                <div class="cv-exp-company">${escapeHtml(exp.company)} - ${escapeHtml(exp.location)}</div>
+                                <ul class="cv-exp-list">${responsibilities}</ul>
+                            `;
+                            expSection.appendChild(item);
+                        });
+                    }
+                }
+
+                // Skills
+                if (data.skills) {
+                    const skillsTable = document.getElementById('cvSkillsTable');
+                    if (skillsTable) {
+                        for (let i = 0; i < data.skills.length; i += 2) {
+                            const row = document.createElement('tr');
+                            const skill1 = data.skills[i];
+                            const skill2 = data.skills[i + 1];
+                            const label1 = skill1.cvCategory || skill1.category;
+                            const value1 = (skill1.cvTags || skill1.tags).join(', ');
+                            let cell2Html = '';
+                            if (skill2) {
+                                const label2 = skill2.cvCategory || skill2.category;
+                                const value2 = (skill2.cvTags || skill2.tags).join(', ');
+                                cell2Html = `<td><span class="cv-skill-label">${escapeHtml(label2)}: </span><span class="cv-skill-value">${escapeHtml(value2)}</span></td>`;
+                            } else {
+                                cell2Html = '<td></td>';
+                            }
+                            row.innerHTML = `<td><span class="cv-skill-label">${escapeHtml(label1)}: </span><span class="cv-skill-value">${escapeHtml(value1)}</span></td>${cell2Html}`;
+                            skillsTable.appendChild(row);
+                        }
+                    }
+                }
+
+                // Certifications
+                if (data.certifications) {
+                    const certsTable = document.getElementById('cvCertsTable');
+                    if (certsTable) {
+                        for (let i = 0; i < data.certifications.length; i += 2) {
+                            const row = document.createElement('tr');
+                            const cert1 = data.certifications[i];
+                            const cert2 = data.certifications[i + 1];
+                            const cell1 = `<td>&#8226; ${escapeHtml(cert1.shortName)} - ${escapeHtml(cert1.fullName)} <span class="cv-cert-issuer">(${escapeHtml(cert1.issuer)})</span></td>`;
+                            let cell2 = '<td></td>';
+                            if (cert2) {
+                                cell2 = `<td>&#8226; ${escapeHtml(cert2.shortName)} - ${escapeHtml(cert2.fullName)} <span class="cv-cert-issuer">(${escapeHtml(cert2.issuer)})</span></td>`;
+                            }
+                            row.innerHTML = cell1 + cell2;
+                            certsTable.appendChild(row);
+                        }
+                    }
+                }
+
+                // Education
+                if (data.education) {
+                    const eduSection = document.getElementById('cvEducation');
+                    if (eduSection) {
+                        data.education.forEach(edu => {
+                            const eduDiv = document.createElement('div');
+                            eduDiv.innerHTML = `
+                                <div class="cv-edu-header">
+                                    <div class="cv-edu-degree">${escapeHtml(edu.degree)}</div>
+                                    <div class="cv-edu-year">${escapeHtml(edu.startYear)} - ${escapeHtml(edu.endYear)}</div>
+                                </div>
+                                <div class="cv-edu-school">${escapeHtml(edu.school)}</div>
+                            `;
+                            eduSection.appendChild(eduDiv);
+                        });
+                    }
+                }
+
+                // Languages
+                if (data.languages) {
+                    const langsRow = document.getElementById('cvLangsRow');
+                    if (langsRow) {
+                        langsRow.innerHTML = data.languages
+                            .map(lang => `<span class="cv-lang-name">${escapeHtml(lang.name)}</span> - <span class="cv-lang-level">${escapeHtml(lang.level)}</span>`)
+                            .join('&nbsp;&nbsp;&nbsp;&nbsp;');
+                    }
+                }
+
             } catch (error) {
-                console.warn('Using static CV content');
+                console.warn('Using static CV content:', error);
             }
         }
 

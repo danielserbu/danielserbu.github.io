@@ -1,11 +1,260 @@
 {
   "name": "Daniel Șerbu",
   "title": "Penetration Tester & Security Researcher",
+  "heroRole": "Penetration Tester & Ethical Hacker",
+  "heroDescription": "Offensive security specialist with expertise in web application testing, cloud security, mobile security, and DevSecOps. Breaking things to make them stronger.",
   "location": "Galaţi, Romania",
+  "locationShort": "Galati, Romania",
   "email": "daniel-serbu@outlook.com",
+  "website": "danielserbu.github.io",
   "linkedin": "https://www.linkedin.com/in/daniel-serbu/",
+  "linkedinShort": "linkedin.com/in/daniel-serbu",
   "github": "https://github.com/danielserbu",
+  "githubShort": "github.com/danielserbu",
   "summary": "Offensive security specialist with 3+ years of experience in penetration testing and cybersecurity. Expert in identifying and exploiting vulnerabilities across web applications, APIs, cloud infrastructure (AWS, Azure, GCP), mobile applications, and Active Directory environments. Proven track record in delivering comprehensive security assessments, developing red team tools, and conducting secure code reviews. Strong foundation in DevSecOps practices with experience in CI/CD security integration, SAST/DAST implementation, and secure-by-design development. Published 12+ technical writeups and maintain curated security resources for the community. Passionate about continuous learning and staying ahead of emerging threats in the cybersecurity landscape.",
+  "cvSummary": "Offensive security specialist with 3+ years of experience in penetration testing and cybersecurity. Expert in identifying and exploiting vulnerabilities across web applications, APIs, cloud infrastructure (AWS, Azure, GCP), mobile applications, and Active Directory environments. Proven track record in delivering comprehensive security assessments, developing red team tools, and conducting secure code reviews. Strong foundation in DevSecOps practices with experience in CI/CD security integration, SAST/DAST implementation, and secure-by-design development.",
+  "about": [
+    "I'm a security professional specializing in offensive security and penetration testing. My work focuses on identifying vulnerabilities in web applications, APIs, cloud infrastructure, and mobile applications before malicious actors can exploit them.",
+    "With a strong foundation in multiple offensive security methodologies and DevSecOps practices, I approach each engagement with a thorough, methodical mindset. I'm passionate about continuous learning, sharing knowledge through detailed writeups, and staying ahead of emerging threats.",
+    "I maintain comprehensive resources covering DevSecOps, OSINT, and penetration testing methodologies. Currently focused on web application security, bug bounty hunting, and cloud security across AWS, Azure, and GCP."
+  ],
+  "links": [
+    {
+      "title": "LinkedIn Profile",
+      "description": "Professional networking & career",
+      "url": "https://www.linkedin.com/in/daniel-serbu/",
+      "icon": "💼"
+    },
+    {
+      "title": "Gitbook - Cybersecurity Resources",
+      "description": "Curated security knowledge base",
+      "url": "https://danielserbu.gitbook.io",
+      "icon": "📚"
+    },
+    {
+      "title": "GitHub Profile",
+      "description": "Code repositories & projects",
+      "url": "https://github.com/danielserbu",
+      "icon": "💻"
+    },
+    {
+      "title": "TryHackMe Profile",
+      "description": "Cybersecurity training & labs",
+      "url": "https://tryhackme.com/p/danielserbu",
+      "icon": "🎯"
+    },
+    {
+      "title": "AppSec Engineer Profile",
+      "description": "Application security training",
+      "url": "https://learning.appsecengineer.com/profile/82ffc30a-7321-4eed-b8aa-a81c050183ac",
+      "icon": "🔐"
+    },
+    {
+      "title": "SecureFlag Profile",
+      "description": "OWASP secure coding platform",
+      "url": "https://secureflag.owasp.org/b?f99c0f5e-82ea-44cc-9240-fc49aac5763a",
+      "icon": "🚩"
+    },
+    {
+      "title": "PentesterLab Profile",
+      "description": "Penetration testing labs",
+      "url": "https://pentesterlab.com/profile/danielserbu",
+      "icon": "🧪"
+    },
+    {
+      "title": "Pwned Labs Profile",
+      "description": "Real-world cloud security scenarios",
+      "url": "https://pwnedlabs.io/@danielserbu",
+      "icon": "⚔️"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Web Application Security",
+      "tags": ["OWASP Top 10", "SQL Injection", "XSS", "CSRF", "SSRF", "XXE", "Auth Bypass", "Business Logic"]
+    },
+    {
+      "category": "Tools & Frameworks",
+      "cvCategory": "Security Tools",
+      "tags": ["Burp Suite Pro", "Cobalt Strike", "Metasploit", "Nmap", "SQLMap", "Nuclei", "Ffuf", "Hashcat", "Impacket"]
+    },
+    {
+      "category": "Cloud Security",
+      "tags": ["AWS Pentesting", "Azure Security", "GCP Assessment", "IAM Analysis", "S3 Misconfigs", "Cloud Forensics"],
+      "cvTags": ["AWS, Azure, GCP Pentesting", "IAM Analysis", "S3 Misconfigurations", "Cloud Forensics"]
+    },
+    {
+      "category": "Mobile & API Testing",
+      "cvCategory": "Mobile & API",
+      "tags": ["Android Pentesting", "iOS Assessment", "REST API", "GraphQL", "Mobile OWASP", "Frida"],
+      "cvTags": ["Android/iOS Pentesting", "REST API", "GraphQL", "Mobile OWASP", "Frida"]
+    },
+    {
+      "category": "DevSecOps",
+      "tags": ["Container Security", "Kubernetes", "SAST", "DAST", "SCA", "SBOM", "IaC Security", "Secure Coding"],
+      "cvTags": ["Container Security", "Kubernetes", "SAST/DAST/SCA", "CI/CD Security", "Jenkins", "Bamboo"]
+    },
+    {
+      "category": "Active Directory & Network",
+      "cvCategory": "Active Directory",
+      "tags": ["AD Exploitation", "Kerberoasting", "Pass-the-Hash", "Pivoting", "Wi-Fi Security", "Evil-WinRM"],
+      "cvTags": ["AD Exploitation", "Kerberoasting", "Pass-the-Hash", "Pivoting", "Evil-WinRM"]
+    }
+  ],
+  "certifications": [
+    {
+      "shortName": "eWPTX",
+      "fullName": "Web Application Penetration Tester eXtreme",
+      "issuer": "INE Security",
+      "issuerFull": "INE Security (eLearnSecurity)",
+      "certUrl": "https://certs.ine.com/21b7c494-a7a4-4b35-b2e9-9a004b072515#acc.x9pr5zCf",
+      "examUrl": "https://ine.com/security/certifications/ewptx-certification"
+    },
+    {
+      "shortName": "eCPPT",
+      "fullName": "Certified Professional Penetration Tester",
+      "issuer": "INE Security",
+      "issuerFull": "INE Security (eLearnSecurity)",
+      "certUrl": "https://certs.ine.com/3be91b88-c23c-4a22-91f4-8791c42d7f06#acc.1dknboIp",
+      "examUrl": "https://security.ine.com/certifications/ecppt-certification/"
+    },
+    {
+      "shortName": "eMAPT",
+      "fullName": "Mobile Application Penetration Tester",
+      "issuer": "INE Security",
+      "issuerFull": "INE Security (eLearnSecurity)",
+      "certUrl": "https://certs.ine.com/f9290e6a-4125-4fdc-86e2-7ee63972a20f#acc.kPoIcusD",
+      "examUrl": "https://ine.com/security/certifications/emapt-certification"
+    },
+    {
+      "shortName": "eJPT",
+      "fullName": "Junior Penetration Tester",
+      "issuer": "INE Security",
+      "issuerFull": "INE Security (eLearnSecurity)",
+      "certUrl": "https://serbudaniel.wordpress.com/wp-content/uploads/2022/02/your_ejpt_certificate.pdf",
+      "examUrl": "https://security.ine.com/certifications/ejpt-certification/"
+    },
+    {
+      "shortName": "CAPenX",
+      "fullName": "Certified AppSec Pentesting eXpert",
+      "issuer": "SecOps Group",
+      "issuerFull": "The SecOps Group",
+      "certUrl": "https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXV8ytxQf9z62V6xgGc8hsaeQcc34Oi2u8eoLyW4XCWzaw3w+lN3z9TWs1GMTKhPNJc8Mz14IQHUaq/5+AXgc380=",
+      "examUrl": "https://pentestingexams.com/certifications/expert/certified-appsec-pentesting-expert-capenx/"
+    },
+    {
+      "shortName": "CCPenX-AWS",
+      "fullName": "Certified Cloud Pentesting eXpert - AWS",
+      "issuer": "SecOps Group",
+      "issuerFull": "The SecOps Group",
+      "certUrl": "https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXQB+dK0p2ZmbsxatHXUIpuF0HkeLaRLYN1tVxgMrWIJ1rCrM9f+4Hvy76qkbfj38JOsl/tZ9OswEAcz9ocFBZSY=",
+      "examUrl": "https://pentestingexams.com/certifications/expert/certified-cloud-pentesting-expert/"
+    },
+    {
+      "shortName": "CRTSv2",
+      "fullName": "Certified Red Team Specialist v2",
+      "issuer": "CyberWarfare Labs",
+      "issuerFull": "CyberWarfare Labs",
+      "certUrl": "https://www.credential.net/0a639dc9-fc5e-4614-a751-c315523f725a#acc.FNz21D0p",
+      "examUrl": "https://cyberwarfare.live/product/red-team-specialist-crts/"
+    },
+    {
+      "shortName": "CELMS",
+      "fullName": "Enterprise Lateral Movement Specialist",
+      "issuer": "CyberWarfare Labs",
+      "issuerFull": "CyberWarfare Labs",
+      "certUrl": "https://www.credential.net/cd6316bc-a32d-424b-9382-32a5b5929d95#acc.D9jTGN3y",
+      "examUrl": "https://cyberwarfare.live/product/enterprise-lateral-movement-specialist/"
+    },
+    {
+      "shortName": "CRTA",
+      "fullName": "Certified Red Team Analyst",
+      "issuer": "CyberWarfare Labs",
+      "issuerFull": "CyberWarfare Labs",
+      "certUrl": "https://www.credential.net/77f5e9e2-3a6a-4ec7-ae29-0d89e8d4dcac#acc.7ZUyTRvl",
+      "examUrl": "https://cyberwarfare.live/product/red-team-analyst-crta/"
+    },
+    {
+      "shortName": "AD-RTS",
+      "fullName": "AD Red Team Specialist",
+      "issuer": "CyberWarfare Labs",
+      "issuerFull": "CyberWarfare Labs",
+      "certUrl": "https://labs.cyberwarfare.live/credential/achievement/696999f046d815f910557252",
+      "examUrl": "https://cyberwarfare.live/product/active-directory-red-team-specialist-ad-rts/"
+    },
+    {
+      "shortName": "API-RTA",
+      "fullName": "API Red Team Analyst",
+      "issuer": "CyberWarfare Labs",
+      "issuerFull": "CyberWarfare Labs",
+      "certUrl": "https://labs.cyberwarfare.live/credential/achievement/6973484a6d896ee8347255c5",
+      "examUrl": "https://cyberwarfare.live/product/api-red-team-analyst-api-rta/"
+    },
+    {
+      "shortName": "MCRTA",
+      "fullName": "Multi-Cloud Red Team Analyst",
+      "issuer": "CyberWarfare Labs",
+      "issuerFull": "CyberWarfare Labs",
+      "certUrl": "https://labs.cyberwarfare.live/badge/image/65e6779ae665fd6fafe10fd8",
+      "examUrl": "https://cyberwarfare.live/product/multi-cloud-red-team-analyst-mcrta/"
+    },
+    {
+      "shortName": "C-AI/MLPen",
+      "fullName": "Certified AI/ML Pentester",
+      "issuer": "SecOps Group",
+      "issuerFull": "The SecOps Group",
+      "certUrl": "https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXZwOzDbu+Uivmk1jVlpEroF5cyiIj/fc84vGSy/RpvX5IdHYmcHMG+h3TKokgEFTahGwyJopErW36pXIWLZ9zCk=",
+      "examUrl": "https://pentestingexams.com/product/certified-ai-ml-pentester-c-ai-mlpen"
+    },
+    {
+      "shortName": "CAPen",
+      "fullName": "Certified AppSec Pentester",
+      "issuer": "SecOps Group",
+      "issuerFull": "The SecOps Group",
+      "certUrl": "https://serbudaniel.wordpress.com/wp-content/uploads/2026/01/capen.pdf",
+      "examUrl": "https://pentestingexams.com/certifications/professional/certified-appsec-pentester/"
+    },
+    {
+      "shortName": "C-APIPen",
+      "fullName": "Certified API Pentester",
+      "issuer": "SecOps Group",
+      "issuerFull": "The SecOps Group",
+      "certUrl": "https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXeZ+qoU/U56Umu0hpYR3u/ThVz9KQVDUfkZ8TIVm5oxnqQ1wwwNSE1ebNx9suehpEnB17EaH2Wbx4Yd//JKScMw=",
+      "examUrl": "https://pentestingexams.com/certifications/professional/certified-api-pentester/"
+    },
+    {
+      "shortName": "CNPen",
+      "fullName": "Certified Network Pentester",
+      "issuer": "SecOps Group",
+      "issuerFull": "The SecOps Group",
+      "certUrl": "https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXVby0dxVGo+CJGSLU02WQrgoc9j0FtQJktoAMMFFRKmC3ZAQrZ3W5sFmjv3lNaJWl3kOreANUNbN2y92dw2vhn0=",
+      "examUrl": "https://pentestingexams.com/certifications/professional/certified-network-pentester/"
+    },
+    {
+      "shortName": "CMPen-Android",
+      "fullName": "Certified Mobile Pentester - Android",
+      "issuer": "SecOps Group",
+      "issuerFull": "The SecOps Group",
+      "certUrl": "https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXVFZ9d8O5iZmfctp4kPeGF0ja+81MCvyA23vBkbRrWAi/PRNFD5VkW/E4PojoXIjFi8r8umqFw1CXaObJD85TO0=",
+      "examUrl": "https://pentestingexams.com/certifications/professional/certified-mobile-pentester-cmpen-android/"
+    },
+    {
+      "shortName": "CAPT",
+      "fullName": "Certified Android Penetration Tester",
+      "issuer": "Mobile Hacking Lab",
+      "issuerFull": "Mobile Hacking Lab",
+      "certUrl": "https://credsverse.com/credentials/6b54622c-05a9-4c54-a00c-46c989d1bf11",
+      "examUrl": "https://www.mobilehackinglab.com/course/android-appsec-exam"
+    },
+    {
+      "shortName": "CIPT",
+      "fullName": "Certified iOS Penetration Tester",
+      "issuer": "Mobile Hacking Lab",
+      "issuerFull": "Mobile Hacking Lab",
+      "certUrl": "https://credsverse.com/credentials/8e94a693-310c-4b79-9ddd-da3fa9b2c0e5",
+      "examUrl": "https://www.mobilehackinglab.com/course/ios-appsec-exam"
+    }
+  ],
   "experience": [
     {
       "title": "Penetration Tester",
@@ -22,7 +271,8 @@
         "Prepare detailed vulnerability reports with prioritized remediation guidance and executive summaries",
         "Specialize in OWASP Top 10, business logic flaws, authentication bypasses, and cloud misconfigurations"
       ]
-    },{
+    },
+    {
       "title": "Penetration Tester",
       "company": "Red Team Security SRL",
       "location": "Romania",
@@ -73,7 +323,7 @@
   ],
   "education": [
     {
-      "degree": "Computer Science",
+      "degree": "Bachelor's Degree in Computer Science",
       "school": "Galați \"Lower Danube\" University",
       "startYear": "2015",
       "endYear": "2019"

@@ -80,224 +80,6 @@ async function downloadPDF() {
     }
 }
 
-async function downloadWord() {
-    try {
-        showNotification('Generating Word document...', 'info');
-
-        // Check if docx library is loaded
-        if (typeof docx === 'undefined') {
-            throw new Error('Word export library not loaded. Please refresh the page and try again.');
-        }
-
-        const { Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType, BorderStyle } = docx;
-
-        // Create Word document
-        const doc = new Document({
-            sections: [{
-                properties: {},
-                children: [
-                    // Header
-                    new Paragraph({
-                        text: "Daniel Șerbu",
-                        heading: HeadingLevel.HEADING_1,
-                        alignment: AlignmentType.CENTER,
-                        spacing: { after: 200 }
-                    }),
-                    new Paragraph({
-                        text: "Penetration Tester & Security Researcher",
-                        alignment: AlignmentType.CENTER,
-                        spacing: { after: 100 }
-                    }),
-                    new Paragraph({
-                        alignment: AlignmentType.CENTER,
-                        spacing: { after: 300 },
-                        children: [
-                            new TextRun("📍 Galaţi, Romania  |  "),
-                            new TextRun("📧 daniel-serbu@outlook.com  |  "),
-                            new TextRun("🔗 linkedin.com/in/daniel-serbu")
-                        ]
-                    }),
-
-                    // Professional Summary
-                    new Paragraph({
-                        text: "Professional Summary",
-                        heading: HeadingLevel.HEADING_2,
-                        spacing: { before: 300, after: 200 }
-                    }),
-                    new Paragraph({
-                        text: "Offensive security specialist with 3+ years of experience in penetration testing and cybersecurity. Expert in identifying and exploiting vulnerabilities across web applications, APIs, cloud infrastructure (AWS, Azure, GCP), mobile applications, and Active Directory environments. Proven track record in delivering comprehensive security assessments, developing red team tools, and conducting secure code reviews. Strong foundation in DevSecOps practices with experience in CI/CD security integration, SAST/DAST implementation, and secure-by-design development. Published 12+ technical writeups and maintain curated security resources for the community.",
-                        spacing: { after: 300 }
-                    }),
-
-                    // Professional Experience
-                    new Paragraph({
-                        text: "Professional Experience",
-                        heading: HeadingLevel.HEADING_2,
-                        spacing: { before: 300, after: 200 }
-                    }),
-                    new Paragraph({
-                        text: "Penetration Tester | Oct 2022 - Present",
-                        heading: HeadingLevel.HEADING_3,
-                        spacing: { after: 100 }
-                    }),
-                    new Paragraph({
-                        text: "PFA (Independent Contractor) • Romania",
-                        italics: true,
-                        spacing: { after: 100 }
-                    }),
-                    new Paragraph({
-                        text: "• Conduct comprehensive security assessments across web/mobile applications, APIs, and cloud systems",
-                        spacing: { after: 50 }
-                    }),
-                    new Paragraph({
-                        text: "• Perform external reconnaissance, OSINT investigations, exploitation, and lateral movement testing",
-                        spacing: { after: 50 }
-                    }),
-                    new Paragraph({
-                        text: "• Develop custom red team tools and automation scripts to enhance testing efficiency",
-                        spacing: { after: 50 }
-                    }),
-                    new Paragraph({
-                        text: "• Execute secure code reviews identifying critical vulnerabilities before production deployment",
-                        spacing: { after: 50 }
-                    }),
-                    new Paragraph({
-                        text: "• Simulate sophisticated phishing campaigns to test organizational security awareness",
-                        spacing: { after: 50 }
-                    }),
-                    new Paragraph({
-                        text: "• Prepare detailed vulnerability reports with prioritized remediation guidance",
-                        spacing: { after: 300 }
-                    }),
-
-                    // Technical Skills
-                    new Paragraph({
-                        text: "Technical Skills",
-                        heading: HeadingLevel.HEADING_2,
-                        spacing: { before: 300, after: 200 }
-                    }),
-                    new Paragraph({
-                        children: [
-                            new TextRun({ text: "Web Application Security: ", bold: true }),
-                            new TextRun("OWASP Top 10, SQL Injection, XSS, CSRF, SSRF, XXE, Authentication Bypass, Business Logic Vulnerabilities")
-                        ],
-                        spacing: { after: 100 }
-                    }),
-                    new Paragraph({
-                        children: [
-                            new TextRun({ text: "Security Tools: ", bold: true }),
-                            new TextRun("Burp Suite Pro, Cobalt Strike, Metasploit, Nmap, SQLMap, Nuclei, Ffuf, Hashcat, Impacket")
-                        ],
-                        spacing: { after: 100 }
-                    }),
-                    new Paragraph({
-                        children: [
-                            new TextRun({ text: "Cloud Security: ", bold: true }),
-                            new TextRun("AWS, Azure, GCP Security Assessment, IAM Analysis, S3 Misconfigurations")
-                        ],
-                        spacing: { after: 100 }
-                    }),
-                    new Paragraph({
-                        children: [
-                            new TextRun({ text: "Mobile & API: ", bold: true }),
-                            new TextRun("Android/iOS Pentesting, REST/GraphQL, Mobile OWASP, Frida Framework")
-                        ],
-                        spacing: { after: 100 }
-                    }),
-                    new Paragraph({
-                        children: [
-                            new TextRun({ text: "DevSecOps: ", bold: true }),
-                            new TextRun("Container Security, Kubernetes, SAST/DAST/SCA, CI/CD Security, Jenkins, Bamboo")
-                        ],
-                        spacing: { after: 100 }
-                    }),
-                    new Paragraph({
-                        children: [
-                            new TextRun({ text: "Programming: ", bold: true }),
-                            new TextRun("Python, PowerShell, JavaScript, C#, Bash, Groovy")
-                        ],
-                        spacing: { after: 300 }
-                    }),
-
-                    // Certifications
-                    new Paragraph({
-                        text: "Professional Certifications",
-                        heading: HeadingLevel.HEADING_2,
-                        spacing: { before: 300, after: 200 }
-                    }),
-                    new Paragraph({
-                        text: "• eWPTx - eXtreme Web Application Penetration Tester (INE Security)",
-                        spacing: { after: 50 }
-                    }),
-                    new Paragraph({
-                        text: "• eCPPT - Certified Professional Penetration Tester (INE Security)",
-                        spacing: { after: 50 }
-                    }),
-                    new Paragraph({
-                        text: "• eMAPT - Mobile Application Penetration Tester (INE Security)",
-                        spacing: { after: 50 }
-                    }),
-                    new Paragraph({
-                        text: "• CAPenX - Advanced Azure Penetration Testing (CyberWarfare Labs)",
-                        spacing: { after: 50 }
-                    }),
-                    new Paragraph({
-                        text: "• CCPenX-AWS - Advanced AWS Penetration Testing (CyberWarfare Labs)",
-                        spacing: { after: 50 }
-                    }),
-                    new Paragraph({
-                        text: "• CRTSv2 - Certified Red Team Specialist v2",
-                        spacing: { after: 50 }
-                    }),
-                    new Paragraph({
-                        text: "• CAPT & CIPT - Mobile Security (Mobile Hacking Lab)",
-                        spacing: { after: 300 }
-                    }),
-
-                    // Education
-                    new Paragraph({
-                        text: "Education",
-                        heading: HeadingLevel.HEADING_2,
-                        spacing: { before: 300, after: 200 }
-                    }),
-                    new Paragraph({
-                        text: "Bachelor's Degree in Computer Science",
-                        bold: true,
-                        spacing: { after: 50 }
-                    }),
-                    new Paragraph({
-                        text: "Galați \"Lower Danube\" University • 2015 - 2019",
-                        spacing: { after: 300 }
-                    }),
-
-                    // Languages
-                    new Paragraph({
-                        text: "Languages",
-                        heading: HeadingLevel.HEADING_2,
-                        spacing: { before: 300, after: 200 }
-                    }),
-                    new Paragraph({
-                        text: "• Romanian: Native/Bilingual Proficiency",
-                        spacing: { after: 50 }
-                    }),
-                    new Paragraph({
-                        text: "• English: Full Professional Proficiency",
-                        spacing: { after: 200 }
-                    })
-                ]
-            }]
-        });
-
-        // Generate and save
-        const blob = await Packer.toBlob(doc);
-        saveAs(blob, "Daniel_Serbu_CV.docx");
-        showNotification('Word document downloaded successfully!');
-    } catch (error) {
-        console.error('Word generation error:', error);
-        showNotification('Error generating Word document. Please try again.', 'error');
-    }
-}
-
 function showNotification(message, type = 'success') {
     const notification = document.createElement('div');
     let bgColor = 'var(--accent-green)';
@@ -353,7 +135,13 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Load profile data from JSON and populate CV
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// Load profile data from JSON and populate all sections
 async function loadProfileData() {
     try {
         const response = await fetch('profile-data.json');
@@ -363,27 +151,82 @@ async function loadProfileData() {
         }
         const data = await response.json();
 
-        // Update CV contact info
-        const cvContactInfo = document.querySelector('.cv-contact-info');
-        if (cvContactInfo && data.email) {
-            const emailItem = cvContactInfo.querySelector('.cv-contact-item:nth-child(2)');
-            if (emailItem) emailItem.textContent = `📧 ${data.email}`;
+        // Hero section
+        const heroName = document.getElementById('heroName');
+        if (heroName && data.name) heroName.textContent = data.name;
+
+        const heroRole = document.getElementById('heroRole');
+        if (heroRole && data.heroRole) {
+            const parts = data.heroRole.split(' & ');
+            heroRole.innerHTML = `<span>${escapeHtml(parts[0])}</span>${parts.length > 1 ? ' & ' + escapeHtml(parts.slice(1).join(' & ')) : ''}`;
         }
 
-        // Update CV Professional Summary
-        const cvSummary = document.querySelector('.cv-summary');
-        if (cvSummary && data.summary) {
-            cvSummary.textContent = data.summary;
+        const heroDesc = document.getElementById('heroDescription');
+        if (heroDesc && data.heroDescription) heroDesc.textContent = data.heroDescription;
+
+        // About section
+        if (data.about) {
+            const aboutText = document.getElementById('aboutText');
+            if (aboutText) {
+                aboutText.innerHTML = data.about
+                    .map(p => `<p>${escapeHtml(p)}</p>`)
+                    .join('');
+            }
         }
 
-        // Update Main Experience Timeline Section
+        // Links section
+        if (data.links) {
+            const linksGrid = document.getElementById('linksGrid');
+            if (linksGrid) {
+                linksGrid.innerHTML = data.links.map(link => `
+                    <a href="${escapeHtml(link.url)}" class="link-card" target="_blank" rel="noopener noreferrer">
+                        <div class="link-icon">${link.icon}</div>
+                        <div class="link-content">
+                            <h3 class="link-title">${escapeHtml(link.title)}</h3>
+                            <p class="link-description">${escapeHtml(link.description)}</p>
+                        </div>
+                    </a>
+                `).join('');
+            }
+        }
+
+        // Skills section
+        if (data.skills) {
+            const skillsGrid = document.getElementById('skillsGrid');
+            if (skillsGrid) {
+                skillsGrid.innerHTML = data.skills.map(skill => `
+                    <div class="skill-category">
+                        <h3>${escapeHtml(skill.category)}</h3>
+                        <div class="skill-tags">
+                            ${skill.tags.map(tag => `<span class="skill-tag">${escapeHtml(tag)}</span>`).join('')}
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Certifications section
+        if (data.certifications) {
+            const certsGrid = document.getElementById('certsGrid');
+            if (certsGrid) {
+                certsGrid.innerHTML = data.certifications.map(cert => `
+                    <div class="cert-card">
+                        <h4>${escapeHtml(cert.shortName)} - ${escapeHtml(cert.fullName)}</h4>
+                        <div class="cert-buttons">
+                            <a href="${escapeHtml(cert.certUrl)}" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My ${escapeHtml(cert.shortName)} Certificate">My Cert</a>
+                            <a href="${escapeHtml(cert.examUrl)}" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="${escapeHtml(cert.issuerFull)} ${escapeHtml(cert.shortName)} Exam">Exam Info</a>
+                        </div>
+                        <div class="issuer">${escapeHtml(cert.issuerFull)}</div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Experience section
         if (data.experience && data.experience.length > 0) {
             const timeline = document.querySelector('#experience .timeline');
             if (timeline) {
-                // Clear existing timeline items
                 timeline.innerHTML = '';
-
-                // Add new timeline items from JSON
                 data.experience.forEach(exp => {
                     const timelineItem = document.createElement('div');
                     timelineItem.className = 'timeline-item';
@@ -392,15 +235,14 @@ async function loadProfileData() {
                         `${exp.startDate} - Present` :
                         `${exp.startDate} - ${exp.endDate}`;
 
-                    // Create a full description with all responsibilities
                     const responsibilities = exp.responsibilities
-                        .map(resp => `• ${resp}`)
+                        .map(resp => `• ${escapeHtml(resp)}`)
                         .join('<br>');
 
                     timelineItem.innerHTML = `
-                        <div class="timeline-date">${dateRange}</div>
-                        <div class="timeline-title">${exp.title}</div>
-                        <div class="timeline-company">${exp.company} • ${exp.location}</div>
+                        <div class="timeline-date">${escapeHtml(dateRange)}</div>
+                        <div class="timeline-title">${escapeHtml(exp.title)}</div>
+                        <div class="timeline-company">${escapeHtml(exp.company)} • ${escapeHtml(exp.location)}</div>
                         <div class="timeline-description">${responsibilities}</div>
                     `;
 
@@ -409,40 +251,29 @@ async function loadProfileData() {
             }
         }
 
-        // Update CV Experience Section
-        if (data.experience && data.experience.length > 0) {
-            const experienceSection = document.querySelector('.cv-section:has(.cv-experience-item)');
-            if (experienceSection) {
-                // Remove old experience items
-                const oldItems = experienceSection.querySelectorAll('.cv-experience-item');
-                oldItems.forEach(item => item.remove());
+        // Contact section
+        if (data.email || data.linkedin) {
+            const contactLinks = document.getElementById('contactLinks');
+            if (contactLinks) {
+                let html = '';
+                if (data.email) {
+                    html += `<a href="mailto:${escapeHtml(data.email)}" class="contact-link"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><span>${escapeHtml(data.email)}</span></a>`;
+                }
+                if (data.linkedin) {
+                    html += `<a href="${escapeHtml(data.linkedin)}" class="contact-link" target="_blank"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg><span>LinkedIn</span></a>`;
+                }
+                contactLinks.innerHTML = html;
+            }
+        }
 
-                // Add new experience items from JSON
-                data.experience.forEach(exp => {
-                    const expItem = document.createElement('div');
-                    expItem.className = 'cv-experience-item';
-
-                    const dateRange = exp.current ?
-                        `${exp.startDate} - Present` :
-                        `${exp.startDate} - ${exp.endDate}`;
-
-                    const responsibilities = exp.responsibilities
-                        .map(resp => `<li>${resp}</li>`)
-                        .join('');
-
-                    expItem.innerHTML = `
-                        <div class="cv-experience-header">
-                            <div class="cv-job-title">${exp.title}</div>
-                            <div class="cv-date">${dateRange}</div>
-                        </div>
-                        <div class="cv-company">${exp.company} • ${exp.location}</div>
-                        <div class="cv-description">
-                            <ul>${responsibilities}</ul>
-                        </div>
-                    `;
-
-                    experienceSection.appendChild(expItem);
-                });
+        // Terminal certifications
+        if (data.certifications) {
+            const terminalCerts = document.getElementById('terminalCerts');
+            if (terminalCerts) {
+                terminalCerts.innerHTML = data.certifications.map(cert => {
+                    const padded = (cert.shortName + '          ').slice(0, 16);
+                    return `<div class="terminal-line output-cert">${padded}- ${escapeHtml(cert.fullName)}</div>`;
+                }).join('');
             }
         }
 
@@ -456,6 +287,5 @@ async function loadProfileData() {
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', loadProfileData);
 } else {
-    // DOM is already loaded, call the function immediately
     loadProfileData();
 }
