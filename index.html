@@ -31,9 +31,9 @@
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Hi, I'm <span class="name">Daniel Serbu</span></h1>
-                    <p class="role"><span>Penetration Tester</span> & Ethical Hacker</p>
-                    <p>Offensive security specialist with expertise in web application testing, cloud security, mobile security, and DevSecOps. Breaking things to make them stronger.</p>
+                    <h1>Hi, I'm <span class="name" id="heroName">Daniel Serbu</span></h1>
+                    <p class="role" id="heroRole"><span>Penetration Tester</span> & Ethical Hacker</p>
+                    <p id="heroDescription">Offensive security specialist with expertise in web application testing, cloud security, mobile security, and DevSecOps. Breaking things to make them stronger.</p>
                     <div class="hero-buttons">
                         <a href="/cv" class="btn btn-primary">View CV</a>
                         <a href="#contact" class="btn btn-secondary">Contact Me</a>
@@ -55,25 +55,27 @@
                         <div class="terminal-line output">Web Application Security | Cloud Pentesting (AWS/Azure/GCP)</div>
                         <div class="terminal-line output">Mobile Security (Android/iOS) | Active Directory | DevSecOps | OSINT</div>
                         <div class="terminal-line"><span class="prompt-red">*Evil-WinRM*</span> <span class="prompt-red">PS</span> <span class="command-red">C:\Users\daniel></span> <span class="command">Get-ChildItem certifications\ | Format-Table</span></div>
-                        <div class="terminal-line output-cert">eWPTX           - Web Application Penetration Tester eXtreme</div>
-                        <div class="terminal-line output-cert">eCPPT           - Certified Professional Penetration Tester</div>
-                        <div class="terminal-line output-cert">eMAPT           - Mobile Application Penetration Tester</div>
-                        <div class="terminal-line output-cert">eJPTv1          - Junior Penetration Tester v1</div>
-                        <div class="terminal-line output-cert">CAPenX          - Certified AppSec Pentesting eXpert</div>
-                        <div class="terminal-line output-cert">CCPenX-AWS      - Certified Cloud Pentesting eXpert - AWS</div>
-                        <div class="terminal-line output-cert">CRTSv2          - Certified Red Team Specialist v2</div>
-                        <div class="terminal-line output-cert">CELMS           - Certified Enterprise Lateral Movement Specialist</div>
-                        <div class="terminal-line output-cert">CRTA            - Certified Red Team Analyst</div>
-                        <div class="terminal-line output-cert">AD-RTS          - Active Directory Red Team Specialist</div>
-                        <div class="terminal-line output-cert">API-RTA         - API Red Team Analyst</div>
-                        <div class="terminal-line output-cert">MCRTA           - Multi-Cloud Red Team Analyst</div>
-                        <div class="terminal-line output-cert">C-AI/MLPen      - Certified AI/ML Pentester</div>
-                        <div class="terminal-line output-cert">CAPen           - Certified AppSec Pentester</div>
-                        <div class="terminal-line output-cert">C-APIPen        - Certified API Pentester</div>
-                        <div class="terminal-line output-cert">CNPen           - Certified Network Pentester</div>
-                        <div class="terminal-line output-cert">CMPen-Android   - Certified Mobile Pentester - Android</div>
-                        <div class="terminal-line output-cert">CAPT            - Certified Android Penetration Tester</div>
-                        <div class="terminal-line output-cert">CIPT            - Certified iOS Penetration Tester</div>
+                        <div class="terminal-line" id="terminalCerts">
+                            <div class="terminal-line output-cert">eWPTX           - Web Application Penetration Tester eXtreme</div>
+                            <div class="terminal-line output-cert">eCPPT           - Certified Professional Penetration Tester</div>
+                            <div class="terminal-line output-cert">eMAPT           - Mobile Application Penetration Tester</div>
+                            <div class="terminal-line output-cert">eJPTv1          - Junior Penetration Tester v1</div>
+                            <div class="terminal-line output-cert">CAPenX          - Certified AppSec Pentesting eXpert</div>
+                            <div class="terminal-line output-cert">CCPenX-AWS      - Certified Cloud Pentesting eXpert - AWS</div>
+                            <div class="terminal-line output-cert">CRTSv2          - Certified Red Team Specialist v2</div>
+                            <div class="terminal-line output-cert">CELMS           - Certified Enterprise Lateral Movement Specialist</div>
+                            <div class="terminal-line output-cert">CRTA            - Certified Red Team Analyst</div>
+                            <div class="terminal-line output-cert">AD-RTS          - Active Directory Red Team Specialist</div>
+                            <div class="terminal-line output-cert">API-RTA         - API Red Team Analyst</div>
+                            <div class="terminal-line output-cert">MCRTA           - Multi-Cloud Red Team Analyst</div>
+                            <div class="terminal-line output-cert">C-AI/MLPen      - Certified AI/ML Pentester</div>
+                            <div class="terminal-line output-cert">CAPen           - Certified AppSec Pentester</div>
+                            <div class="terminal-line output-cert">C-APIPen        - Certified API Pentester</div>
+                            <div class="terminal-line output-cert">CNPen           - Certified Network Pentester</div>
+                            <div class="terminal-line output-cert">CMPen-Android   - Certified Mobile Pentester - Android</div>
+                            <div class="terminal-line output-cert">CAPT            - Certified Android Penetration Tester</div>
+                            <div class="terminal-line output-cert">CIPT            - Certified iOS Penetration Tester</div>
+                        </div>
                         <div class="terminal-line"><span class="prompt-red">*Evil-WinRM*</span> <span class="prompt-red">PS</span> <span class="command-red">C:\Users\daniel></span> <span class="command">.\pivot_network.ps1</span></div>
                         <div class="terminal-line output-success">[+] Let's hunt for vulnerabilities...</div>
                     </div>
@@ -85,288 +87,23 @@
 
     <section id="about">
         <div class="section-header"><h2>About</h2></div>
-        <div class="about-text">
-            <p>I'm a security professional specializing in offensive security and penetration testing. My work focuses on identifying vulnerabilities in web applications, APIs, cloud infrastructure, and mobile applications before malicious actors can exploit them.</p>
-            <p>With a strong foundation in multiple offensive security methodologies and DevSecOps practices, I approach each engagement with a thorough, methodical mindset. I'm passionate about continuous learning, sharing knowledge through detailed writeups, and staying ahead of emerging threats.</p>
-            <p>I maintain comprehensive resources covering DevSecOps, OSINT, and penetration testing methodologies. Currently focused on web application security, bug bounty hunting, and cloud security across AWS, Azure, and GCP.</p>
-        </div>
+        <div class="about-text" id="aboutText"></div>
     </section>
 
     <section id="links">
         <div class="section-header"><h2>Quick Links</h2></div>
-        <div class="links-grid">
-            <!-- Professional Profiles -->
-            <a href="https://www.linkedin.com/in/daniel-serbu/" class="link-card" target="_blank" rel="noopener noreferrer">
-                <div class="link-icon">💼</div>
-                <div class="link-content">
-                    <h3 class="link-title">LinkedIn Profile</h3>
-                    <p class="link-description">Professional networking & career</p>
-                </div>
-            </a>
-
-            <!-- Blogs & Resources -->
-            <a href="https://danielserbu.gitbook.io" class="link-card" target="_blank" rel="noopener noreferrer">
-                <div class="link-icon">📚</div>
-                <div class="link-content">
-                    <h3 class="link-title">Gitbook - Cybersecurity Resources</h3>
-                    <p class="link-description">Curated security knowledge base</p>
-                </div>
-            </a>
-
-            <a href="https://github.com/danielserbu" class="link-card" target="_blank" rel="noopener noreferrer">
-                <div class="link-icon">💻</div>
-                <div class="link-content">
-                    <h3 class="link-title">GitHub Profile</h3>
-                    <p class="link-description">Code repositories & projects</p>
-                </div>
-            </a>
-
-            <!-- Training Profiles -->
-            <a href="https://tryhackme.com/p/danielserbu" class="link-card" target="_blank" rel="noopener noreferrer">
-                <div class="link-icon">🎯</div>
-                <div class="link-content">
-                    <h3 class="link-title">TryHackMe Profile</h3>
-                    <p class="link-description">Cybersecurity training & labs</p>
-                </div>
-            </a>
-
-            <a href="https://learning.appsecengineer.com/profile/82ffc30a-7321-4eed-b8aa-a81c050183ac" class="link-card" target="_blank" rel="noopener noreferrer">
-                <div class="link-icon">🔐</div>
-                <div class="link-content">
-                    <h3 class="link-title">AppSec Engineer Profile</h3>
-                    <p class="link-description">Application security training</p>
-                </div>
-            </a>
-
-            <a href="https://secureflag.owasp.org/b?f99c0f5e-82ea-44cc-9240-fc49aac5763a" class="link-card" target="_blank" rel="noopener noreferrer">
-                <div class="link-icon">🚩</div>
-                <div class="link-content">
-                    <h3 class="link-title">SecureFlag Profile</h3>
-                    <p class="link-description">OWASP secure coding platform</p>
-                </div>
-            </a>
-
-            <a href="https://pentesterlab.com/profile/danielserbu" class="link-card" target="_blank" rel="noopener noreferrer">
-                <div class="link-icon">🧪</div>
-                <div class="link-content">
-                    <h3 class="link-title">PentesterLab Profile</h3>
-                    <p class="link-description">Penetration testing labs</p>
-                </div>
-            </a>
-
-            <a href="https://pwnedlabs.io/@danielserbu" class="link-card" target="_blank" rel="noopener noreferrer">
-                <div class="link-icon">⚔️</div>
-                <div class="link-content">
-                    <h3 class="link-title">Pwned Labs Profile</h3>
-                    <p class="link-description">Real-world cloud security scenarios</p>
-                </div>
-            </a>
-
-        </div>
+        <div class="links-grid" id="linksGrid"></div>
     </section>
 
     <section id="skills">
         <div class="section-header"><h2>Skills</h2></div>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>Web Application Security</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">OWASP Top 10</span><span class="skill-tag">SQL Injection</span><span class="skill-tag">XSS</span><span class="skill-tag">CSRF</span><span class="skill-tag">SSRF</span><span class="skill-tag">XXE</span><span class="skill-tag">Auth Bypass</span><span class="skill-tag">Business Logic</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Tools & Frameworks</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Burp Suite Pro</span><span class="skill-tag">Cobalt Strike</span><span class="skill-tag">Metasploit</span><span class="skill-tag">Nmap</span><span class="skill-tag">SQLMap</span><span class="skill-tag">Nuclei</span><span class="skill-tag">Ffuf</span><span class="skill-tag">Hashcat</span><span class="skill-tag">Impacket</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Cloud Security</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">AWS Pentesting</span><span class="skill-tag">Azure Security</span><span class="skill-tag">GCP Assessment</span><span class="skill-tag">IAM Analysis</span><span class="skill-tag">S3 Misconfigs</span><span class="skill-tag">Cloud Forensics</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Mobile & API Testing</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Android Pentesting</span><span class="skill-tag">iOS Assessment</span><span class="skill-tag">REST API</span><span class="skill-tag">GraphQL</span><span class="skill-tag">Mobile OWASP</span><span class="skill-tag">Frida</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>DevSecOps</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Container Security</span><span class="skill-tag">Kubernetes</span><span class="skill-tag">SAST</span><span class="skill-tag">DAST</span><span class="skill-tag">SCA</span><span class="skill-tag">SBOM</span><span class="skill-tag">IaC Security</span><span class="skill-tag">Secure Coding</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Active Directory & Network</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">AD Exploitation</span><span class="skill-tag">Kerberoasting</span><span class="skill-tag">Pass-the-Hash</span><span class="skill-tag">Pivoting</span><span class="skill-tag">Wi-Fi Security</span><span class="skill-tag">Evil-WinRM</span>
-                </div>
-            </div>
-        </div>
+        <div class="skills-grid" id="skillsGrid"></div>
     </section>
 
     <section id="certifications">
-    <div class="section-header"><h2>Certifications</h2></div>
-    <div class="certs-grid">
-        <div class="cert-card">
-            <h4>eWPTX - Web Application Penetration Tester eXtreme</h4>
-            <div class="cert-buttons">
-                <a href="https://certs.ine.com/21b7c494-a7a4-4b35-b2e9-9a004b072515#acc.x9pr5zCf" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My eWPTX Certificate">My Cert</a>
-                <a href="https://ine.com/security/certifications/ewptx-certification" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="INE Security eWPTX Exam">Exam Info</a>
-            </div>
-            <div class="issuer">INE Security (eLearnSecurity)</div>
-        </div>
-        <div class="cert-card">
-            <h4>eCPPT - Certified Professional Penetration Tester</h4>
-            <div class="cert-buttons">
-                <a href="https://certs.ine.com/3be91b88-c23c-4a22-91f4-8791c42d7f06#acc.1dknboIp" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My eCPPT Certificate">My Cert</a>
-                <a href="https://security.ine.com/certifications/ecppt-certification/" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="INE Security eCPPT Exam">Exam Info</a>
-            </div>
-            <div class="issuer">INE Security (eLearnSecurity)</div>
-        </div>
-        <div class="cert-card">
-            <h4>eMAPT - Mobile Application Penetration Tester</h4>
-            <div class="cert-buttons">
-                <a href="https://certs.ine.com/f9290e6a-4125-4fdc-86e2-7ee63972a20f#acc.kPoIcusD" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My eMAPT Certificate">My Cert</a>
-                <a href="https://ine.com/security/certifications/emapt-certification" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="INE Security eMAPT Exam">Exam Info</a>
-            </div>
-            <div class="issuer">INE Security (eLearnSecurity)</div>
-        </div>
-        <div class="cert-card">
-            <h4>eJPT - Junior Penetration Tester</h4>
-            <div class="cert-buttons">
-                <a href="https://serbudaniel.wordpress.com/wp-content/uploads/2022/02/your_ejpt_certificate.pdf" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My eJPTv1 Certificate">My Cert</a>
-                <a href="https://security.ine.com/certifications/ejpt-certification/" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="INE Security eJPT Exam">Exam Info</a>
-            </div>
-            <div class="issuer">INE Security (eLearnSecurity)</div>
-        </div>
-        <div class="cert-card">
-            <h4>CAPenX - Certified AppSec Pentesting eXpert</h4>
-            <div class="cert-buttons">
-                <a href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXV8ytxQf9z62V6xgGc8hsaeQcc34Oi2u8eoLyW4XCWzaw3w+lN3z9TWs1GMTKhPNJc8Mz14IQHUaq/5+AXgc380=" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My CAPenX Certificate">My Cert</a>
-                <a href="https://pentestingexams.com/certifications/expert/certified-appsec-pentesting-expert-capenx/" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="SecOps Group CAPenX Exam">Exam Info</a>
-            </div>
-            <div class="issuer">The SecOps Group</div>
-        </div>
-        <div class="cert-card">
-            <h4>CCPenX-AWS - Certified Cloud Pentesting eXpert - AWS</h4>
-            <div class="cert-buttons">
-                <a href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXQB+dK0p2ZmbsxatHXUIpuF0HkeLaRLYN1tVxgMrWIJ1rCrM9f+4Hvy76qkbfj38JOsl/tZ9OswEAcz9ocFBZSY=" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My CCPenX-AWS Certificate">My Cert</a>
-                <a href="https://pentestingexams.com/certifications/expert/certified-cloud-pentesting-expert/" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="SecOps Group CCPenX-AWS Exam">Exam Info</a>
-            </div>
-            <div class="issuer">The SecOps Group</div>
-        </div>
-        <div class="cert-card">
-            <h4>CRTSv2 - Certified Red Team Specialist v2</h4>
-            <div class="cert-buttons">
-                <a href="https://www.credential.net/0a639dc9-fc5e-4614-a751-c315523f725a#acc.FNz21D0p" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My CRTSv2 Certificate">My Cert</a>
-                <a href="https://cyberwarfare.live/product/red-team-specialist-crts/" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="CyberWarfare Labs CRTSv2 Exam">Exam Info</a>
-            </div>
-            <div class="issuer">CyberWarfare Labs</div>
-        </div>
-        <div class="cert-card">
-            <h4>CELMS - Enterprise Lateral Movement Specialist</h4>
-            <div class="cert-buttons">
-                <a href="https://www.credential.net/cd6316bc-a32d-424b-9382-32a5b5929d95#acc.D9jTGN3y" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My CELMS Certificate">My Cert</a>
-                <a href="https://cyberwarfare.live/product/enterprise-lateral-movement-specialist/" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="CyberWarfare Labs CELMS Exam">Exam Info</a>
-            </div>
-            <div class="issuer">CyberWarfare Labs</div>
-        </div>
-        <div class="cert-card">
-            <h4>CRTA - Certified Red Team Analyst</h4>
-            <div class="cert-buttons">
-                <a href="https://www.credential.net/77f5e9e2-3a6a-4ec7-ae29-0d89e8d4dcac#acc.7ZUyTRvl" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My CRTA Certificate">My Cert</a>
-                <a href="https://cyberwarfare.live/product/red-team-analyst-crta/" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="CyberWarfare Labs CRTA Exam">Exam Info</a>
-            </div>
-            <div class="issuer">CyberWarfare Labs</div>
-        </div>
-        <div class="cert-card">
-            <h4>AD-RTS - Certified AD Red Team Specialist</h4>
-            <div class="cert-buttons">
-                <a href="https://labs.cyberwarfare.live/credential/achievement/696999f046d815f910557252" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My AD-RTS Certificate">My Cert</a>
-                <a href="https://cyberwarfare.live/product/active-directory-red-team-specialist-ad-rts/" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="CyberWarfare Labs AD-RTS Exam">Exam Info</a>
-            </div>
-            <div class="issuer">CyberWarfare Labs</div>
-        </div>
-        <div class="cert-card">
-            <h4>API-RTA - Certified API Red Team Analyst</h4>
-            <div class="cert-buttons">
-                <a href="https://labs.cyberwarfare.live/credential/achievement/6973484a6d896ee8347255c5" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My AD-RTS Certificate">My Cert</a>
-                <a href="https://cyberwarfare.live/product/api-red-team-analyst-api-rta/" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="CyberWarfare Labs AD-RTS Exam">Exam Info</a>
-            </div>
-            <div class="issuer">CyberWarfare Labs</div>
-        </div>
-        <div class="cert-card">
-            <h4>MCRTA - Multi-Cloud Red Team Analyst</h4>
-            <div class="cert-buttons">
-                <a href="https://labs.cyberwarfare.live/badge/image/65e6779ae665fd6fafe10fd8" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My MCRTA Certificate">My Cert</a>
-                <a href="https://cyberwarfare.live/product/multi-cloud-red-team-analyst-mcrta/" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="CyberWarfare Labs MCRTA Exam">Exam Info</a>
-            </div>
-            <div class="issuer">CyberWarfare Labs</div>
-        </div>
-        <div class="cert-card">
-            <h4>C-AI/MLPen - Certified AI/ML Pentester</h4>
-            <div class="cert-buttons">
-                <a href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXZwOzDbu+Uivmk1jVlpEroF5cyiIj/fc84vGSy/RpvX5IdHYmcHMG+h3TKokgEFTahGwyJopErW36pXIWLZ9zCk=" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My C-AI/MLPen Certificate">My Cert</a>
-                <a href="https://pentestingexams.com/product/certified-ai-ml-pentester-c-ai-mlpen" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="SecOps Group C-AI/MLPen Exam">Exam Info</a>
-            </div>
-            <div class="issuer">The SecOps Group</div>
-        </div>
-        <div class="cert-card">
-            <h4>CAPen - Certified AppSec Pentester</h4>
-            <div class="cert-buttons">
-                <a href="https://serbudaniel.wordpress.com/wp-content/uploads/2026/01/capen.pdf" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My CAPen Certificate">My Cert</a>
-                <a href="https://pentestingexams.com/certifications/professional/certified-appsec-pentester/" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="SecOps Group CAPen Exam">Exam Info</a>
-            </div>
-            <div class="issuer">The SecOps Group</div>
-        </div>
-        <div class="cert-card">
-            <h4>C-APIPen - Certified API Pentester</h4>
-            <div class="cert-buttons">
-                <a href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXeZ+qoU/U56Umu0hpYR3u/ThVz9KQVDUfkZ8TIVm5oxnqQ1wwwNSE1ebNx9suehpEnB17EaH2Wbx4Yd//JKScMw=" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My C-APIPen Certificate">My Cert</a>
-                <a href="https://pentestingexams.com/certifications/professional/certified-api-pentester/" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="SecOps Group C-APIPen Exam">Exam Info</a>
-            </div>
-            <div class="issuer">The SecOps Group</div>
-        </div>
-        <div class="cert-card">
-            <h4>CNPen - Certified Network Pentester</h4>
-            <div class="cert-buttons">
-                <a href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXVby0dxVGo+CJGSLU02WQrgoc9j0FtQJktoAMMFFRKmC3ZAQrZ3W5sFmjv3lNaJWl3kOreANUNbN2y92dw2vhn0=" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My CNPen Certificate">My Cert</a>
-                <a href="https://pentestingexams.com/certifications/professional/certified-network-pentester/" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="SecOps Group CNPen Exam">Exam Info</a>
-            </div>
-            <div class="issuer">The SecOps Group</div>
-        </div>
-        <div class="cert-card">
-            <h4>CMPen-Android - Certified Mobile Pentester - Android</h4>
-            <div class="cert-buttons">
-                <a href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXVFZ9d8O5iZmfctp4kPeGF0ja+81MCvyA23vBkbRrWAi/PRNFD5VkW/E4PojoXIjFi8r8umqFw1CXaObJD85TO0=" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My CMPen-Android Certificate">My Cert</a>
-                <a href="https://pentestingexams.com/certifications/professional/certified-mobile-pentester-cmpen-android/" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="SecOps Group CMPen-Android Exam">Exam Info</a>
-            </div>
-            <div class="issuer">The SecOps Group</div>
-        </div>
-        <div class="cert-card">
-            <h4>CAPT - Certified Android Penetration Tester</h4>
-            <div class="cert-buttons">
-                <a href="https://credsverse.com/credentials/6b54622c-05a9-4c54-a00c-46c989d1bf11" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My CAPT Certificate">My Cert</a>
-                <a href="https://www.mobilehackinglab.com/course/android-appsec-exam" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="Mobile Hacking Lab CAPT Exam">Exam Info</a>
-            </div>
-            <div class="issuer">Mobile Hacking Lab</div>
-        </div>
-        <div class="cert-card">
-            <h4>CIPT - Certified iOS Penetration Tester</h4>
-            <div class="cert-buttons">
-                <a href="https://credsverse.com/credentials/8e94a693-310c-4b79-9ddd-da3fa9b2c0e5" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My CIPT Certificate">My Cert</a>
-                <a href="https://www.mobilehackinglab.com/course/ios-appsec-exam" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="Mobile Hacking Lab CIPT Exam">Exam Info</a>
-            </div>
-            <div class="issuer">Mobile Hacking Lab</div>
-        </div>
-    </div>
-</section>
-
-
-
+        <div class="section-header"><h2>Certifications</h2></div>
+        <div class="certs-grid" id="certsGrid"></div>
+    </section>
 
     <section id="experience">
         <div class="section-header"><h2>Experience</h2></div>
@@ -380,10 +117,7 @@
         <div class="section-header"><h2>Contact</h2></div>
         <div class="contact-info">
             <div class="contact-text"><p>Interested in working together? Let's connect.</p></div>
-            <div class="contact-links">
-                <a href="mailto:daniel-serbu@outlook.com" class="contact-link"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><span>daniel-serbu@outlook.com</span></a>
-                <a href="https://www.linkedin.com/in/daniel-serbu/" class="contact-link" target="_blank"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg><span>LinkedIn</span></a>
-            </div>
+            <div class="contact-links" id="contactLinks"></div>
         </div>
     </section>
 
