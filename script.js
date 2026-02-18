@@ -12,20 +12,14 @@ const observer = new IntersectionObserver((entries) => {
 
 function setupSectionAnimations() {
     document.querySelectorAll('section').forEach(section => {
+        // Skip the hero section — it's already visible in the viewport on load,
+        // so animating it causes a flash where it disappears then fades back in
+        if (section.classList.contains('hero')) return;
         section.style.opacity = '0';
         section.style.transform = 'translateY(20px)';
         section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(section);
     });
-}
-
-// Only animate the hero section immediately (it has static content)
-const heroSection = document.querySelector('section.hero');
-if (heroSection) {
-    heroSection.style.opacity = '0';
-    heroSection.style.transform = 'translateY(20px)';
-    heroSection.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(heroSection);
 }
 
 const sections = document.querySelectorAll('section[id]');
