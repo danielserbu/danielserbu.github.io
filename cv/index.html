@@ -608,52 +608,54 @@
 
         async function loadProfileData() {
             try {
-                const response = await fetch('/profile-data.json');
-                if (!response.ok) return;
-                const data = await response.json();
+                var response = await fetch('/profile-data.json', { cache: 'no-cache' });
+                if (!response.ok) {
+                    console.error('Failed to load profile data:', response.status);
+                    return;
+                }
+                var data = await response.json();
 
                 // Header
-                const nameEl = document.getElementById('cvName');
+                var nameEl = document.getElementById('cvName');
                 if (nameEl) nameEl.textContent = data.name ? data.name.toUpperCase() : '';
 
-                const titleEl = document.getElementById('cvTitle');
-                if (titleEl) titleEl.innerHTML = escapeHtml(data.title || '');
+                var titleEl = document.getElementById('cvTitle');
+                if (titleEl) titleEl.textContent = data.title || '';
 
-                const contactRow = document.getElementById('cvContactRow');
+                var contactRow = document.getElementById('cvContactRow');
                 if (contactRow) {
-                    const sep = '<span class="cv-contact-sep">&nbsp;|&nbsp;</span>';
-                    contactRow.innerHTML = [
-                        escapeHtml(data.locationShort || data.location || ''),
-                        `<a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a>`,
-                        `<a href="${escapeHtml(data.linkedin)}">${escapeHtml(data.linkedinShort)}</a>`,
-                        `<a href="${escapeHtml(data.github)}">${escapeHtml(data.githubShort)}</a>`,
-                        `<a href="https://${escapeHtml(data.website)}">${escapeHtml(data.website)}</a>`
-                    ].join(sep);
+                    var sep = '<span class="cv-contact-sep">&nbsp;|&nbsp;</span>';
+                    var parts = [];
+                    if (data.locationShort || data.location) parts.push(escapeHtml(data.locationShort || data.location));
+                    if (data.email) parts.push('<a href="mailto:' + escapeHtml(data.email) + '">' + escapeHtml(data.email) + '</a>');
+                    if (data.linkedin) parts.push('<a href="' + escapeHtml(data.linkedin) + '">' + escapeHtml(data.linkedinShort || 'LinkedIn') + '</a>');
+                    if (data.github) parts.push('<a href="' + escapeHtml(data.github) + '">' + escapeHtml(data.githubShort || 'GitHub') + '</a>');
+                    if (data.website) parts.push('<a href="https://' + escapeHtml(data.website) + '">' + escapeHtml(data.website) + '</a>');
+                    contactRow.innerHTML = parts.join(sep);
                 }
 
                 // Summary
-                const summaryEl = document.getElementById('cvSummary');
+                var summaryEl = document.getElementById('cvSummary');
                 if (summaryEl) summaryEl.textContent = data.cvSummary || data.summary || '';
 
                 // Experience
                 if (data.experience) {
-                    const expSection = document.getElementById('cvExperience');
+                    var expSection = document.getElementById('cvExperience');
                     if (expSection) {
-                        data.experience.forEach(exp => {
-                            const dateRange = exp.current ? `${exp.startDate} - Present` : `${exp.startDate} - ${exp.endDate}`;
-                            const responsibilities = exp.responsibilities
-                                .map(r => `<li>&#8226; ${escapeHtml(r)}</li>`)
+                        data.experience.forEach(function(exp) {
+                            var dateRange = exp.current ? exp.startDate + ' - Present' : exp.startDate + ' - ' + exp.endDate;
+                            var responsibilities = exp.responsibilities
+                                .map(function(r) { return '<li>&#8226; ' + escapeHtml(r) + '</li>'; })
                                 .join('');
-                            const item = document.createElement('div');
+                            var item = document.createElement('div');
                             item.className = 'cv-exp-item';
-                            item.innerHTML = `
-                                <div class="cv-exp-header">
-                                    <div class="cv-exp-role">${escapeHtml(exp.title)}</div>
-                                    <div class="cv-exp-date">${escapeHtml(dateRange)}</div>
-                                </div>
-                                <div class="cv-exp-company">${escapeHtml(exp.company)} - ${escapeHtml(exp.location)}</div>
-                                <ul class="cv-exp-list">${responsibilities}</ul>
-                            `;
+                            item.innerHTML =
+                                '<div class="cv-exp-header">' +
+                                    '<div class="cv-exp-role">' + escapeHtml(exp.title) + '</div>' +
+                                    '<div class="cv-exp-date">' + escapeHtml(dateRange) + '</div>' +
+                                '</div>' +
+                                '<div class="cv-exp-company">' + escapeHtml(exp.company) + ' - ' + escapeHtml(exp.location) + '</div>' +
+                                '<ul class="cv-exp-list">' + responsibilities + '</ul>';
                             expSection.appendChild(item);
                         });
                     }
@@ -661,23 +663,22 @@
 
                 // Skills
                 if (data.skills) {
-                    const skillsTable = document.getElementById('cvSkillsTable');
+                    var skillsTable = document.getElementById('cvSkillsTable');
                     if (skillsTable) {
-                        for (let i = 0; i < data.skills.length; i += 2) {
-                            const row = document.createElement('tr');
-                            const skill1 = data.skills[i];
-                            const skill2 = data.skills[i + 1];
-                            const label1 = skill1.cvCategory || skill1.category;
-                            const value1 = (skill1.cvTags || skill1.tags).join(', ');
-                            let cell2Html = '';
+                        for (var i = 0; i < data.skills.length; i += 2) {
+                            var row = document.createElement('tr');
+                            var skill1 = data.skills[i];
+                            var skill2 = data.skills[i + 1];
+                            var label1 = skill1.cvCategory || skill1.category;
+                            var value1 = (skill1.cvTags || skill1.tags).join(', ');
+                            var cell1Html = '<td><span class="cv-skill-label">' + escapeHtml(label1) + ': </span><span class="cv-skill-value">' + escapeHtml(value1) + '</span></td>';
+                            var cell2Html = '<td></td>';
                             if (skill2) {
-                                const label2 = skill2.cvCategory || skill2.category;
-                                const value2 = (skill2.cvTags || skill2.tags).join(', ');
-                                cell2Html = `<td><span class="cv-skill-label">${escapeHtml(label2)}: </span><span class="cv-skill-value">${escapeHtml(value2)}</span></td>`;
-                            } else {
-                                cell2Html = '<td></td>';
+                                var label2 = skill2.cvCategory || skill2.category;
+                                var value2 = (skill2.cvTags || skill2.tags).join(', ');
+                                cell2Html = '<td><span class="cv-skill-label">' + escapeHtml(label2) + ': </span><span class="cv-skill-value">' + escapeHtml(value2) + '</span></td>';
                             }
-                            row.innerHTML = `<td><span class="cv-skill-label">${escapeHtml(label1)}: </span><span class="cv-skill-value">${escapeHtml(value1)}</span></td>${cell2Html}`;
+                            row.innerHTML = cell1Html + cell2Html;
                             skillsTable.appendChild(row);
                         }
                     }
@@ -685,36 +686,35 @@
 
                 // Certifications
                 if (data.certifications) {
-                    const certsTable = document.getElementById('cvCertsTable');
+                    var certsTable = document.getElementById('cvCertsTable');
                     if (certsTable) {
-                        for (let i = 0; i < data.certifications.length; i += 2) {
-                            const row = document.createElement('tr');
-                            const cert1 = data.certifications[i];
-                            const cert2 = data.certifications[i + 1];
-                            const cell1 = `<td>&#8226; ${escapeHtml(cert1.shortName)} - ${escapeHtml(cert1.fullName)} <span class="cv-cert-issuer">(${escapeHtml(cert1.issuer)})</span></td>`;
-                            let cell2 = '<td></td>';
+                        for (var j = 0; j < data.certifications.length; j += 2) {
+                            var certRow = document.createElement('tr');
+                            var cert1 = data.certifications[j];
+                            var cert2 = data.certifications[j + 1];
+                            var certCell1 = '<td>&#8226; ' + escapeHtml(cert1.shortName) + ' - ' + escapeHtml(cert1.fullName) + ' <span class="cv-cert-issuer">(' + escapeHtml(cert1.issuer) + ')</span></td>';
+                            var certCell2 = '<td></td>';
                             if (cert2) {
-                                cell2 = `<td>&#8226; ${escapeHtml(cert2.shortName)} - ${escapeHtml(cert2.fullName)} <span class="cv-cert-issuer">(${escapeHtml(cert2.issuer)})</span></td>`;
+                                certCell2 = '<td>&#8226; ' + escapeHtml(cert2.shortName) + ' - ' + escapeHtml(cert2.fullName) + ' <span class="cv-cert-issuer">(' + escapeHtml(cert2.issuer) + ')</span></td>';
                             }
-                            row.innerHTML = cell1 + cell2;
-                            certsTable.appendChild(row);
+                            certRow.innerHTML = certCell1 + certCell2;
+                            certsTable.appendChild(certRow);
                         }
                     }
                 }
 
                 // Education
                 if (data.education) {
-                    const eduSection = document.getElementById('cvEducation');
+                    var eduSection = document.getElementById('cvEducation');
                     if (eduSection) {
-                        data.education.forEach(edu => {
-                            const eduDiv = document.createElement('div');
-                            eduDiv.innerHTML = `
-                                <div class="cv-edu-header">
-                                    <div class="cv-edu-degree">${escapeHtml(edu.degree)}</div>
-                                    <div class="cv-edu-year">${escapeHtml(edu.startYear)} - ${escapeHtml(edu.endYear)}</div>
-                                </div>
-                                <div class="cv-edu-school">${escapeHtml(edu.school)}</div>
-                            `;
+                        data.education.forEach(function(edu) {
+                            var eduDiv = document.createElement('div');
+                            eduDiv.innerHTML =
+                                '<div class="cv-edu-header">' +
+                                    '<div class="cv-edu-degree">' + escapeHtml(edu.degree) + '</div>' +
+                                    '<div class="cv-edu-year">' + escapeHtml(edu.startYear) + ' - ' + escapeHtml(edu.endYear) + '</div>' +
+                                '</div>' +
+                                '<div class="cv-edu-school">' + escapeHtml(edu.school) + '</div>';
                             eduSection.appendChild(eduDiv);
                         });
                     }
@@ -722,16 +722,17 @@
 
                 // Languages
                 if (data.languages) {
-                    const langsRow = document.getElementById('cvLangsRow');
+                    var langsRow = document.getElementById('cvLangsRow');
                     if (langsRow) {
                         langsRow.innerHTML = data.languages
-                            .map(lang => `<span class="cv-lang-name">${escapeHtml(lang.name)}</span> - <span class="cv-lang-level">${escapeHtml(lang.level)}</span>`)
+                            .map(function(lang) { return '<span class="cv-lang-name">' + escapeHtml(lang.name) + '</span> - <span class="cv-lang-level">' + escapeHtml(lang.level) + '</span>'; })
                             .join('&nbsp;&nbsp;&nbsp;&nbsp;');
                     }
                 }
 
+                console.log('CV profile data loaded successfully');
             } catch (error) {
-                console.warn('Using static CV content:', error);
+                console.error('Error loading CV profile data:', error);
             }
         }
 
