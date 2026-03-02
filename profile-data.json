@@ -256,74 +256,83 @@
     }
   ],
   "experience": [
-    {
-      "title": "Penetration Tester",
-      "company": "PFA (Independent Contractor)",
-      "location": "Romania",
-      "startDate": "Feb 2025",
-      "endDate": "Present",
-      "current": true,
-      "responsibilities": [
-        "Conduct comprehensive security assessments across web/mobile applications, APIs, and cloud systems (AWS, Azure, GCP)",
-        "Perform external reconnaissance, OSINT investigations, exploitation, and lateral movement testing",
-        "Develop custom red team tools and automation scripts to enhance testing efficiency",
-        "Execute secure code reviews identifying critical vulnerabilities before production deployment",
-        "Prepare detailed vulnerability reports with prioritized remediation guidance and executive summaries",
-        "Specialize in OWASP Top 10, business logic flaws, authentication bypasses, and cloud misconfigurations"
-      ]
-    },
-    {
-      "title": "Penetration Tester",
-      "company": "Red Team Security SRL",
-      "location": "Romania",
-      "startDate": "Oct 2022",
-      "endDate": "Jan 2025",
-      "current": false,
-      "responsibilities": [
-        "Conduct comprehensive security assessments across web/mobile applications, APIs, and cloud systems (AWS, Azure, GCP)",
-        "Perform external reconnaissance, OSINT investigations, exploitation, and lateral movement testing",
-        "Develop custom red team tools and automation scripts to enhance testing efficiency",
-        "Execute secure code reviews identifying critical vulnerabilities before production deployment",
-        "Simulate sophisticated phishing campaigns to test organizational security awareness and resilience",
-        "Prepare detailed vulnerability reports with prioritized remediation guidance and executive summaries",
-        "Specialize in OWASP Top 10, business logic flaws, authentication bypasses, and cloud misconfigurations"
-      ]
-    },
-    {
-      "title": "DevOps & Test Automation Engineer",
-      "company": "NAPA",
-      "location": "Romania",
-      "startDate": "Feb 2020",
-      "endDate": "Jun 2021",
-      "current": false,
-      "responsibilities": [
-        "Automated CI/CD pipelines using Jenkins, Atlassian Bamboo, and Visual Studio AppCenter",
-        "Implemented ship software security controls and vulnerability scanning in deployment pipelines",
-        "Designed and executed comprehensive API testing strategies using Postman, Newman, and JMeter",
-        "Integrated security testing tools (SonarQube, MobSF) into development workflows",
-        "Mentored development teams on security best practices and test automation frameworks",
-        "Created technical documentation and training materials for secure development lifecycle"
-      ]
-    },
-    {
-      "title": "Software QA Test Engineer",
-      "company": "NAPA",
-      "location": "Romania",
-      "startDate": "Feb 2017",
-      "endDate": "Feb 2020",
-      "current": false,
-      "responsibilities": [
-        "Designed comprehensive test suites for server/client/mobile applications ensuring security and quality",
-        "Administered and monitored CI/CD infrastructure maintaining high availability and security",
-        "Developed test automation frameworks using Postman, JMeter, Robot Framework, and Xamarin UI Test",
-        "Performed security-focused testing identifying vulnerabilities in early development stages",
-        "Collaborated with development teams to implement security controls and vulnerability fixes"
-      ]
-    }
-  ],
+{
+"title": "Penetration Tester",
+"company": "Self-employed",
+"location": "Remote",
+"startDate": "Feb 2025",
+"endDate": "Present",
+"current": true,
+"responsibilities": [
+"Conduct thorough security assessments on client Web Apps, APIs, Mobile Apps (iOS and android), Infrastructure, and Cloud systems, uncovering vulnerabilities and potential attack vectors.",
+"Develop Red Teaming tools to enhance testing efficiency.",
+"Perform Secure Code Reviews to identify and rectify security flaws.",
+"Prepare detailed reports with assessment findings and recommended remediation actions.",
+"Assist clients in implementing remediation recommendations and providing retesting services."
+]
+},
+{
+"title": "Penetration Tester",
+"company": "Red Team Security S.R.L.",
+"location": "Remote",
+"startDate": "Oct 2022",
+"endDate": "Jan 2025",
+"current": false,
+"responsibilities": [
+"Conduct thorough security assessments on client Web Apps, APIs, Mobile Apps (iOS and android), Infrastructure, and Cloud systems, uncovering vulnerabilities and potential attack vectors.",
+"Utilize a range of tools and techniques to perform External Reconnaissance, OSINT, Internal enumeration, exploitation, lateral movement, and privilege escalation to simulate real-world attack scenarios.",
+"Develop Red Teaming tools to enhance testing efficiency.",
+"Perform Secure Code Reviews to identify and rectify security flaws.",
+"Assist in simulating phishing attacks to assess and improve client resilience against such threats.",
+"Prepare detailed reports with assessment findings and recommended remediation actions.",
+"Assist clients in implementing remediation recommendations and providing retesting services.",
+"Stay up to date with the latest security trends, tools, and techniques through ongoing training and development."
+]
+},
+{
+"title": "DevOps & Test Automation Engineer",
+"company": "NAPA",
+"location": "Galaţi, Romania",
+"startDate": "Feb 2020",
+"endDate": "Jun 2021",
+"current": false,
+"responsibilities": [
+"Administer, maintain, design and implement automated testing and deployment pipelines using Jenkins, Atlassian Bamboo, Visual Studio AppCenter, and Bitbucket.",
+"As a member of the onboard ship software security taskforce, collaborated with the team to design and implement secure onboard solutions. This involved developing and maintaining onboard operational tools and installers using C#, PowerShell, JavaScript, Wix#, NSIS/Nullsoft Scriptable Install System, setting up automated SAST scanning using SonarQube and MobSF/Python, etc.",
+"Manage M-Files release cycles and perform release management activities.",
+"Create and maintain automated API tests using Postman and Newman, JMeter, and unit and integration tests using JUnit, Gradle, and Groovy.",
+"Help junior test engineers to plan and manage test strategies for onboard software using mindmaps and Zephyr tests (Electronic Logbook, ship-shore data synchronization software, and onboard integration software).",
+"Create documentation for build, test processes and tools.",
+"Train and mentor new colleagues and interns on various technologies and in-house solutions.",
+"Provide technical support to Commissioning Engineers and assist with onboard issues."
+]
+},
+{
+"title": "Software QA Test Engineer",
+"company": "NAPA",
+"location": "Galaţi, Romania",
+"startDate": "Feb 2017",
+"endDate": "Feb 2020",
+"current": false,
+"responsibilities": [
+"Oversee every phase of design, development, testing, and delivery to verify if the products meet the quality standards and requirements.",
+"Design and execute test suites for onboard software (servers, clients, iOS and Android mobile apps) using mindmaps and Zephyr tests, including Electronic Logbook, ship-shore data synchronization software, and onboard integration.",
+"Create or investigate backlog issues, including stories, improvements, and bugs.",
+"Conduct exploratory tests and review new implementations.",
+"Maintain, monitor, and update onboard simulation environments for integration testing.",
+"Administration, monitoring, and maintenance of CI/CD (Jenkins, Visual Studio AppCenter).",
+"Design, implement, and maintain test frameworks and automated tests using: Postman, Newman, JMeter, Robot Framework, Xamarin UI Test, Gradle, Groovy, and AutoIt.",
+"Maintain unit and integration tests using JUnit, Gradle, and Groovy.",
+"Perform integration testing with Voyage Data Recorders (VDR) from vendors such as Danelec Marine and others.",
+"Create documentation for test processes and tools.",
+"Train and mentor new colleagues on various technologies and in-house solutions.",
+"Provide technical support to Commissioning Engineers and assist with onboard issues."
+]
+}
+],
   "education": [
     {
-      "degree": "Bachelor's Degree in Computer Science",
+      "degree": "Computer Science",
       "school": "Galați \"Lower Danube\" University",
       "startYear": "2015",
       "endYear": "2019"
