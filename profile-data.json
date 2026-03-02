@@ -1,6 +1,6 @@
 {
   "name": "Daniel Șerbu",
-  "title": "Penetration Tester & Security Researcher",
+  "title": "Penetration Tester & Ethical Hacker",
   "heroRole": "Penetration Tester & Ethical Hacker",
   "heroDescription": "Offensive security specialist with expertise in web application testing, cloud security and mobile security. Breaking things to make them stronger.",
   "location": "Galaţi, Romania",
@@ -76,12 +76,12 @@
     {
       "category": "Tools & Frameworks",
       "cvCategory": "Security Tools",
-      "tags": ["Burp Suite Pro", "Cobalt Strike", "Metasploit", "Nmap", "SQLMap", "Nuclei", "Ffuf", "Hashcat", "Impacket"]
+      "tags": ["Burp Suite Pro", "Caido", "Metasploit", "Nmap", "SQLMap", "Nuclei", "Ffuf", "Hashcat", "Impacket"]
     },
     {
       "category": "Cloud Security",
       "tags": ["AWS Pentesting", "Azure Security", "GCP Assessment", "IAM Analysis", "S3 Misconfigs", "Cloud Forensics"],
-      "cvTags": ["AWS, Azure, GCP Pentesting", "IAM Analysis", "S3 Misconfigurations", "Cloud Forensics"]
+      "cvTags": ["AWS, Azure, GCP Pentesting"]
     },
     {
       "category": "Mobile & API Testing",
@@ -91,8 +91,8 @@
     },
     {
       "category": "DevSecOps",
-      "tags": ["Container Security", "Kubernetes", "SAST", "DAST", "SCA", "SBOM", "IaC Security", "Secure Coding"],
-      "cvTags": ["Container Security", "Kubernetes", "SAST/DAST/SCA", "CI/CD Security", "Jenkins", "Bamboo"]
+      "tags": [ "SAST", "DAST", "SCA", "SBOM", "IaC Security", "Secure Coding"],
+      "cvTags": [ "SAST/DAST/SCA", "CI/CD Security", "Jenkins"]
     },
     {
       "category": "Active Directory & Network",
