@@ -11,8 +11,8 @@
   "linkedinShort": "linkedin.com/in/daniel-serbu",
   "github": "https://github.com/danielserbu",
   "githubShort": "github.com/danielserbu",
-  "summary": "Offensive security specialist with 3+ years of experience in penetration testing and cybersecurity. Expert in identifying and exploiting vulnerabilities across web applications, APIs, cloud infrastructure (AWS, Azure, GCP), mobile applications, and Active Directory environments. Passionate about continuous learning and staying ahead of emerging threats in the cybersecurity landscape.",
-  "cvSummary": "Offensive security specialist with 3+ years of experience in penetration testing and cybersecurity. Expert in identifying and exploiting vulnerabilities across web applications, APIs, cloud infrastructure (AWS, Azure, GCP), mobile applications, and Active Directory environments. Passionate about continuous learning and staying ahead of emerging threats in the cybersecurity landscape.",
+  "summary": "Offensive security specialist with 3+ years of experience in penetration testing and cybersecurity. Expert in identifying and exploiting vulnerabilities across web applications, APIs, cloud infrastructure (AWS, Azure, GCP), mobile applications, and Active Directory environments. Passionate about continuous learning and staying ahead of emerging threats.",
+  "cvSummary": "Offensive security specialist with 3+ years of experience in penetration testing and cybersecurity. Expert in identifying and exploiting vulnerabilities across web applications, APIs, cloud infrastructure (AWS, Azure, GCP), mobile applications, and Active Directory environments. Passionate about continuous learning and staying ahead of emerging threats.",
   "about": [
     "I'm a security professional specializing in offensive security and penetration testing. My work focuses on identifying vulnerabilities in web applications, APIs, cloud infrastructure, and mobile applications before malicious actors can exploit them.",
     "With a strong foundation in multiple offensive security methodologies, I approach each engagement with a thorough, methodical mindset. I'm passionate about continuous learning and staying ahead of emerging threats.",
@@ -280,7 +280,7 @@
 "current": false,
 "responsibilities": [
 "Conduct thorough security assessments on client Web Apps, APIs, Mobile Apps (iOS and android), Infrastructure, and Cloud systems, uncovering vulnerabilities and potential attack vectors.",
-"Utilize a range of tools and techniques to perform External Reconnaissance, OSINT, Internal enumeration, exploitation, lateral movement, and privilege escalation to simulate real-world attack scenarios.",
+"Perform External Reconnaissance, OSINT, Internal enumeration, exploitation, lateral movement, and privilege escalation to simulate real-world attack scenarios.",
 "Develop Red Teaming tools to enhance testing efficiency.",
 "Perform Secure Code Reviews to identify and rectify security flaws.",
 "Assist in simulating phishing attacks to assess and improve client resilience against such threats.",
@@ -297,7 +297,7 @@
 "current": false,
 "responsibilities": [
 "Administer, maintain, design and implement automated testing and deployment pipelines using Jenkins, Atlassian Bamboo, Visual Studio AppCenter, and Bitbucket.",
-"As a member of the onboard ship software security taskforce, collaborated with the team to design and implement secure onboard solutions. This involved developing and maintaining onboard operational tools and installers using C#, PowerShell, JavaScript, Wix#, NSIS/Nullsoft Scriptable Install System, setting up automated SAST scanning using SonarQube and MobSF/Python, etc.",
+"As a member of the onboard ship software security taskforce, collaborated with the team to design and implement secure onboard solutions. This involved developing and maintaining onboard operational tools and installers using C#, PowerShell, JavaScript, Wix#, NSIS, setting up automated SAST scanning using SonarQube and MobSF/Python, etc.",
 "Create and maintain automated API tests using Postman and Newman, JMeter, and unit and integration tests using JUnit, Gradle, and Groovy.",
 "Help junior test engineers to plan and manage test strategies for onboard software using mindmaps and Zephyr tests (Electronic Logbook, ship-shore data synchronization software, and onboard integration software)."
 ]
