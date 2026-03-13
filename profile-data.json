@@ -298,7 +298,6 @@
 "responsibilities": [
 "Administer, maintain, design and implement automated testing and deployment pipelines using Jenkins, Atlassian Bamboo, Visual Studio AppCenter, and Bitbucket.",
 "As a member of the onboard ship software security taskforce, collaborated with the team to design and implement secure onboard solutions. This involved developing and maintaining onboard operational tools and installers using C#, PowerShell, JavaScript, Wix#, NSIS/Nullsoft Scriptable Install System, setting up automated SAST scanning using SonarQube and MobSF/Python, etc.",
-"Manage M-Files release cycles and perform release management activities.",
 "Create and maintain automated API tests using Postman and Newman, JMeter, and unit and integration tests using JUnit, Gradle, and Groovy.",
 "Help junior test engineers to plan and manage test strategies for onboard software using mindmaps and Zephyr tests (Electronic Logbook, ship-shore data synchronization software, and onboard integration software)."
 ]
