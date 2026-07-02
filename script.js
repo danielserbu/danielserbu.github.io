@@ -203,14 +203,23 @@ async function loadProfileData() {
         if (data.certifications) {
             const certsGrid = document.getElementById('certsGrid');
             if (certsGrid) {
+                var issuerLogos = data.issuerLogos || {};
                 certsGrid.innerHTML = data.certifications.map(function(cert) {
-                    return '<div class="cert-card">' +
+                    var logo = issuerLogos[cert.issuer] || {};
+                    var badgeSrc = cert.badgeImage || logo.src;
+                    var badgeHtml = badgeSrc
+                        ? '<div class="cert-badge-wrap"><img class="cert-badge' + (cert.badgeImage ? '' : ' cert-badge--brand') + '" src="' + escapeHtml(badgeSrc) + '" alt="' + escapeHtml(cert.shortName) + ' badge" loading="lazy" onerror="this.style.display=\'none\'"></div>'
+                        : '';
+                    var logoHtml = logo.src
+                        ? '<img class="issuer-logo" src="' + escapeHtml(logo.src) + '" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
+                        : '';
+                    return '<div class="cert-card">' + badgeHtml +
                         '<h4>' + escapeHtml(cert.shortName) + ' - ' + escapeHtml(cert.fullName) + '</h4>' +
                         '<div class="cert-buttons">' +
                             '<a href="' + escapeHtml(cert.certUrl) + '" target="_blank" rel="noopener noreferrer" class="cert-btn cert-personal" title="My ' + escapeHtml(cert.shortName) + ' Certificate">My Cert</a>' +
                             '<a href="' + escapeHtml(cert.examUrl) + '" target="_blank" rel="noopener noreferrer" class="cert-btn cert-official" title="' + escapeHtml(cert.issuerFull) + ' ' + escapeHtml(cert.shortName) + ' Exam">Exam Info</a>' +
                         '</div>' +
-                        '<div class="issuer">' + escapeHtml(cert.issuerFull) + '</div>' +
+                        '<div class="issuer">' + logoHtml + escapeHtml(cert.issuerFull) + '</div>' +
                     '</div>';
                 }).join('');
             }

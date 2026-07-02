@@ -329,6 +329,14 @@ nav {
     font-size: 8px;
 }
 
+.cv-cert-logo {
+    width: 12px;
+    height: 12px;
+    object-fit: contain;
+    vertical-align: -2px;
+    margin-right: 3px;
+}
+
 /* Education & Languages */
 .cv-edu-header {
     overflow: hidden;
@@ -421,6 +429,7 @@ body.scale-cv .cv-exp-list li { font-size: 8.5px; }
 body.scale-cv .cv-skills-table td { font-size: 8.5px; }
 body.scale-cv .cv-certs-table td { font-size: 8.5px; }
 body.scale-cv .cv-cert-issuer { font-size: 7.5px; }
+body.scale-cv .cv-cert-logo { width: 11px; height: 11px; }
 body.scale-cv .cv-edu-degree { font-size: 10px; }
 body.scale-cv .cv-edu-year { font-size: 8.5px; }
 body.scale-cv .cv-edu-school { font-size: 9px; }
