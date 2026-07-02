@@ -226,15 +226,21 @@
                 if (data.certifications) {
                     var certsTable = document.getElementById('cvCertsTable');
                     if (certsTable) {
+                        var cvIssuerLogos = data.issuerLogos || {};
+                        var cvCertCell = function(cert) {
+                            var logo = cvIssuerLogos[cert.issuer] || {};
+                            var logoSrc = logo.cvSrc === null ? '' : (logo.cvSrc || logo.src || '');
+                            var logoHtml = logoSrc
+                                ? '<img class="cv-cert-logo" src="' + escapeHtml(logoSrc) + '" width="12" height="12" alt="" onerror="this.style.display=\'none\'"> '
+                                : '';
+                            return '<td>' + logoHtml + '&#8226; ' + escapeHtml(cert.shortName) + ' - ' + escapeHtml(cert.fullName) + ' <span class="cv-cert-issuer">(' + escapeHtml(cert.issuer) + ')</span></td>';
+                        };
                         for (var j = 0; j < data.certifications.length; j += 2) {
                             var certRow = document.createElement('tr');
                             var cert1 = data.certifications[j];
                             var cert2 = data.certifications[j + 1];
-                            var certCell1 = '<td>&#8226; ' + escapeHtml(cert1.shortName) + ' - ' + escapeHtml(cert1.fullName) + ' <span class="cv-cert-issuer">(' + escapeHtml(cert1.issuer) + ')</span></td>';
-                            var certCell2 = '<td></td>';
-                            if (cert2) {
-                                certCell2 = '<td>&#8226; ' + escapeHtml(cert2.shortName) + ' - ' + escapeHtml(cert2.fullName) + ' <span class="cv-cert-issuer">(' + escapeHtml(cert2.issuer) + ')</span></td>';
-                            }
+                            var certCell1 = cvCertCell(cert1);
+                            var certCell2 = cert2 ? cvCertCell(cert2) : '<td></td>';
                             certRow.innerHTML = certCell1 + certCell2;
                             certsTable.appendChild(certRow);
                         }

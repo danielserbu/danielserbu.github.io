@@ -103,12 +103,22 @@
   ],
   "certifications": [
     {
+      "shortName": "PNPT",
+      "fullName": "Practical Network Penetration Tester",
+      "issuer": "TCM Security",
+      "issuerFull": "TCM Security",
+      "certUrl": "https://certified.tcm-sec.com/89aefaac-47db-4d24-9e0b-0153e1d83094#acc.lQsS1dhJ",
+      "examUrl": "https://certifications.tcm-sec.com/pnpt/",
+      "badgeImage": "/images/badges/pnpt.webp"
+    },
+    {
       "shortName": "eWPTX",
       "fullName": "Web Application Penetration Tester eXtreme",
       "issuer": "INE Security",
       "issuerFull": "INE Security (eLearnSecurity)",
       "certUrl": "https://certs.ine.com/21b7c494-a7a4-4b35-b2e9-9a004b072515#acc.x9pr5zCf",
-      "examUrl": "https://ine.com/security/certifications/ewptx-certification"
+      "examUrl": "https://ine.com/security/certifications/ewptx-certification",
+      "badgeImage": "/images/badges/ewptx.png"
     },
     {
       "shortName": "eCPPT",
@@ -116,7 +126,8 @@
       "issuer": "INE Security",
       "issuerFull": "INE Security (eLearnSecurity)",
       "certUrl": "https://certs.ine.com/3be91b88-c23c-4a22-91f4-8791c42d7f06#acc.1dknboIp",
-      "examUrl": "https://security.ine.com/certifications/ecppt-certification/"
+      "examUrl": "https://security.ine.com/certifications/ecppt-certification/",
+      "badgeImage": "/images/badges/ecppt.png"
     },
     {
       "shortName": "eMAPT",
@@ -124,7 +135,8 @@
       "issuer": "INE Security",
       "issuerFull": "INE Security (eLearnSecurity)",
       "certUrl": "https://certs.ine.com/f9290e6a-4125-4fdc-86e2-7ee63972a20f#acc.kPoIcusD",
-      "examUrl": "https://ine.com/security/certifications/emapt-certification"
+      "examUrl": "https://ine.com/security/certifications/emapt-certification",
+      "badgeImage": "/images/badges/emapt.png"
     },
     {
       "shortName": "eJPT",
@@ -140,7 +152,8 @@
       "issuer": "SecOps Group",
       "issuerFull": "The SecOps Group",
       "certUrl": "https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXV8ytxQf9z62V6xgGc8hsaeQcc34Oi2u8eoLyW4XCWzaw3w+lN3z9TWs1GMTKhPNJc8Mz14IQHUaq/5+AXgc380=",
-      "examUrl": "https://pentestingexams.com/certifications/expert/certified-appsec-pentesting-expert-capenx/"
+      "examUrl": "https://pentestingexams.com/certifications/expert/certified-appsec-pentesting-expert-capenx/",
+      "badgeImage": "/images/badges/capenx.webp"
     },
     {
       "shortName": "CCPenX-AWS",
@@ -148,7 +161,8 @@
       "issuer": "SecOps Group",
       "issuerFull": "The SecOps Group",
       "certUrl": "https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXQB+dK0p2ZmbsxatHXUIpuF0HkeLaRLYN1tVxgMrWIJ1rCrM9f+4Hvy76qkbfj38JOsl/tZ9OswEAcz9ocFBZSY=",
-      "examUrl": "https://pentestingexams.com/certifications/expert/certified-cloud-pentesting-expert/"
+      "examUrl": "https://pentestingexams.com/certifications/expert/certified-cloud-pentesting-expert/",
+      "badgeImage": "/images/badges/ccpenx-aws.webp"
     },
     {
       "shortName": "CRTSv2",
@@ -156,7 +170,8 @@
       "issuer": "CyberWarfare Labs",
       "issuerFull": "CyberWarfare Labs",
       "certUrl": "https://www.credential.net/0a639dc9-fc5e-4614-a751-c315523f725a#acc.FNz21D0p",
-      "examUrl": "https://cyberwarfare.live/product/red-team-specialist-crts/"
+      "examUrl": "https://cyberwarfare.live/product/red-team-specialist-crts/",
+      "badgeImage": "/images/badges/crtsv2.webp"
     },
     {
       "shortName": "CELMS",
@@ -164,7 +179,8 @@
       "issuer": "CyberWarfare Labs",
       "issuerFull": "CyberWarfare Labs",
       "certUrl": "https://www.credential.net/cd6316bc-a32d-424b-9382-32a5b5929d95#acc.D9jTGN3y",
-      "examUrl": "https://cyberwarfare.live/product/enterprise-lateral-movement-specialist/"
+      "examUrl": "https://cyberwarfare.live/product/enterprise-lateral-movement-specialist/",
+      "badgeImage": "/images/badges/celms.webp"
     },
     {
       "shortName": "CRTA",
@@ -172,7 +188,8 @@
       "issuer": "CyberWarfare Labs",
       "issuerFull": "CyberWarfare Labs",
       "certUrl": "https://www.credential.net/77f5e9e2-3a6a-4ec7-ae29-0d89e8d4dcac#acc.7ZUyTRvl",
-      "examUrl": "https://cyberwarfare.live/product/red-team-analyst-crta/"
+      "examUrl": "https://cyberwarfare.live/product/red-team-analyst-crta/",
+      "badgeImage": "/images/badges/crta.webp"
     },
     {
       "shortName": "AD-RTS",
@@ -180,7 +197,8 @@
       "issuer": "CyberWarfare Labs",
       "issuerFull": "CyberWarfare Labs",
       "certUrl": "https://labs.cyberwarfare.live/credential/achievement/696999f046d815f910557252",
-      "examUrl": "https://cyberwarfare.live/product/active-directory-red-team-specialist-ad-rts/"
+      "examUrl": "https://cyberwarfare.live/product/active-directory-red-team-specialist-ad-rts/",
+      "badgeImage": "/images/badges/ad-rts.webp"
     },
     {
       "shortName": "API-RTA",
@@ -188,7 +206,8 @@
       "issuer": "CyberWarfare Labs",
       "issuerFull": "CyberWarfare Labs",
       "certUrl": "https://labs.cyberwarfare.live/credential/achievement/6973484a6d896ee8347255c5",
-      "examUrl": "https://cyberwarfare.live/product/api-red-team-analyst-api-rta/"
+      "examUrl": "https://cyberwarfare.live/product/api-red-team-analyst-api-rta/",
+      "badgeImage": "/images/badges/api-rta.png"
     },
     {
       "shortName": "MCRTA",
@@ -196,7 +215,8 @@
       "issuer": "CyberWarfare Labs",
       "issuerFull": "CyberWarfare Labs",
       "certUrl": "https://labs.cyberwarfare.live/badge/image/65e6779ae665fd6fafe10fd8",
-      "examUrl": "https://cyberwarfare.live/product/multi-cloud-red-team-analyst-mcrta/"
+      "examUrl": "https://cyberwarfare.live/product/multi-cloud-red-team-analyst-mcrta/",
+      "badgeImage": "/images/badges/mcrta.webp"
     },
     {
       "shortName": "C-AI/MLPen",
@@ -204,7 +224,8 @@
       "issuer": "SecOps Group",
       "issuerFull": "The SecOps Group",
       "certUrl": "https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXZwOzDbu+Uivmk1jVlpEroF5cyiIj/fc84vGSy/RpvX5IdHYmcHMG+h3TKokgEFTahGwyJopErW36pXIWLZ9zCk=",
-      "examUrl": "https://pentestingexams.com/product/certified-ai-ml-pentester-c-ai-mlpen"
+      "examUrl": "https://pentestingexams.com/product/certified-ai-ml-pentester-c-ai-mlpen",
+      "badgeImage": "/images/badges/c-ai-mlpen.webp"
     },
     {
       "shortName": "CAPen",
@@ -212,7 +233,8 @@
       "issuer": "SecOps Group",
       "issuerFull": "The SecOps Group",
       "certUrl": "https://serbudaniel.wordpress.com/wp-content/uploads/2026/01/capen.pdf",
-      "examUrl": "https://pentestingexams.com/certifications/professional/certified-appsec-pentester/"
+      "examUrl": "https://pentestingexams.com/certifications/professional/certified-appsec-pentester/",
+      "badgeImage": "/images/badges/capen.webp"
     },
     {
       "shortName": "C-APIPen",
@@ -220,7 +242,8 @@
       "issuer": "SecOps Group",
       "issuerFull": "The SecOps Group",
       "certUrl": "https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXeZ+qoU/U56Umu0hpYR3u/ThVz9KQVDUfkZ8TIVm5oxnqQ1wwwNSE1ebNx9suehpEnB17EaH2Wbx4Yd//JKScMw=",
-      "examUrl": "https://pentestingexams.com/certifications/professional/certified-api-pentester/"
+      "examUrl": "https://pentestingexams.com/certifications/professional/certified-api-pentester/",
+      "badgeImage": "/images/badges/c-apipen.webp"
     },
     {
       "shortName": "CNPen",
@@ -228,7 +251,8 @@
       "issuer": "SecOps Group",
       "issuerFull": "The SecOps Group",
       "certUrl": "https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXVby0dxVGo+CJGSLU02WQrgoc9j0FtQJktoAMMFFRKmC3ZAQrZ3W5sFmjv3lNaJWl3kOreANUNbN2y92dw2vhn0=",
-      "examUrl": "https://pentestingexams.com/certifications/professional/certified-network-pentester/"
+      "examUrl": "https://pentestingexams.com/certifications/professional/certified-network-pentester/",
+      "badgeImage": "/images/badges/cnpen.webp"
     },
     {
       "shortName": "CMPen-Android",
@@ -236,7 +260,8 @@
       "issuer": "SecOps Group",
       "issuerFull": "The SecOps Group",
       "certUrl": "https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXVFZ9d8O5iZmfctp4kPeGF0ja+81MCvyA23vBkbRrWAi/PRNFD5VkW/E4PojoXIjFi8r8umqFw1CXaObJD85TO0=",
-      "examUrl": "https://pentestingexams.com/certifications/professional/certified-mobile-pentester-cmpen-android/"
+      "examUrl": "https://pentestingexams.com/certifications/professional/certified-mobile-pentester-cmpen-android/",
+      "badgeImage": "/images/badges/cmpen-android.webp"
     },
     {
       "shortName": "CAPT",
@@ -244,7 +269,8 @@
       "issuer": "Mobile Hacking Lab",
       "issuerFull": "Mobile Hacking Lab",
       "certUrl": "https://credsverse.com/credentials/6b54622c-05a9-4c54-a00c-46c989d1bf11",
-      "examUrl": "https://www.mobilehackinglab.com/course/android-appsec-exam"
+      "examUrl": "https://www.mobilehackinglab.com/course/android-appsec-exam",
+      "badgeImage": "/images/badges/capt.webp"
     },
     {
       "shortName": "CIPT",
@@ -252,9 +278,17 @@
       "issuer": "Mobile Hacking Lab",
       "issuerFull": "Mobile Hacking Lab",
       "certUrl": "https://credsverse.com/credentials/8e94a693-310c-4b79-9ddd-da3fa9b2c0e5",
-      "examUrl": "https://www.mobilehackinglab.com/course/ios-appsec-exam"
+      "examUrl": "https://www.mobilehackinglab.com/course/ios-appsec-exam",
+      "badgeImage": "/images/badges/cipt.webp"
     }
   ],
+  "issuerLogos": {
+    "TCM Security": { "src": "/images/brands/tcm-security.png" },
+    "INE Security": { "src": "/images/brands/ine-security.svg", "cvSrc": "/images/brands/ine-security-cv.png" },
+    "SecOps Group": { "src": "/images/brands/secops-group.png", "cvSrc": "/images/brands/secops-group-cv.png" },
+    "CyberWarfare Labs": { "src": "/images/brands/cyberwarfare-labs.png", "cvSrc": "/images/brands/cyberwarfare-labs-cv.png" },
+    "Mobile Hacking Lab": { "src": "/images/brands/mobile-hacking-lab.png", "cvSrc": null }
+  },
   "experience": [
 {
 "title": "Penetration Tester",
