@@ -337,6 +337,13 @@ nav {
     margin-right: 3px;
 }
 
+/* White-only logos (e.g. Mobile Hacking Lab) sit on a dark chip to stay visible on paper */
+.cv-cert-logo-chip {
+    background: #1a1a2e;
+    border-radius: 3px;
+    padding: 2px;
+}
+
 /* Education & Languages */
 .cv-edu-header {
     overflow: hidden;
