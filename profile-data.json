@@ -287,7 +287,7 @@
     "INE Security": { "src": "/images/brands/ine-security.svg", "cvSrc": "/images/brands/ine-security-cv.png" },
     "SecOps Group": { "src": "/images/brands/secops-group.png", "cvSrc": "/images/brands/secops-group-cv.png" },
     "CyberWarfare Labs": { "src": "/images/brands/cyberwarfare-labs.png", "cvSrc": "/images/brands/cyberwarfare-labs-cv.png" },
-    "Mobile Hacking Lab": { "src": "/images/brands/mobile-hacking-lab.png", "cvSrc": null }
+    "Mobile Hacking Lab": { "src": "/images/brands/mobile-hacking-lab.png", "cvChip": true }
   },
   "experience": [
 {

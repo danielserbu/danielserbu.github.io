@@ -229,9 +229,10 @@
                         var cvIssuerLogos = data.issuerLogos || {};
                         var cvCertCell = function(cert) {
                             var logo = cvIssuerLogos[cert.issuer] || {};
-                            var logoSrc = logo.cvSrc === null ? '' : (logo.cvSrc || logo.src || '');
+                            var logoSrc = logo.cvChip ? logo.src : (logo.cvSrc === null ? '' : (logo.cvSrc || logo.src || ''));
+                            var logoClass = logo.cvChip ? 'cv-cert-logo cv-cert-logo-chip' : 'cv-cert-logo';
                             var logoHtml = logoSrc
-                                ? '<img class="cv-cert-logo" src="' + escapeHtml(logoSrc) + '" width="12" height="12" alt="" onerror="this.style.display=\'none\'"> '
+                                ? '<img class="' + logoClass + '" src="' + escapeHtml(logoSrc) + '" width="12" height="12" alt="" onerror="this.style.display=\'none\'"> '
                                 : '';
                             return '<td>' + logoHtml + '&#8226; ' + escapeHtml(cert.shortName) + ' - ' + escapeHtml(cert.fullName) + ' <span class="cv-cert-issuer">(' + escapeHtml(cert.issuer) + ')</span></td>';
                         };
