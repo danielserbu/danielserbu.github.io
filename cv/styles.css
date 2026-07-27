@@ -401,51 +401,6 @@ footer {
     to { transform: translateX(400px); opacity: 0; }
 }
 
-/* ===== Scale CV: applied during PDF generation ===== */
-body.scale-cv .cv-page-wrapper {
-    padding: 0;
-    max-width: 695px;
-    margin: 0 auto;
-}
-
-body.scale-cv .cv-page-header,
-body.scale-cv nav,
-body.scale-cv footer {
-    display: none;
-}
-
-body.scale-cv .cv-document {
-    box-shadow: none;
-    border-radius: 0;
-}
-
-body.scale-cv .cv-content {
-    padding: 28px 32px;
-    font-size: 9px;
-}
-
-body.scale-cv .cv-name { font-size: 20px; }
-body.scale-cv .cv-title { font-size: 11px; }
-body.scale-cv .cv-contact-row { font-size: 8.5px; }
-body.scale-cv .cv-section-title { font-size: 10px; }
-body.scale-cv .cv-summary-text { font-size: 9px; }
-body.scale-cv .cv-exp-role { font-size: 10px; }
-body.scale-cv .cv-exp-date { font-size: 8.5px; }
-body.scale-cv .cv-exp-company { font-size: 9px; }
-body.scale-cv .cv-exp-list li { font-size: 8.5px; }
-body.scale-cv .cv-skills-table td { font-size: 8.5px; }
-body.scale-cv .cv-certs-table td { font-size: 8.5px; }
-body.scale-cv .cv-cert-issuer { font-size: 7.5px; }
-body.scale-cv .cv-cert-logo { width: 11px; height: 11px; }
-body.scale-cv .cv-edu-degree { font-size: 10px; }
-body.scale-cv .cv-edu-year { font-size: 8.5px; }
-body.scale-cv .cv-edu-school { font-size: 9px; }
-body.scale-cv .cv-langs-row { font-size: 9px; }
-
-body.scale-cv.show-scanlines::before {
-    display: none;
-}
-
 /* Print styles */
 @media print {
     body, body.show-scanlines { background: #fff !important; }
