@@ -7,7 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://unpkg.com/docx@9.1.0/build/index.umd.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="show-scanlines">
@@ -30,9 +31,10 @@
     <div class="cv-page-wrapper">
         <div class="cv-page-header">
             <h1>Curriculum <span>Vitae</span></h1>
-            <p>Professional CV ready for download. Click below to generate a PDF.</p>
+            <p>Professional CV ready for download. Click below to generate a PDF or Word document.</p>
             <div class="cv-actions">
                 <button class="btn btn-primary" id="downloadBtn" onclick="downloadPDF()">Download PDF</button>
+                <button class="btn btn-primary" id="downloadDocxBtn" onclick="downloadDOCX()">Download DOCX</button>
                 <a href="/" class="btn btn-secondary">Back to Portfolio</a>
             </div>
         </div>
@@ -87,59 +89,546 @@
             document.getElementById('navLinks').classList.toggle('active');
         }
 
-        function showNotification(message, type = 'success') {
-            const notification = document.createElement('div');
-            let bgColor = '#00ff9d';
+        function showNotification(message, type) {
+            type = type || 'success';
+            var notification = document.createElement('div');
+            var bgColor = '#00ff9d';
             if (type === 'error') bgColor = '#ff3e3e';
             if (type === 'info') bgColor = '#00d4ff';
-            notification.style.cssText = `
-                position: fixed; top: 100px; right: 20px;
-                background: ${bgColor}; color: #0a0a0f;
-                padding: 1rem 1.5rem; border-radius: 8px;
-                font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;
-                z-index: 10000; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-                animation: slideIn 0.3s ease;
-            `;
+            notification.style.cssText =
+                'position:fixed;top:100px;right:20px;background:' + bgColor +
+                ';color:#0a0a0f;padding:1rem 1.5rem;border-radius:8px;' +
+                "font-family:'JetBrains Mono',monospace;font-size:0.9rem;" +
+                'z-index:10000;box-shadow:0 10px 30px rgba(0,0,0,0.3);' +
+                'animation:slideIn 0.3s ease;';
             notification.textContent = message;
             document.body.appendChild(notification);
-            setTimeout(() => {
+            setTimeout(function() {
                 notification.style.animation = 'slideOut 0.3s ease';
-                setTimeout(() => notification.remove(), 300);
+                setTimeout(function() { notification.remove(); }, 300);
             }, type === 'info' ? 5000 : 3000);
         }
 
-        function addScaleCV() {
-            document.body.classList.add('scale-cv');
-        }
-
-        function removeScaleCV() {
-            document.body.classList.remove('scale-cv');
-        }
-
-        function generateResume() {
-            const areaCV = document.getElementById('cvContent');
-            let opt = {
-                margin: 0,
-                filename: 'Daniel_Serbu_CV.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 4, useCORS: true },
-                jsPDF: { format: 'a4', orientation: 'portrait' }
-            };
-            html2pdf(areaCV, opt);
+        function stripDiacritics(text) {
+            if (!text) return '';
+            return String(text)
+                .replace(/[ȘŞ]/g, 'S').replace(/[șş]/g, 's')
+                .replace(/[ȚŢ]/g, 'T').replace(/[țţ]/g, 't')
+                .replace(/[Ă]/g, 'A').replace(/[ă]/g, 'a')
+                .replace(/Â/g, 'A').replace(/â/g, 'a')
+                .replace(/Î/g, 'I').replace(/î/g, 'i');
         }
 
         function downloadPDF() {
+            var data = window._profileData;
+            if (!data) { showNotification('Profile data not loaded yet.', 'error'); return; }
+
             showNotification('Generating PDF...', 'info');
-            addScaleCV();
-            generateResume();
-            setTimeout(removeScaleCV, 2000);
-            setTimeout(function() {
+
+            try {
+                var JsPDF = window.jspdf.jsPDF;
+                var doc = new JsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait', compress: true });
+
+                var pw = 210, ph = 297, ml = 15, mr = 15, mt = 15, mb = 15;
+                var cw = pw - ml - mr;
+                var bl = ph - mb;
+                var y = mt;
+
+                function pgBreak(need) {
+                    if (y + need > bl) { doc.addPage(); y = mt; }
+                }
+
+                function sectionHead(title) {
+                    pgBreak(12);
+                    doc.setFont('helvetica', 'bold');
+                    doc.setFontSize(10);
+                    doc.setTextColor(26, 26, 46);
+                    doc.text(title.toUpperCase(), ml, y);
+                    y += 1.5;
+                    doc.setDrawColor(204, 204, 204);
+                    doc.setLineWidth(0.3);
+                    doc.line(ml, y, pw - mr, y);
+                    y += 4;
+                }
+
+                // Header
+                doc.setFont('helvetica', 'bold');
+                doc.setFontSize(20);
+                doc.setTextColor(26, 26, 46);
+                doc.text(stripDiacritics(data.name || '').toUpperCase(), pw / 2, y, { align: 'center' });
+                y += 7;
+
+                doc.setFont('helvetica', 'normal');
+                doc.setFontSize(11);
+                doc.setTextColor(85, 85, 85);
+                doc.text(stripDiacritics(data.title || ''), pw / 2, y, { align: 'center' });
+                y += 5;
+
+                doc.setFontSize(8);
+                doc.setTextColor(68, 68, 68);
+                var contactParts = [];
+                if (data.locationShort || data.location) contactParts.push(stripDiacritics(data.locationShort || data.location));
+                if (data.email) contactParts.push(data.email);
+                if (data.linkedinShort) contactParts.push(data.linkedinShort);
+                if (data.githubShort) contactParts.push(data.githubShort);
+                if (data.website) contactParts.push(data.website);
+                doc.text(contactParts.join('  |  '), pw / 2, y, { align: 'center' });
+                y += 3;
+
+                doc.setDrawColor(26, 26, 46);
+                doc.setLineWidth(0.8);
+                doc.line(ml, y, pw - mr, y);
+                y += 6;
+
+                // Professional Summary
+                sectionHead('Professional Summary');
+                doc.setFont('helvetica', 'normal');
+                doc.setFontSize(9);
+                doc.setTextColor(51, 51, 51);
+                var sumLines = doc.splitTextToSize(stripDiacritics(data.cvSummary || data.summary || ''), cw);
+                pgBreak(sumLines.length * 4);
+                doc.text(sumLines, ml, y);
+                y += sumLines.length * 4 + 3;
+
+                // Professional Experience
+                sectionHead('Professional Experience');
+                if (data.experience) {
+                    data.experience.forEach(function(exp, idx) {
+                        var dateRange = exp.current ? exp.startDate + ' - Present' : exp.startDate + ' - ' + exp.endDate;
+
+                        var respHeight = 8;
+                        exp.responsibilities.forEach(function(r) {
+                            respHeight += doc.splitTextToSize(stripDiacritics(r), cw - 8).length * 3.5;
+                        });
+                        pgBreak(Math.min(respHeight, 40));
+
+                        doc.setFont('helvetica', 'bold');
+                        doc.setFontSize(10);
+                        doc.setTextColor(26, 26, 46);
+                        doc.text(stripDiacritics(exp.title), ml, y);
+
+                        doc.setFont('helvetica', 'normal');
+                        doc.setFontSize(8.5);
+                        doc.setTextColor(102, 102, 102);
+                        doc.text(stripDiacritics(dateRange), pw - mr, y, { align: 'right' });
+                        y += 4;
+
+                        doc.setFont('helvetica', 'italic');
+                        doc.setFontSize(9);
+                        doc.setTextColor(85, 85, 85);
+                        doc.text(stripDiacritics(exp.company) + ' - ' + stripDiacritics(exp.location), ml, y);
+                        y += 4;
+
+                        doc.setFont('helvetica', 'normal');
+                        doc.setFontSize(8.5);
+                        doc.setTextColor(68, 68, 68);
+                        exp.responsibilities.forEach(function(r) {
+                            var rl = doc.splitTextToSize(stripDiacritics(r), cw - 8);
+                            pgBreak(rl.length * 3.5);
+                            doc.text('-', ml + 2, y);
+                            doc.text(rl, ml + 6, y);
+                            y += rl.length * 3.5;
+                        });
+
+                        if (idx < data.experience.length - 1) y += 3;
+                    });
+                    y += 2;
+                }
+
+                // Technical Skills
+                sectionHead('Technical Skills');
+                if (data.skills) {
+                    var colW = cw / 2 - 2;
+                    doc.setFont('helvetica', 'normal');
+                    doc.setFontSize(8.5);
+                    doc.setTextColor(68, 68, 68);
+                    for (var i = 0; i < data.skills.length; i += 2) {
+                        var s1 = data.skills[i];
+                        var s2 = data.skills[i + 1];
+                        var t1 = stripDiacritics(s1.cvCategory || s1.category) + ': ' + (s1.cvTags || s1.tags).map(stripDiacritics).join(', ');
+                        var l1 = doc.splitTextToSize(t1, colW);
+                        var l2 = [];
+                        if (s2) {
+                            var t2 = stripDiacritics(s2.cvCategory || s2.category) + ': ' + (s2.cvTags || s2.tags).map(stripDiacritics).join(', ');
+                            l2 = doc.splitTextToSize(t2, colW);
+                        }
+                        var maxL = Math.max(l1.length, l2.length);
+                        pgBreak(maxL * 3.5);
+                        doc.text(l1, ml, y);
+                        if (l2.length) doc.text(l2, ml + cw / 2, y);
+                        y += maxL * 3.5;
+                    }
+                    y += 2;
+                }
+
+                // Professional Certifications
+                sectionHead('Professional Certifications');
+                if (data.certifications) {
+                    var certColW = cw / 2 - 2;
+                    doc.setFont('helvetica', 'normal');
+                    doc.setFontSize(8.5);
+                    doc.setTextColor(51, 51, 51);
+                    for (var j = 0; j < data.certifications.length; j += 2) {
+                        var c1 = data.certifications[j];
+                        var c2 = data.certifications[j + 1];
+                        var ct1 = '- ' + c1.shortName + ' - ' + c1.fullName + ' (' + c1.issuer + ')';
+                        var cl1 = doc.splitTextToSize(ct1, certColW);
+                        var cl2 = [];
+                        if (c2) {
+                            var ct2 = '- ' + c2.shortName + ' - ' + c2.fullName + ' (' + c2.issuer + ')';
+                            cl2 = doc.splitTextToSize(ct2, certColW);
+                        }
+                        var certMaxL = Math.max(cl1.length, cl2.length);
+                        pgBreak(certMaxL * 3.5);
+                        doc.text(cl1, ml, y);
+                        if (cl2.length) doc.text(cl2, ml + cw / 2, y);
+                        y += certMaxL * 3.5;
+                    }
+                    y += 2;
+                }
+
+                // Education
+                sectionHead('Education');
+                if (data.education) {
+                    data.education.forEach(function(edu) {
+                        pgBreak(10);
+                        doc.setFont('helvetica', 'bold');
+                        doc.setFontSize(10);
+                        doc.setTextColor(26, 26, 46);
+                        doc.text(stripDiacritics(edu.degree), ml, y);
+                        doc.setFont('helvetica', 'normal');
+                        doc.setFontSize(8.5);
+                        doc.setTextColor(102, 102, 102);
+                        doc.text(edu.startYear + ' - ' + edu.endYear, pw - mr, y, { align: 'right' });
+                        y += 4;
+                        doc.setFont('helvetica', 'italic');
+                        doc.setFontSize(9);
+                        doc.setTextColor(85, 85, 85);
+                        doc.text(stripDiacritics(edu.school), ml, y);
+                        y += 5;
+                    });
+                }
+
+                // Languages
+                sectionHead('Languages');
+                if (data.languages) {
+                    pgBreak(6);
+                    doc.setFont('helvetica', 'normal');
+                    doc.setFontSize(9);
+                    doc.setTextColor(51, 51, 51);
+                    var langStr = data.languages.map(function(l) {
+                        return stripDiacritics(l.name) + ' - ' + stripDiacritics(l.level);
+                    }).join('    ');
+                    doc.text(langStr, ml, y);
+                }
+
+                doc.save('Daniel_Serbu_CV.pdf');
                 showNotification('PDF downloaded successfully!');
-            }, 2500);
+            } catch (error) {
+                console.error('PDF generation error:', error);
+                showNotification('Error generating PDF: ' + error.message, 'error');
+            }
+        }
+
+        function downloadDOCX() {
+            var data = window._profileData;
+            if (!data) { showNotification('Profile data not loaded yet.', 'error'); return; }
+
+            showNotification('Generating DOCX...', 'info');
+
+            try {
+                var D = window.docx;
+                var children = [];
+
+                var noBorders = {
+                    top: { style: D.BorderStyle.NONE, size: 0 },
+                    bottom: { style: D.BorderStyle.NONE, size: 0 },
+                    left: { style: D.BorderStyle.NONE, size: 0 },
+                    right: { style: D.BorderStyle.NONE, size: 0 }
+                };
+
+                function sectionTitle(title) {
+                    return new D.Paragraph({
+                        spacing: { before: 200, after: 60 },
+                        border: { bottom: { style: D.BorderStyle.SINGLE, size: 2, color: 'cccccc' } },
+                        children: [
+                            new D.TextRun({
+                                text: title.toUpperCase(),
+                                bold: true,
+                                size: 20,
+                                color: '1a1a2e',
+                                font: 'Arial',
+                                characterSpacing: 30
+                            })
+                        ]
+                    });
+                }
+
+                // Name
+                children.push(new D.Paragraph({
+                    alignment: D.AlignmentType.CENTER,
+                    spacing: { after: 40 },
+                    children: [
+                        new D.TextRun({
+                            text: (data.name || '').toUpperCase(),
+                            bold: true,
+                            size: 44,
+                            color: '1a1a2e',
+                            font: 'Arial'
+                        })
+                    ]
+                }));
+
+                // Title
+                children.push(new D.Paragraph({
+                    alignment: D.AlignmentType.CENTER,
+                    spacing: { after: 80 },
+                    children: [
+                        new D.TextRun({
+                            text: data.title || '',
+                            size: 22,
+                            color: '555555',
+                            font: 'Arial'
+                        })
+                    ]
+                }));
+
+                // Contact row
+                var cp = [];
+                if (data.locationShort || data.location) cp.push(data.locationShort || data.location);
+                if (data.email) cp.push(data.email);
+                if (data.linkedinShort) cp.push(data.linkedinShort);
+                if (data.githubShort) cp.push(data.githubShort);
+                if (data.website) cp.push(data.website);
+                children.push(new D.Paragraph({
+                    alignment: D.AlignmentType.CENTER,
+                    spacing: { after: 120 },
+                    border: { bottom: { style: D.BorderStyle.SINGLE, size: 6, color: '1a1a2e' } },
+                    children: [
+                        new D.TextRun({ text: cp.join('  |  '), size: 18, color: '444444', font: 'Arial' })
+                    ]
+                }));
+
+                // Professional Summary
+                children.push(sectionTitle('Professional Summary'));
+                children.push(new D.Paragraph({
+                    spacing: { after: 80 },
+                    children: [
+                        new D.TextRun({ text: data.cvSummary || data.summary || '', size: 19, color: '333333', font: 'Arial' })
+                    ]
+                }));
+
+                // Professional Experience
+                children.push(sectionTitle('Professional Experience'));
+                if (data.experience) {
+                    data.experience.forEach(function(exp) {
+                        var dateRange = exp.current ? exp.startDate + ' - Present' : exp.startDate + ' - ' + exp.endDate;
+
+                        children.push(new D.Paragraph({
+                            spacing: { before: 80, after: 0 },
+                            tabStops: [{ type: D.TabStopType.RIGHT, position: D.convertMillimetersToTwip(180) }],
+                            children: [
+                                new D.TextRun({ text: exp.title, bold: true, size: 21, color: '1a1a2e', font: 'Arial' }),
+                                new D.TextRun({ text: '\t' + dateRange, size: 17, color: '666666', font: 'Arial' })
+                            ]
+                        }));
+
+                        children.push(new D.Paragraph({
+                            spacing: { after: 40 },
+                            children: [
+                                new D.TextRun({ text: exp.company + ' - ' + exp.location, italics: true, size: 19, color: '555555', font: 'Arial' })
+                            ]
+                        }));
+
+                        exp.responsibilities.forEach(function(resp) {
+                            children.push(new D.Paragraph({
+                                spacing: { after: 20 },
+                                indent: { left: D.convertMillimetersToTwip(3) },
+                                children: [
+                                    new D.TextRun({ text: '- ' + resp, size: 17, color: '444444', font: 'Arial' })
+                                ]
+                            }));
+                        });
+                    });
+                }
+
+                // Technical Skills
+                children.push(sectionTitle('Technical Skills'));
+                if (data.skills) {
+                    var skillRows = [];
+                    for (var i = 0; i < data.skills.length; i += 2) {
+                        var s1 = data.skills[i];
+                        var s2 = data.skills[i + 1];
+                        var label1 = s1.cvCategory || s1.category;
+                        var value1 = (s1.cvTags || s1.tags).join(', ');
+
+                        var cells = [
+                            new D.TableCell({
+                                borders: noBorders,
+                                children: [new D.Paragraph({ children: [
+                                    new D.TextRun({ text: label1 + ': ', bold: true, size: 17, color: '1a1a2e', font: 'Arial' }),
+                                    new D.TextRun({ text: value1, size: 17, color: '444444', font: 'Arial' })
+                                ]})]
+                            })
+                        ];
+
+                        if (s2) {
+                            var label2 = s2.cvCategory || s2.category;
+                            var value2 = (s2.cvTags || s2.tags).join(', ');
+                            cells.push(new D.TableCell({
+                                borders: noBorders,
+                                children: [new D.Paragraph({ children: [
+                                    new D.TextRun({ text: label2 + ': ', bold: true, size: 17, color: '1a1a2e', font: 'Arial' }),
+                                    new D.TextRun({ text: value2, size: 17, color: '444444', font: 'Arial' })
+                                ]})]
+                            }));
+                        } else {
+                            cells.push(new D.TableCell({
+                                borders: noBorders,
+                                children: [new D.Paragraph({ children: [] })]
+                            }));
+                        }
+
+                        skillRows.push(new D.TableRow({ children: cells }));
+                    }
+
+                    children.push(new D.Table({
+                        rows: skillRows,
+                        width: { size: 100, type: D.WidthType.PERCENTAGE },
+                        borders: {
+                            top: { style: D.BorderStyle.NONE, size: 0 },
+                            bottom: { style: D.BorderStyle.NONE, size: 0 },
+                            left: { style: D.BorderStyle.NONE, size: 0 },
+                            right: { style: D.BorderStyle.NONE, size: 0 },
+                            insideHorizontal: { style: D.BorderStyle.NONE, size: 0 },
+                            insideVertical: { style: D.BorderStyle.NONE, size: 0 }
+                        }
+                    }));
+                }
+
+                // Professional Certifications
+                children.push(sectionTitle('Professional Certifications'));
+                if (data.certifications) {
+                    var certRows = [];
+                    for (var j = 0; j < data.certifications.length; j += 2) {
+                        var c1 = data.certifications[j];
+                        var c2 = data.certifications[j + 1];
+
+                        var certCells = [
+                            new D.TableCell({
+                                borders: noBorders,
+                                children: [new D.Paragraph({ children: [
+                                    new D.TextRun({ text: '- ' + c1.shortName + ' - ' + c1.fullName + ' ', size: 17, color: '333333', font: 'Arial' }),
+                                    new D.TextRun({ text: '(' + c1.issuer + ')', size: 16, color: '777777', font: 'Arial' })
+                                ]})]
+                            })
+                        ];
+
+                        if (c2) {
+                            certCells.push(new D.TableCell({
+                                borders: noBorders,
+                                children: [new D.Paragraph({ children: [
+                                    new D.TextRun({ text: '- ' + c2.shortName + ' - ' + c2.fullName + ' ', size: 17, color: '333333', font: 'Arial' }),
+                                    new D.TextRun({ text: '(' + c2.issuer + ')', size: 16, color: '777777', font: 'Arial' })
+                                ]})]
+                            }));
+                        } else {
+                            certCells.push(new D.TableCell({
+                                borders: noBorders,
+                                children: [new D.Paragraph({ children: [] })]
+                            }));
+                        }
+
+                        certRows.push(new D.TableRow({ children: certCells }));
+                    }
+
+                    children.push(new D.Table({
+                        rows: certRows,
+                        width: { size: 100, type: D.WidthType.PERCENTAGE },
+                        borders: {
+                            top: { style: D.BorderStyle.NONE, size: 0 },
+                            bottom: { style: D.BorderStyle.NONE, size: 0 },
+                            left: { style: D.BorderStyle.NONE, size: 0 },
+                            right: { style: D.BorderStyle.NONE, size: 0 },
+                            insideHorizontal: { style: D.BorderStyle.NONE, size: 0 },
+                            insideVertical: { style: D.BorderStyle.NONE, size: 0 }
+                        }
+                    }));
+                }
+
+                // Education
+                children.push(sectionTitle('Education'));
+                if (data.education) {
+                    data.education.forEach(function(edu) {
+                        children.push(new D.Paragraph({
+                            tabStops: [{ type: D.TabStopType.RIGHT, position: D.convertMillimetersToTwip(180) }],
+                            children: [
+                                new D.TextRun({ text: edu.degree, bold: true, size: 21, color: '1a1a2e', font: 'Arial' }),
+                                new D.TextRun({ text: '\t' + edu.startYear + ' - ' + edu.endYear, size: 17, color: '666666', font: 'Arial' })
+                            ]
+                        }));
+                        children.push(new D.Paragraph({
+                            spacing: { after: 60 },
+                            children: [
+                                new D.TextRun({ text: edu.school, italics: true, size: 19, color: '555555', font: 'Arial' })
+                            ]
+                        }));
+                    });
+                }
+
+                // Languages
+                children.push(sectionTitle('Languages'));
+                if (data.languages) {
+                    var langRuns = [];
+                    data.languages.forEach(function(lang, idx) {
+                        langRuns.push(new D.TextRun({ text: lang.name, bold: true, size: 19, color: '1a1a2e', font: 'Arial' }));
+                        langRuns.push(new D.TextRun({ text: ' - ' + lang.level, size: 19, color: '555555', font: 'Arial' }));
+                        if (idx < data.languages.length - 1) {
+                            langRuns.push(new D.TextRun({ text: '    ', size: 19, font: 'Arial' }));
+                        }
+                    });
+                    children.push(new D.Paragraph({ children: langRuns }));
+                }
+
+                var docFile = new D.Document({
+                    sections: [{
+                        properties: {
+                            page: {
+                                size: { width: D.convertMillimetersToTwip(210), height: D.convertMillimetersToTwip(297) },
+                                margin: {
+                                    top: D.convertMillimetersToTwip(15),
+                                    right: D.convertMillimetersToTwip(15),
+                                    bottom: D.convertMillimetersToTwip(15),
+                                    left: D.convertMillimetersToTwip(15)
+                                }
+                            }
+                        },
+                        children: children
+                    }]
+                });
+
+                D.Packer.toBlob(docFile).then(function(blob) {
+                    var url = URL.createObjectURL(blob);
+                    var a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'Daniel_Serbu_CV.docx';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                    showNotification('DOCX downloaded successfully!');
+                }).catch(function(err) {
+                    console.error('DOCX packing error:', err);
+                    showNotification('Error generating DOCX: ' + err.message, 'error');
+                });
+            } catch (error) {
+                console.error('DOCX generation error:', error);
+                showNotification('Error generating DOCX: ' + error.message, 'error');
+            }
         }
 
         function escapeHtml(text) {
-            const div = document.createElement('div');
+            var div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
         }
@@ -152,6 +641,7 @@
                     return;
                 }
                 var data = await response.json();
+                window._profileData = data;
 
                 // Header
                 var nameEl = document.getElementById('cvName');

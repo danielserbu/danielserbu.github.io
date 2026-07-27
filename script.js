@@ -42,49 +42,6 @@ function showTab(category) {
     event.target.classList.add('active');
 }
 
-// CV Export Functions
-async function downloadPDF() {
-    const element = document.getElementById('cvContent');
-
-    const clone = element.cloneNode(true);
-    clone.style.width = '210mm';
-    clone.style.minHeight = '297mm';
-    clone.style.padding = '20mm';
-    clone.style.backgroundColor = '#ffffff';
-    clone.style.color = '#000000';
-
-    const opt = {
-        margin: 0,
-        filename: 'Daniel_Serbu_CV.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: {
-            scale: 2,
-            useCORS: true,
-            letterRendering: true,
-            backgroundColor: '#ffffff',
-            logging: false,
-            width: 794,
-            windowWidth: 794
-        },
-        jsPDF: {
-            unit: 'mm',
-            format: 'a4',
-            orientation: 'portrait',
-            compress: true
-        },
-        pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
-    };
-
-    try {
-        showNotification('Generating PDF...', 'info');
-        await html2pdf().set(opt).from(clone).save();
-        showNotification('PDF downloaded successfully!');
-    } catch (error) {
-        console.error('PDF generation error:', error);
-        showNotification('Error generating PDF: ' + error.message, 'error');
-    }
-}
-
 function showNotification(message, type = 'success') {
     const notification = document.createElement('div');
     let bgColor = 'var(--accent-green)';
