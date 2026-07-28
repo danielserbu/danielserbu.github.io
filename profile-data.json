@@ -1,8 +1,8 @@
 {
   "name": "Daniel Șerbu",
-  "title": "Penetration Tester & Ethical Hacker",
-  "heroRole": "Penetration Tester & Ethical Hacker",
-  "heroDescription": "Offensive security specialist with expertise in web application testing, cloud security and mobile security. Breaking things to make them stronger.",
+  "title": "Security Engineer & AI Security Specialist",
+  "heroRole": "Security Engineer & AI Red Teamer",
+  "heroDescription": "Security engineer with 8+ years spanning penetration testing, AI/ML red teaming, software QA, and DevOps. Building secure systems and breaking insecure ones.",
   "location": "Galaţi, Romania",
   "locationShort": "Galati, Romania",
   "email": "daniel-serbu@outlook.com",
@@ -11,12 +11,12 @@
   "linkedinShort": "linkedin.com/in/daniel-serbu",
   "github": "https://github.com/danielserbu",
   "githubShort": "github.com/danielserbu",
-  "summary": "Offensive security specialist with 3+ years of experience in penetration testing and cybersecurity. Expert in identifying and exploiting vulnerabilities across web applications, APIs, cloud infrastructure (AWS, Azure, GCP), mobile applications, and Active Directory environments. Passionate about continuous learning and staying ahead of emerging threats.",
-  "cvSummary": "Offensive security specialist with 3+ years of experience in penetration testing and cybersecurity. Expert in identifying and exploiting vulnerabilities across web applications, APIs, cloud infrastructure (AWS, Azure, GCP), mobile applications, and Active Directory environments. Passionate about continuous learning and staying ahead of emerging threats.",
+  "summary": "Security professional with 8+ years of combined experience across penetration testing, application security, AI/ML security testing, software QA, test automation, and DevOps. Certified in AI/ML security testing (C-AI/MLPen) with hands-on expertise in secure code review, vulnerability assessment, and adversarial testing across web, mobile, cloud (AWS, Azure, GCP), and API platforms. Strong software engineering background with proficiency in Python, C#, JavaScript, PowerShell, and Groovy, and a track record of designing CI/CD pipelines, automated testing frameworks, and security tooling. Computer Science graduate.",
+  "cvSummary": "Security professional with 8+ years of combined experience across penetration testing, application security, AI/ML security testing, software QA, test automation, and DevOps. Certified in AI/ML security testing (C-AI/MLPen) with hands-on expertise in secure code review, vulnerability assessment, and adversarial testing across web, mobile, cloud (AWS, Azure, GCP), and API platforms. Strong software engineering background with proficiency in Python, C#, JavaScript, PowerShell, and Groovy, and a track record of designing CI/CD pipelines, automated testing frameworks, and security tooling. Computer Science graduate.",
   "about": [
-    "I'm a security professional specializing in offensive security and penetration testing. My work focuses on identifying vulnerabilities in web applications, APIs, cloud infrastructure, and mobile applications before malicious actors can exploit them.",
-    "With a strong foundation in multiple offensive security methodologies, I approach each engagement with a thorough, methodical mindset. I'm passionate about continuous learning and staying ahead of emerging threats.",
-    "Currently focused on web application security, bug bounty hunting, and cloud security across AWS, Azure, and GCP."
+    "I'm a security professional with a multidisciplinary background spanning penetration testing, software QA, test automation, and DevOps. My career started in quality engineering, where I spent three years building automated test frameworks, CI/CD pipelines, and testing strategies for complex maritime software systems. That foundation in systematic testing and software engineering now powers my security work.",
+    "As a penetration tester and certified AI/ML security specialist (C-AI/MLPen), I bring a developer's perspective to security assessments. I perform secure code reviews, build custom testing tools in Python, and evaluate systems across web applications, APIs, mobile platforms, cloud infrastructure, and emerging AI/ML technologies.",
+    "I hold 20 professional certifications across application security, cloud security, mobile security, red teaming, and AI/ML security. Currently focused on the intersection of AI and cybersecurity, helping organizations understand and mitigate risks in AI-powered systems."
   ],
   "links": [
     {
@@ -70,13 +70,19 @@
   ],
   "skills": [
     {
-      "category": "Web Application Security",
-      "tags": ["OWASP Top 10", "SQL Injection", "XSS", "CSRF", "SSRF", "XXE", "Auth Bypass", "Business Logic"]
+      "category": "Application Security",
+      "tags": ["OWASP Top 10", "SQL Injection", "XSS", "CSRF", "SSRF", "XXE", "Auth Bypass", "Secure Code Review"],
+      "cvTags": ["OWASP Top 10", "Vulnerability Assessment", "Secure Code Review", "Burp Suite Pro"]
     },
     {
-      "category": "Tools & Frameworks",
-      "cvCategory": "Security Tools",
-      "tags": ["Burp Suite Pro", "Caido", "Metasploit", "Nmap", "SQLMap", "Nuclei", "Ffuf", "Hashcat", "Impacket"]
+      "category": "AI/ML Security",
+      "tags": ["AI Red Teaming", "Prompt Injection Testing", "LLM Security Evaluation", "Adversarial Testing", "AI Model Assessment"],
+      "cvTags": ["AI Red Teaming", "Prompt Injection", "LLM Security", "Adversarial ML Testing"]
+    },
+    {
+      "category": "Programming & Scripting",
+      "tags": ["Python", "C#", "JavaScript", "PowerShell", "Bash", "Groovy", "SQL"],
+      "cvTags": ["Python", "C#", "JavaScript", "PowerShell", "Bash", "Groovy"]
     },
     {
       "category": "Cloud Security",
@@ -87,29 +93,36 @@
       "category": "Mobile & API Testing",
       "cvCategory": "Mobile & API",
       "tags": ["Android Pentesting", "iOS Assessment", "REST API", "GraphQL", "Mobile OWASP", "Frida"],
-      "cvTags": ["Android/iOS Pentesting", "REST API", "GraphQL", "Mobile OWASP", "Frida"]
+      "cvTags": ["Android/iOS Pentesting", "REST API", "GraphQL", "Frida"]
     },
     {
-      "category": "DevSecOps",
-      "tags": [ "SAST", "DAST", "SCA", "SBOM", "IaC Security", "Secure Coding"],
-      "cvTags": [ "SAST/DAST/SCA", "CI/CD Security", "Jenkins"]
+      "category": "DevSecOps & CI/CD",
+      "cvCategory": "DevSecOps",
+      "tags": ["SAST", "DAST", "SCA", "SBOM", "IaC Security", "Jenkins", "Bamboo", "CI/CD Pipelines"],
+      "cvTags": ["SAST/DAST/SCA", "CI/CD Pipelines", "Jenkins", "Bamboo"]
     },
     {
-      "category": "Active Directory & Network",
-      "cvCategory": "Active Directory",
-      "tags": ["AD Exploitation", "Kerberoasting", "Pass-the-Hash", "Pivoting", "Wi-Fi Security", "Evil-WinRM"],
-      "cvTags": ["AD Exploitation", "Kerberoasting", "Pass-the-Hash", "Pivoting", "Evil-WinRM"]
+      "category": "Test Automation & QA",
+      "cvCategory": "Test Automation",
+      "tags": ["Robot Framework", "Postman/Newman", "JMeter", "JUnit", "Gradle", "Xamarin UI Test", "AutoIt"],
+      "cvTags": ["Robot Framework", "Postman/Newman", "JMeter", "JUnit", "Automated Testing"]
+    },
+    {
+      "category": "Red Teaming & Network",
+      "cvCategory": "Red Teaming",
+      "tags": ["AD Exploitation", "Kerberoasting", "Pass-the-Hash", "Pivoting", "Metasploit", "Nmap", "Nuclei"],
+      "cvTags": ["AD Exploitation", "Kerberoasting", "Metasploit", "Nmap", "Pivoting"]
     }
   ],
   "certifications": [
     {
-      "shortName": "PNPT",
-      "fullName": "Practical Network Penetration Tester",
-      "issuer": "TCM Security",
-      "issuerFull": "TCM Security",
-      "certUrl": "https://certified.tcm-sec.com/89aefaac-47db-4d24-9e0b-0153e1d83094#acc.lQsS1dhJ",
-      "examUrl": "https://certifications.tcm-sec.com/pnpt/",
-      "badgeImage": "/images/badges/pnpt.webp"
+      "shortName": "C-AI/MLPen",
+      "fullName": "Certified AI/ML Pentester",
+      "issuer": "SecOps Group",
+      "issuerFull": "The SecOps Group",
+      "certUrl": "https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXZwOzDbu+Uivmk1jVlpEroF5cyiIj/fc84vGSy/RpvX5IdHYmcHMG+h3TKokgEFTahGwyJopErW36pXIWLZ9zCk=",
+      "examUrl": "https://pentestingexams.com/product/certified-ai-ml-pentester-c-ai-mlpen",
+      "badgeImage": "/images/badges/c-ai-mlpen.webp"
     },
     {
       "shortName": "eWPTX",
@@ -121,6 +134,15 @@
       "badgeImage": "/images/badges/ewptx.png"
     },
     {
+      "shortName": "PNPT",
+      "fullName": "Practical Network Penetration Tester",
+      "issuer": "TCM Security",
+      "issuerFull": "TCM Security",
+      "certUrl": "https://certified.tcm-sec.com/89aefaac-47db-4d24-9e0b-0153e1d83094#acc.lQsS1dhJ",
+      "examUrl": "https://certifications.tcm-sec.com/pnpt/",
+      "badgeImage": "/images/badges/pnpt.webp"
+    },
+    {
       "shortName": "eCPPT",
       "fullName": "Certified Professional Penetration Tester",
       "issuer": "INE Security",
@@ -130,23 +152,6 @@
       "badgeImage": "/images/badges/ecppt.png"
     },
     {
-      "shortName": "eMAPT",
-      "fullName": "Mobile Application Penetration Tester",
-      "issuer": "INE Security",
-      "issuerFull": "INE Security (eLearnSecurity)",
-      "certUrl": "https://certs.ine.com/f9290e6a-4125-4fdc-86e2-7ee63972a20f#acc.kPoIcusD",
-      "examUrl": "https://ine.com/security/certifications/emapt-certification",
-      "badgeImage": "/images/badges/emapt.png"
-    },
-    {
-      "shortName": "eJPT",
-      "fullName": "Junior Penetration Tester",
-      "issuer": "INE Security",
-      "issuerFull": "INE Security (eLearnSecurity)",
-      "certUrl": "https://serbudaniel.wordpress.com/wp-content/uploads/2022/02/your_ejpt_certificate.pdf",
-      "examUrl": "https://security.ine.com/certifications/ejpt-certification/"
-    },
-    {
       "shortName": "CAPenX",
       "fullName": "Certified AppSec Pentesting eXpert",
       "issuer": "SecOps Group",
@@ -154,6 +159,15 @@
       "certUrl": "https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXV8ytxQf9z62V6xgGc8hsaeQcc34Oi2u8eoLyW4XCWzaw3w+lN3z9TWs1GMTKhPNJc8Mz14IQHUaq/5+AXgc380=",
       "examUrl": "https://pentestingexams.com/certifications/expert/certified-appsec-pentesting-expert-capenx/",
       "badgeImage": "/images/badges/capenx.webp"
+    },
+    {
+      "shortName": "eMAPT",
+      "fullName": "Mobile Application Penetration Tester",
+      "issuer": "INE Security",
+      "issuerFull": "INE Security (eLearnSecurity)",
+      "certUrl": "https://certs.ine.com/f9290e6a-4125-4fdc-86e2-7ee63972a20f#acc.kPoIcusD",
+      "examUrl": "https://ine.com/security/certifications/emapt-certification",
+      "badgeImage": "/images/badges/emapt.png"
     },
     {
       "shortName": "CCPenX-AWS",
@@ -174,13 +188,40 @@
       "badgeImage": "/images/badges/crtsv2.webp"
     },
     {
-      "shortName": "CELMS",
-      "fullName": "Enterprise Lateral Movement Specialist",
+      "shortName": "MCRTA",
+      "fullName": "Multi-Cloud Red Team Analyst",
       "issuer": "CyberWarfare Labs",
       "issuerFull": "CyberWarfare Labs",
-      "certUrl": "https://www.credential.net/cd6316bc-a32d-424b-9382-32a5b5929d95#acc.D9jTGN3y",
-      "examUrl": "https://cyberwarfare.live/product/enterprise-lateral-movement-specialist/",
-      "badgeImage": "/images/badges/celms.webp"
+      "certUrl": "https://labs.cyberwarfare.live/badge/image/65e6779ae665fd6fafe10fd8",
+      "examUrl": "https://cyberwarfare.live/product/multi-cloud-red-team-analyst-mcrta/",
+      "badgeImage": "/images/badges/mcrta.webp"
+    },
+    {
+      "shortName": "CAPT",
+      "fullName": "Certified Android Penetration Tester",
+      "issuer": "Mobile Hacking Lab",
+      "issuerFull": "Mobile Hacking Lab",
+      "certUrl": "https://credsverse.com/credentials/6b54622c-05a9-4c54-a00c-46c989d1bf11",
+      "examUrl": "https://www.mobilehackinglab.com/course/android-appsec-exam",
+      "badgeImage": "/images/badges/capt.webp"
+    },
+    {
+      "shortName": "CIPT",
+      "fullName": "Certified iOS Penetration Tester",
+      "issuer": "Mobile Hacking Lab",
+      "issuerFull": "Mobile Hacking Lab",
+      "certUrl": "https://credsverse.com/credentials/8e94a693-310c-4b79-9ddd-da3fa9b2c0e5",
+      "examUrl": "https://www.mobilehackinglab.com/course/ios-appsec-exam",
+      "badgeImage": "/images/badges/cipt.webp"
+    },
+    {
+      "shortName": "API-RTA",
+      "fullName": "API Red Team Analyst",
+      "issuer": "CyberWarfare Labs",
+      "issuerFull": "CyberWarfare Labs",
+      "certUrl": "https://labs.cyberwarfare.live/credential/achievement/6973484a6d896ee8347255c5",
+      "examUrl": "https://cyberwarfare.live/product/api-red-team-analyst-api-rta/",
+      "badgeImage": "/images/badges/api-rta.png"
     },
     {
       "shortName": "CRTA",
@@ -201,31 +242,13 @@
       "badgeImage": "/images/badges/ad-rts.webp"
     },
     {
-      "shortName": "API-RTA",
-      "fullName": "API Red Team Analyst",
+      "shortName": "CELMS",
+      "fullName": "Enterprise Lateral Movement Specialist",
       "issuer": "CyberWarfare Labs",
       "issuerFull": "CyberWarfare Labs",
-      "certUrl": "https://labs.cyberwarfare.live/credential/achievement/6973484a6d896ee8347255c5",
-      "examUrl": "https://cyberwarfare.live/product/api-red-team-analyst-api-rta/",
-      "badgeImage": "/images/badges/api-rta.png"
-    },
-    {
-      "shortName": "MCRTA",
-      "fullName": "Multi-Cloud Red Team Analyst",
-      "issuer": "CyberWarfare Labs",
-      "issuerFull": "CyberWarfare Labs",
-      "certUrl": "https://labs.cyberwarfare.live/badge/image/65e6779ae665fd6fafe10fd8",
-      "examUrl": "https://cyberwarfare.live/product/multi-cloud-red-team-analyst-mcrta/",
-      "badgeImage": "/images/badges/mcrta.webp"
-    },
-    {
-      "shortName": "C-AI/MLPen",
-      "fullName": "Certified AI/ML Pentester",
-      "issuer": "SecOps Group",
-      "issuerFull": "The SecOps Group",
-      "certUrl": "https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXZwOzDbu+Uivmk1jVlpEroF5cyiIj/fc84vGSy/RpvX5IdHYmcHMG+h3TKokgEFTahGwyJopErW36pXIWLZ9zCk=",
-      "examUrl": "https://pentestingexams.com/product/certified-ai-ml-pentester-c-ai-mlpen",
-      "badgeImage": "/images/badges/c-ai-mlpen.webp"
+      "certUrl": "https://www.credential.net/cd6316bc-a32d-424b-9382-32a5b5929d95#acc.D9jTGN3y",
+      "examUrl": "https://cyberwarfare.live/product/enterprise-lateral-movement-specialist/",
+      "badgeImage": "/images/badges/celms.webp"
     },
     {
       "shortName": "CAPen",
@@ -264,22 +287,12 @@
       "badgeImage": "/images/badges/cmpen-android.webp"
     },
     {
-      "shortName": "CAPT",
-      "fullName": "Certified Android Penetration Tester",
-      "issuer": "Mobile Hacking Lab",
-      "issuerFull": "Mobile Hacking Lab",
-      "certUrl": "https://credsverse.com/credentials/6b54622c-05a9-4c54-a00c-46c989d1bf11",
-      "examUrl": "https://www.mobilehackinglab.com/course/android-appsec-exam",
-      "badgeImage": "/images/badges/capt.webp"
-    },
-    {
-      "shortName": "CIPT",
-      "fullName": "Certified iOS Penetration Tester",
-      "issuer": "Mobile Hacking Lab",
-      "issuerFull": "Mobile Hacking Lab",
-      "certUrl": "https://credsverse.com/credentials/8e94a693-310c-4b79-9ddd-da3fa9b2c0e5",
-      "examUrl": "https://www.mobilehackinglab.com/course/ios-appsec-exam",
-      "badgeImage": "/images/badges/cipt.webp"
+      "shortName": "eJPT",
+      "fullName": "Junior Penetration Tester",
+      "issuer": "INE Security",
+      "issuerFull": "INE Security (eLearnSecurity)",
+      "certUrl": "https://serbudaniel.wordpress.com/wp-content/uploads/2022/02/your_ejpt_certificate.pdf",
+      "examUrl": "https://security.ine.com/certifications/ejpt-certification/"
     }
   ],
   "issuerLogos": {
@@ -290,71 +303,71 @@
     "Mobile Hacking Lab": { "src": "/images/brands/mobile-hacking-lab.png", "cvChip": true }
   },
   "experience": [
-{
-"title": "Penetration Tester",
-"company": "Self-employed",
-"location": "Remote",
-"startDate": "Feb 2025",
-"endDate": "Present",
-"current": true,
-"responsibilities": [
-"Conduct thorough security assessments on client Web Apps, APIs, Mobile Apps (iOS and android), Infrastructure, and Cloud systems, uncovering vulnerabilities and potential attack vectors.",
-"Develop Red Teaming tools to enhance testing efficiency.",
-"Perform Secure Code Reviews to identify and rectify security flaws.",
-"Prepare detailed reports with assessment findings and recommended remediation actions.",
-"Assist clients in implementing remediation recommendations and providing retesting services."
-]
-},
-{
-"title": "Penetration Tester",
-"company": "Red Team Security S.R.L.",
-"location": "Remote",
-"startDate": "Oct 2022",
-"endDate": "Jan 2025",
-"current": false,
-"responsibilities": [
-"Conduct thorough security assessments on client Web Apps, APIs, Mobile Apps (iOS and android), Infrastructure, and Cloud systems, uncovering vulnerabilities and potential attack vectors.",
-"Perform External Reconnaissance, OSINT, Internal enumeration, exploitation, lateral movement, and privilege escalation to simulate real-world attack scenarios.",
-"Develop Red Teaming tools to enhance testing efficiency.",
-"Perform Secure Code Reviews to identify and rectify security flaws.",
-"Assist in simulating phishing attacks to assess and improve client resilience against such threats.",
-"Prepare detailed reports with assessment findings and recommended remediation actions.",
-"Assist clients in implementing remediation recommendations and providing retesting services."
-]
-},
-{
-"title": "DevOps & Test Automation Engineer",
-"company": "NAPA",
-"location": "Galaţi, Romania",
-"startDate": "Feb 2020",
-"endDate": "Jun 2021",
-"current": false,
-"responsibilities": [
-"Administer, maintain, design and implement automated testing and deployment pipelines using Jenkins, Atlassian Bamboo, Visual Studio AppCenter, and Bitbucket.",
-"As a member of the onboard ship software security taskforce, collaborated with the team to design and implement secure onboard solutions. This involved developing and maintaining onboard operational tools and installers using C#, PowerShell, JavaScript, Wix#, NSIS, setting up automated SAST scanning using SonarQube and MobSF/Python, etc.",
-"Create and maintain automated API tests using Postman and Newman, JMeter, and unit and integration tests using JUnit, Gradle, and Groovy.",
-"Help junior test engineers to plan and manage test strategies for onboard software using mindmaps and Zephyr tests (Electronic Logbook, ship-shore data synchronization software, and onboard integration software)."
-]
-},
-{
-"title": "Software QA Test Engineer",
-"company": "NAPA",
-"location": "Galaţi, Romania",
-"startDate": "Feb 2017",
-"endDate": "Feb 2020",
-"current": false,
-"responsibilities": [
-"Oversee every phase of design, development, testing, and delivery to verify if the products meet the quality standards and requirements.",
-"Design and execute test suites for onboard software (servers, clients, iOS and Android mobile apps) using mindmaps and Zephyr tests, including Electronic Logbook, ship-shore data synchronization software, and onboard integration.",
-"Create or investigate backlog issues, including stories, improvements, and bugs.",
-"Maintain, monitor, and update onboard simulation environments for integration testing.",
-"Administration, monitoring, and maintenance of CI/CD (Jenkins, Visual Studio AppCenter).",
-"Design, implement, and maintain test frameworks and automated tests using: Postman, Newman, JMeter, Robot Framework, Xamarin UI Test, Gradle, Groovy, and AutoIt.",
-"Maintain unit and integration tests using JUnit, Gradle, and Groovy.",
-"Perform integration testing with Voyage Data Recorders (VDR) from vendors such as Danelec Marine and others."
-]
-}
-],
+    {
+      "title": "Penetration Tester",
+      "company": "Self-employed",
+      "location": "Remote",
+      "startDate": "Feb 2025",
+      "endDate": "Present",
+      "current": true,
+      "responsibilities": [
+        "Conduct comprehensive security assessments across web applications, APIs, mobile platforms (iOS/Android), cloud infrastructure (AWS, Azure, GCP), and enterprise systems, identifying critical vulnerabilities and attack vectors.",
+        "Design and develop custom security testing tools and automation scripts in Python to streamline assessment workflows and improve coverage.",
+        "Perform secure code reviews to identify and remediate security flaws, applying OWASP Top 10 principles and secure coding best practices.",
+        "Author detailed technical reports documenting vulnerability findings, risk ratings, and step-by-step remediation guidance.",
+        "Assist clients in implementing remediation recommendations and provide validation retesting services."
+      ]
+    },
+    {
+      "title": "Penetration Tester",
+      "company": "Red Team Security S.R.L.",
+      "location": "Remote",
+      "startDate": "Oct 2022",
+      "endDate": "Jan 2025",
+      "current": false,
+      "responsibilities": [
+        "Conduct comprehensive security assessments across web applications, APIs, mobile platforms (iOS/Android), cloud infrastructure, and enterprise systems, identifying critical vulnerabilities and attack vectors.",
+        "Perform external reconnaissance, OSINT, internal enumeration, exploitation, lateral movement, and privilege escalation to simulate real-world attack scenarios.",
+        "Design and develop custom red teaming tools and automation scripts in Python and Bash to enhance testing capabilities and efficiency.",
+        "Perform secure code reviews across client codebases, identifying security vulnerabilities and recommending secure coding practices.",
+        "Execute social engineering and phishing simulations to assess and improve organizational security awareness.",
+        "Author detailed technical reports documenting vulnerability findings, risk assessments, and prioritized remediation guidance.",
+        "Collaborate with clients on remediation implementation and provide validation retesting to confirm effective fixes."
+      ]
+    },
+    {
+      "title": "DevOps & Test Automation Engineer",
+      "company": "NAPA",
+      "location": "Galati, Romania",
+      "startDate": "Feb 2020",
+      "endDate": "Jun 2021",
+      "current": false,
+      "responsibilities": [
+        "Design, implement, and maintain automated CI/CD pipelines using Jenkins, Atlassian Bamboo, Visual Studio AppCenter, and Bitbucket for onboard ship software delivery.",
+        "Lead security automation initiatives as part of the onboard software security taskforce, developing security tools and installers in C#, PowerShell, and JavaScript (Wix#, NSIS), and implementing automated SAST scanning with SonarQube and Python (MobSF).",
+        "Build and maintain comprehensive automated test suites including API tests (Postman/Newman, JMeter), unit tests, and integration tests using JUnit, Gradle, and Groovy.",
+        "Mentor junior test engineers in test strategy planning and test management using Zephyr and mind-mapping techniques for complex onboard marine software systems."
+      ]
+    },
+    {
+      "title": "Software QA Test Engineer",
+      "company": "NAPA",
+      "location": "Galati, Romania",
+      "startDate": "Feb 2017",
+      "endDate": "Feb 2020",
+      "current": false,
+      "responsibilities": [
+        "Drive end-to-end quality assurance across the full software development lifecycle, ensuring products meet functional requirements, quality standards, and release criteria.",
+        "Design and execute comprehensive test strategies for complex onboard ship software including server applications, client software, and iOS/Android mobile applications using Zephyr and mind-mapping techniques.",
+        "Triage, investigate, and manage backlog items including stories, improvements, and bug reports across multiple product teams.",
+        "Configure, monitor, and maintain onboard simulation environments for end-to-end integration testing of marine software systems.",
+        "Administer and maintain CI/CD infrastructure (Jenkins, Visual Studio AppCenter) supporting automated build, test, and deployment workflows.",
+        "Design, develop, and maintain automated test frameworks using Robot Framework, Xamarin UI Test, Postman/Newman, JMeter, Gradle, Groovy, and AutoIt.",
+        "Maintain unit and integration tests using JUnit, Gradle, and Groovy, ensuring continuous test coverage.",
+        "Perform integration testing with third-party hardware systems including Voyage Data Recorders (VDR) from Danelec Marine and other maritime equipment vendors."
+      ]
+    }
+  ],
   "education": [
     {
       "degree": "Computer Science",

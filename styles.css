@@ -260,10 +260,6 @@ nav {
 .highlight { color: var(--accent-purple); }
 .highlight-orange { color: var(--accent-orange); }
 
-/* Evil-WinRM Red Team Terminal Styles */
-.prompt-red { color: var(--accent-red); font-weight: 600; }
-.command-red { color: var(--accent-red); }
-.output-red { color: var(--accent-red); padding-left: 1rem; font-weight: 500; }
 .output-cert { color: var(--accent-cyan); padding-left: 1rem; font-size: 0.8rem; }
 .output-success { color: var(--accent-green); padding-left: 1rem; font-weight: 500; }
 
